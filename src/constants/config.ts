@@ -6,7 +6,7 @@ export const site = {
     authorWebsite: 'driversteam',
     authorUsername: '@driversteam',
     category: 'autoschool',
-    locale: 'am',
+    locale: 'en_US',
     keywords: [
         'autoschool',
         'Auto School',
