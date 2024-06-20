@@ -1,15 +1,20 @@
+import AboutUs from './About';
+import Header from './Header';
+import OurAdvantages from './OurAdvantages';
+import OurClasses from './OurClasses';
+import Packages from './Packages';
 
 
 
 const Home = () => {
     return (
-        <main className="flex min-h-screen flex-col items-center justify-between p-24">
-
-            <h1 className="text-3xl">
-                Hello world!
-            </h1>
-
-        </main>
+        <>
+            <Header />
+            <AboutUs />
+            <OurAdvantages />
+            <OurClasses/>
+            <Packages />
+        </>
     )
 };
 
