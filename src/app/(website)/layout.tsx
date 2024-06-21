@@ -4,6 +4,7 @@ import { Inter } from 'next/font/google';
 
 import NavBar from '@/components/components/NavBar';
 import Footer from '@/components/components/Footer';
+import ScrollBackToTop from '@/components/components/ScrollBackToTop';
 
 import { defaultMetadata } from '@/utils/default-metadata';
 
@@ -21,12 +22,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang='en'>
-      <body className={inter.className}>
-        <NavBar />
-        {children}
-        <Footer />
-      </body>
-    </html>
+      <html lang='en'>
+        <body className={inter.className}>
+          <NavBar />
+          {/* <ScrollBackToTop /> */}
+          {children}
+          <Footer />
+        </body>
+      </html>
   );
 }
