@@ -1,23 +1,30 @@
-import AboutUs from './About';
 import Feature from './Feature';
 import Header from './Header';
 import OurAdvantages from './OurAdvantages';
-// import OurClasses from './OurClasses';
+import OurTeam from './OurTeam';
 import Packages from './Packages';
-
+import Statistic from './Statistic';
 
 
 const Home = () => {
     return (
         <>
             <Header />
-            <AboutUs />
-            <Packages />
+            {/* <AboutUs /> */}
             <Feature />
+            {/* <Anime/> */}
+
             <OurAdvantages />
+            <OurTeam/>
+            <Packages />
+
+            <Statistic/>
+            {/* <OurClasses/> */}
+            {/*   */}
             {/* <OurClasses/> */}
             {/* 
             <Packages /> */}
+
         </>
     )
 };
