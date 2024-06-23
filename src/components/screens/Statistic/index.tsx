@@ -34,7 +34,7 @@ const Statistic = () => {
         //       </div>
         //     </div>
         //   </div>
-        <section className="py-10 bg-gray-100 sm:py-16 lg:py-24">
+        <section className="py-10 bg-gray-200 sm:py-16 lg:py-24">
             <div className="max-w-5xl px-4 mx-auto sm:px-6 lg:px-8">
                 <div className="max-w-2xl mx-auto text-center">
                 <h2 className="mb-4 text-center text-2xl font-bold text-gray-800 md:mb-8 lg:text-3xl xl:mb-12">Թվերը պատմում են մեր պատմությունը</h2>
@@ -51,24 +51,24 @@ const Statistic = () => {
                         <h3 className="font-bold text-7xl">
                             <span className="text-transparent bg-clip-text bg-gradient-to-r from-fuchsia-600 to-blue-600"> 6+ </span>
                         </h3>
-                        <p className="mt-4 text-xl font-medium text-gray-900">Years in business</p>
-                        <p className="text-base mt-0.5 text-gray-500">Creating the successful path</p>
+                        <p className="mt-4 text-xl font-medium text-gray-900">Տարվա Փորձով Ուսուցիչներ</p>
+                        {/* <p className="text-base mt-0.5 text-gray-500">Creating the successful path</p> */}
                     </div>
 
                     <div>
                         <h3 className="font-bold text-7xl">
-                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-fuchsia-600 to-blue-600"> 4821 </span>
+                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-fuchsia-600 to-blue-600"> 40+ </span>
                         </h3>
-                        <p className="mt-4 text-xl font-medium text-gray-900">Projects delivered</p>
-                        <p className="text-base mt-0.5 text-gray-500">In last 6 years</p>
+                        <p className="mt-4 text-xl font-medium text-gray-900">Շրջանավարտ</p>
+                        {/* <p className="text-base mt-0.5 text-gray-500">In last 6 years</p> */}
                     </div>
 
                     <div>
                         <h3 className="font-bold text-7xl">
-                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-fuchsia-600 to-blue-600"> 37+ </span>
+                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-fuchsia-600 to-blue-600"> 3+ </span>
                         </h3>
-                        <p className="mt-4 text-xl font-medium text-gray-900">Team members</p>
-                        <p className="text-base mt-0.5 text-gray-500">Working for your success</p>
+                        <p className="mt-4 text-xl font-medium text-gray-900">Տարի Մեքենավարության Ոլորտում</p>
+                        {/* <p className="text-base mt-0.5 text-gray-500">Working for your success</p> */}
                     </div>
                 </div>
             </div>

@@ -4,7 +4,7 @@
 
 const OurTeam = () => {
     return (
-        <section className="py-24 ">
+        <section className="bg-gray-100 py-24 ">
             <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                 <div className="max-w-2xl mx-auto text-center mb-8">
                     {/* // <span className="flex items-center">

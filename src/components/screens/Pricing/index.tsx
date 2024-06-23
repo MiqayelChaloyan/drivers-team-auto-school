@@ -53,7 +53,7 @@ const plans = [
 
 const Pricing = () => {
     return (
-        <div className="bg-white py-6 sm:py-8 lg:py-12">
+        <div className="bg-gray-100 py-6 sm:py-8 lg:py-12">
             <div className="mx-auto max-w-screen-xl px-4 md:px-8">
                 <h2 className="mb-4 text-center text-2xl font-bold text-gray-800 md:mb-8 lg:text-3xl xl:mb-12">Փաթեթներ</h2>
                 <div className="mb-6 grid gap-6 sm:grid-cols-2 md:mb-8 lg:grid-cols-4 lg:gap-8">
