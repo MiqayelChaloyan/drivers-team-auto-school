@@ -1,30 +1,24 @@
-import Feature from './Feature';
-import Header from './Header';
-import OurAdvantages from './OurAdvantages';
-import OurTeam from './OurTeam';
+'use client'
+
+import AboutUs from './AboutUs';
+import Features from './Features';
 import Packages from './Packages';
+import OurTeam from './OurTeam';
+import Parallax from './Parallax';
 import Statistic from './Statistic';
+import {StickyScrollRevealDemo} from './Framer';
 
 
 const Home = () => {
     return (
         <>
-            <Header />
-            {/* <AboutUs /> */}
-            <Feature />
-            {/* <Anime/> */}
-
-            <OurAdvantages />
-            <OurTeam/>
+            <AboutUs />
+            <Features />
             <Packages />
-
-            <Statistic/>
-            {/* <OurClasses/> */}
-            {/*   */}
-            {/* <OurClasses/> */}
-            {/* 
-            <Packages /> */}
-
+            <OurTeam />
+            {/* <StickyScrollRevealDemo/> */}
+            <Parallax />
+            <Statistic />
         </>
     )
 };

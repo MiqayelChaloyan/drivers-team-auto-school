@@ -123,17 +123,17 @@ const Footer = () => {
                         className="inline-flex items-center"
                     >
                         <Image
-                            className="w-[7rem]"
+                            // className="w-[7rem]"
                             src={ImagePaths.logoURL}
-                            alt="footer_logo"
+                            alt="logo"
                             priority
-                            width={0}
-                            height={0}
+                            width={120}
+                            height={50}
                         />
                     </a>
                     <div className="mt-6 lg:max-w-sm">
                         <p className="text-sm text-gray-800">
-                        Drivers Team Auto School-ը առաջարկում է բարձր որակի ուսուցում՝ ապահովելով ձեր անվտանգությունը և վստահությունը ճանապարհներին:
+                            Drivers Team Auto School-ը առաջարկում է բարձր որակի ուսուցում՝ ապահովելով ձեր անվտանգությունը և վստահությունը ճանապարհներին:
                         </p>
                         {/* <p className="mt-4 text-sm text-gray-800">
                             Eaque ipsa quae ab illo inventore veritatis et quasi architecto
@@ -186,7 +186,7 @@ const Footer = () => {
                         })}
                     </div>
                     <p className="mt-4 text-sm text-gray-500">
-                    Տեսական քննությունների հարցաշարերը վերցված են Police.am կայքից
+                        Տեսական քննությունների հարցաշարերը վերցված են Police.am կայքից
                     </p>
                 </div>
             </div>

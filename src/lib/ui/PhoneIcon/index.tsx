@@ -7,7 +7,7 @@ const PhoneIcon = () => {
 
     return (
         <div className="content-center">
-            <div className="pulse"> <MdOutlinePhone size={25} color='white' /> </div>
+            <div className="pulse"> <MdOutlinePhone size={15} color='white' /> </div>
         </div>
     );
 };
