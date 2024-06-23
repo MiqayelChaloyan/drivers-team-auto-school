@@ -36,7 +36,7 @@ const NavBar = () => {
                             src={ImagePaths.logoURL}
                             alt="logo"
                             priority
-                            width={100}
+                            width={80}
                             height={50}
                         />
                     </a>

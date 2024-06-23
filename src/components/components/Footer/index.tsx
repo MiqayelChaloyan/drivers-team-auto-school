@@ -107,7 +107,7 @@ import { ImagePaths } from '@/constants';
 
 const iconsTab = [
     { icon: <FaFacebookF /> },
-    { icon: <AiOutlineTwitter /> },
+    // { icon: <AiOutlineTwitter /> },
     { icon: <BsInstagram /> },
 ];
 

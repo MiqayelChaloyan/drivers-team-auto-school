@@ -1,23 +1,21 @@
 'use client'
 
 import AboutUs from './AboutUs';
-import Features from './Features';
-import Packages from './Packages';
+import Advantages from './Advantages';
+import Pricing from './Pricing';
 import OurTeam from './OurTeam';
 import Parallax from './Parallax';
 import Statistic from './Statistic';
-import {StickyScrollRevealDemo} from './Framer';
 
 
 const Home = () => {
     return (
         <>
             <AboutUs />
-            <Features />
-            <Packages />
+            <Advantages />
             <OurTeam />
-            {/* <StickyScrollRevealDemo/> */}
             <Parallax />
+            <Pricing />
             <Statistic />
         </>
     )

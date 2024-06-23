@@ -37,13 +37,13 @@ const Statistic = () => {
         <section className="py-10 bg-gray-100 sm:py-16 lg:py-24">
             <div className="max-w-5xl px-4 mx-auto sm:px-6 lg:px-8">
                 <div className="max-w-2xl mx-auto text-center">
-                    {/* <h2 className="text-3xl font-bold leading-tight text-black sm:text-4xl lg:text-5xl">Numbers tell our story</h2> */}
-                    <span className="flex items-center">
+                <h2 className="mb-4 text-center text-2xl font-bold text-gray-800 md:mb-8 lg:text-3xl xl:mb-12">Թվերը պատմում են մեր պատմությունը</h2>
+                {/* <span className="flex items-center">
                         <span className="h-px flex-1 bg-black"></span>
                         <h2 className="shrink-0 px-6 text-3xl font-bold text-black sm:text-4xl lg:text-5xl">Numbers tell our story</h2>
                         <span className="h-px flex-1 bg-black"></span>
                     </span>
-                    <p className="mt-3 text-xl leading-relaxed text-gray-600 md:mt-8">Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis.</p>
+                    <p className="mt-3 text-xl leading-relaxed text-gray-600 md:mt-8">Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis.</p> */}
                 </div>
 
                 <div className="grid grid-cols-1 gap-8 mt-10 text-center lg:mt-24 sm:gap-x-8 md:grid-cols-3">
