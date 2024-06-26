@@ -69,7 +69,7 @@ const SignIn = () => {
                 </svg>
                 Continue with Google
             </button>
-            <p className="text-center">Don't have an account? <a href="javascript:void(0)" className="font-medium text-indigo-600 hover:text-indigo-500">Sign up</a></p>
+            <p className="text-center">Dont have an account? <a href="javascript:void(0)" className="font-medium text-indigo-600 hover:text-indigo-500">Sign up</a></p>
         </div>
     </main>
     )
