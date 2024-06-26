@@ -1,129 +1,75 @@
-// 'use client'
-
-// import Image from 'next/image';
-
-// import { AiOutlineTwitter } from 'react-icons/ai';
-// import { FaFacebookF } from 'react-icons/fa';
-// import { BsInstagram } from 'react-icons/bs';
-
-// import { ImagePaths } from '@/constants';
-
-
-// const iconsTab = [
-//     { icon: <FaFacebookF /> },
-//     { icon: <AiOutlineTwitter /> },
-//     { icon: <BsInstagram /> },
-// ];
-
-// const Footer = () => {
-
-//     return (
-//         <>
-//             <footer className="bg-white">
-//                 <div className="container mx-auto  py-[10rem]">
-//                     <div className="flex justify-between flex-col md:flex-row  items-center md:items-start  md:gap-[5rem] text-left">
-//                         <div className="flex flex-col w-1/2 md:p-0 py-4 gap-8">
-//                             <Image
-//                                 className="w-[12rem]"
-//                                 src={ImagePaths.logoURL}
-//                                 alt="footer_logo"
-//                                 priority
-//                                 width={0}
-//                                 height={0}
-//                             />
-//                             <p className="text-[15px] font-medium text-[#646464]">
-//                                 Տեսական քննությունների հարցաշարերը վերցված են Police.am կայքից
-//                             </p>
-//                             <div className="flex gap-7 text-[18px] text-[#646464] justify-center md:justify-start">
-//                                 {iconsTab.map(({ icon }, index) => {
-//                                     return (
-//                                         <div
-//                                             key={index}
-//                                             className="text-2xl bg-[#efefef] p-2 rounded-full hover:bg-[#ff0366] hover:text-white"
-//                                             style={{ transition: "all 0.3s" }}
-//                                         >
-//                                             {icon}
-//                                         </div>
-//                                     );
-//                                 })}
-//                             </div>
-//                             <p className="text-[16px] font-medium text-[#646464]">
-//                                 Բոլոր իրավունքները պաշտպանված են | © {new Date().getFullYear()}
-//                             </p>
-//                         </div>
-//                         <div className="flex flex-col gap-8 relative">
-//                             <p className="text-[22px] font-bold footer-main">Մեր Դասերը</p>
-
-//                             <span className="top-[33px] absolute w-[7rem] h-[4px] bg-[#ff0366]"></span>
-
-//                             <p className="text-[16px] hover:text-[#ff0366] cursor-pointer text-[#646464] font-medium hover:font-bold">
-//                                 Fitness Classes
-//                             </p>
-//                             <p className="text-[16px] hover:text-[#ff0366] cursor-pointer text-[#646464] font-medium hover:font-bold">
-//                                 Aerobics Classes
-//                             </p>
-//                         </div>
-// <div className="flex flex-col gap-8 relative">
-//     <p className="text-[22px] font-bold footer-main">Աշխատանքային ժամեր</p>
-//     <span className="top-[33px] absolute w-[7rem] h-[4px] bg-[#ff0366]"></span>
-//     <p className="text-[16px]  text-[#646464] font-bold">
-//         Երկուշաբթի - Ուրբաթ:
-//     </p>
-//     <p className="text-[16px] text-[#646464] font-medium">
-//         7:00am - 21:00pm
-//     </p>
-//     <p className="text-[16px] text-[#646464] font-bold">Շաբաթ օրը:</p>
-//     <p className="text-[16px] text-[#646464] font-medium">
-//         7:00am - 19:00pm
-//     </p>
-//     <p className="text-[16px] text-[#646464] font-bold ">
-//         Կիրակի – Փակ է
-//     </p>
-// </div>
-//                         <span></span>
-//                     </div>
-//                 </div>
-//             </footer>
-//         </>
-//     );
-// }
-
-// export default Footer;
-
-
-
-
-
 'use client'
 
+import Link from 'next/link';
 import Image from 'next/image';
 
-import { AiOutlineTwitter } from 'react-icons/ai';
 import { FaFacebookF } from 'react-icons/fa';
 import { BsInstagram } from 'react-icons/bs';
+import { FaPhone } from 'react-icons/fa6';
+import { IoMailOutline } from 'react-icons/io5';
 
 import { ImagePaths } from '@/constants';
 
 
 const iconsTab = [
-    { icon: <FaFacebookF /> },
-    // { icon: <AiOutlineTwitter /> },
-    { icon: <BsInstagram /> },
+    {
+        icon: <FaFacebookF size={20} fill='black' />,
+        href: '#'
+    },
+    {
+        icon: <BsInstagram size={20} fill='black' />,
+        href: '#'
+    },
+];
+
+const navItems = [
+    {
+        title: 'Փաթեթներ և գներ',
+        links: [
+            {
+                text: 'Մեր մասին',
+                href: '#'
+            },
+            {
+                text: 'Փաթեթներ',
+                href: '#'
+            },
+            {
+                text: 'Մեր թիմը',
+                href: '#'
+            },
+            {
+                text: 'Մեր մրցակցային առավելությունը',
+                href: '#'
+            },
+        ],
+    },
+    {
+        title: 'Կապ Մեզ Հետ',
+        links: [
+            {
+                text: '+37477122212',
+                href: 'tel:+37477122212',
+                icon: <FaPhone size={20} />,
+            },
+            {
+                text: 'info@lorem.mail',
+                href: 'mailto:info@lorem.mail',
+                icon: <IoMailOutline size={20} />,
+            },
+        ],
+    },
 ];
 
 const Footer = () => {
+    const fullYear = new Date().getFullYear();
+
     return (
-        <div className="px-4 pt-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
-            <div className="grid gap-10 row-gap-6 mb-8 sm:grid-cols-2 lg:grid-cols-4">
-                <div className="sm:col-span-2">
-                    <a
-                        href="/"
-                        aria-label="Go home"
-                        title="Company"
-                        className="inline-flex items-center"
-                    >
+        <footer className="px-4 py-20 text-black bg-white">
+            <div className="mx-auto max-w-7xl">
+                <div className="grid grid-cols-2 gap-4 mb-3 md:grid-cols-4">
+                    <a href="/" title="Go to Kutty Home Page" className="col-span-2 mb-12 md:col-span-1">
                         <Image
-                            // className="w-[7rem]"
                             src={ImagePaths.logoURL}
                             alt="logo"
                             priority
@@ -131,73 +77,55 @@ const Footer = () => {
                             height={50}
                         />
                     </a>
-                    <div className="mt-6 lg:max-w-sm">
-                        <p className="text-sm text-gray-800">
-                            Drivers Team Auto School-ը առաջարկում է բարձր որակի ուսուցում՝ ապահովելով ձեր անվտանգությունը և վստահությունը ճանապարհներին:
-                        </p>
-                        {/* <p className="mt-4 text-sm text-gray-800">
-                            Eaque ipsa quae ab illo inventore veritatis et quasi architecto
-                            beatae vitae dicta sunt explicabo.
-                        </p> */}
-                    </div>
-                </div>
-                <div className="space-y-2 text-sm">
-                    <p className="text-base font-bold tracking-wide text-gray-900">
-                        Contacts
-                    </p>
-                    <div className="flex">
-                        <p className="mr-1 text-gray-800">Phone:</p>
-                        <a
-                            href="tel:850-123-5021"
-                            aria-label="Our phone"
-                            title="Our phone"
-                            className="transition-colors duration-300 text-deep-purple-accent-400 hover:text-deep-purple-800"
-                        >
-                            850-123-5021
-                        </a>
-                    </div>
-                    <div className="flex">
-                        <p className="mr-1 text-gray-800">Email:</p>
-                        <a
-                            href="mailto:info@lorem.mail"
-                            aria-label="Our email"
-                            title="Our email"
-                            className="transition-colors duration-300 text-deep-purple-accent-400 hover:text-deep-purple-800"
-                        >
-                            info@lorem.mail
-                        </a>
-                    </div>
-                </div>
-                <div>
-                    <span className="text-base font-bold tracking-wide text-gray-900">
-                        Social
-                    </span>
-                    <div className="flex items-center mt-1 space-x-3">
-                        {iconsTab.map(({ icon }, index) => {
-                            return (
-                                <div
+                    {navItems.map((navItem, index) => (
+                        <nav key={index} className="mb-8">
+                            <p className="mb-3 text-xs font-bold tracking-wider text-gray-500 uppercase">{navItem.title}</p>
+                            {navItem.links.map((link: any, linkIndex: number) => (
+                                <Link
+                                    key={linkIndex}
+                                    href={link.href}
+                                    aria-label={link.text}
+                                    className="flex mb-3 text-sm font-medium transition md:mb-2 hover:text-indigo-600"
+                                    prefetch={true}
+                                    passHref
+                                >
+                                    {link.icon}
+                                    <span className={link.icon && 'ml-2'}>{link.text}</span>
+                                </Link>
+                            ))}
+                        </nav>
+                    ))}
+                    <nav className="mb-8">
+                        <p className="mb-3 text-xs font-bold tracking-wider text-gray-500 uppercase">Contact</p>
+                        <div className='flex'>
+                            {iconsTab.map(({ icon, href }, index) => (
+                                <Link
                                     key={index}
-                                    className="text-2xl bg-[#efefef] p-2 rounded-full hover:bg-indigo-600 hover:text-white"
-                                    style={{ transition: "all 0.3s" }}
+                                    href={href}
+                                    // aria-label={link.href}
+                                    className={`text-2xl bg-[#efefef] p-2 rounded-full hover:bg-indigo-600 hover:text-indigo-600 ${index !== 0 && 'ml-2'}`}
+                                    prefetch={true}
+                                    passHref
                                 >
                                     {icon}
-                                </div>
-                            );
-                        })}
-                    </div>
-                    <p className="mt-4 text-sm text-gray-500">
+                                </Link>
+
+                            ))}
+                        </div>
+                    </nav>
+                </div>
+                <div className="flex flex-col items-start justify-between pt-10 mt-10 border-t border-gray-400 md:flex-row md:items-center">
+                    <p className="mb-2 text-xs text-left text-gray-600 md:mb-0">
                         Տեսական քննությունների հարցաշարերը վերցված են Police.am կայքից
+                    </p>
+                    <p className="mb-0 text-xs text-left text-gray-600 md:mb-0">
+                        © {fullYear} |  Բոլոր իրավունքները պաշտպանված են
                     </p>
                 </div>
             </div>
-            <div className="flex flex-col-reverse justify-between pt-5 pb-10 border-t lg:flex-row">
-                <p className="text-sm text-gray-600">
-                    © {new Date().getFullYear()} |  Բոլոր իրավունքները պաշտպանված են
-                </p>
-            </div>
-        </div>
-    );
-};
+        </footer>
 
+    );
+}
 
 export default Footer;

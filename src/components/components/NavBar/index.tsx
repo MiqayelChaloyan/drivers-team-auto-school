@@ -1,19 +1,24 @@
-'use client'
+"use client";
 
-import { useState } from "react";
+import React from "react";
 
 import Link from "next/link";
 import Image from "next/image";
 
-import { ImagePaths } from "@/constants";
-import { Pages } from '@/constants/pages';
+import {
+    Navbar as MTNavbar,
+    Collapse,
+    IconButton,
+} from "@material-tailwind/react";
+
+import { XMarkIcon, Bars3Icon } from "@heroicons/react/24/solid";
+
 import PhoneIcon from "@/lib/ui/PhoneIcon";
+import { Pages } from "@/constants/pages";
+import { ImagePaths } from "@/constants";
 
 
 const navigationLinks = [
-    {
-        path: 'tel:+37477122212', label: <PhoneIcon />
-    },
     { path: Pages.HOME, label: 'Մեր Մասին' },
     { path: Pages.TESTS, label: 'Փաթեթներ' },
     { path: Pages.TESTS, label: 'Մեր Առավելությունները' },
@@ -22,49 +27,105 @@ const navigationLinks = [
 ];
 
 
-const NavBar = () => {
+export function Navbar() {
+    const [open, setOpen] = React.useState(false);
 
-    const [state, setState] = useState(false)
+    const handleOpen = () => setOpen((cur) => !cur);
+
+    React.useEffect(() => {
+        window.addEventListener(
+            "resize",
+            () => window.innerWidth >= 960 && setOpen(false)
+        );
+    }, []);
 
     return (
-        <nav className="bg-white border-b w-full md:static md:text-sm md:border-none">
-            <div className="items-center px-4 max-w-screen-xl mx-auto md:flex md:px-8">
-                <div className="flex items-center justify-between py-3 md:py-5 md:block">
-                    <a href="javascript:void(0)">
-                        <Image
-                            // className="w-[7rem]"
-                            src={ImagePaths.logoURL}
-                            alt="logo"
-                            priority
-                            width={80}
-                            height={50}
-                        />
-                    </a>
-                    <div className="md:hidden">
-                        <button className="text-gray-500 hover:text-gray-800"
-                            onClick={() => setState(!state)}
+        <MTNavbar
+            color='white'
+            shadow={true}
+            fullWidth
+            className="border-0 sticky top-0 z-50 bg-white"
+            placeholder={undefined}
+            onPointerEnterCapture={undefined}
+            onPointerLeaveCapture={undefined}
+        >
+            <div className="container mx-auto flex items-center justify-between">
+                <Link
+                    href='/'
+                    aria-label='/'
+                    className="text-gray-700 hover:text-indigo-600"
+                    prefetch={true}
+                    passHref
+                >
+                    <Image
+                        src={ImagePaths.logoURL}
+                        alt="logo"
+                        className="h-50 w-50"
+                        priority
+                        width={70}
+                        height={40}
+                    />
+                </Link>
+                <ul className="ml-10 hidden items-center gap-8 lg:flex">
+                    <Link
+                        href='tel:+37477122212'
+                        aria-label='tel:+37477122212'
+                        className="text-gray-700 hover:text-indigo-600"
+                        prefetch={true}
+                        passHref
+                    >
+                        <PhoneIcon />
+                    </Link>
+                    {navigationLinks.map((link, key) => (
+                        <li key={key}
                         >
-                            {
-                                state ? (
-                                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" viewBox="0 0 20 20" fill="currentColor">
-                                        <path fillRule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clipRule="evenodd" />
-                                    </svg>
-                                ) : (
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
-                                        <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-                                    </svg>
-                                )
-                            }
-                        </button>
-                    </div>
-                </div>
-                <div className={`flex-1 pb-3 mt-8 md:block md:pb-0 md:mt-0 ${state ? 'block' : 'hidden'}`}>
-                    <ul className="justify-end items-center space-y-6 md:flex md:space-x-6 md:space-y-0">
+                            <Link
+                                href={link.path}
+                                aria-label={link.path}
+                                className="text-gray-700 hover:text-indigo-600"
+                                prefetch={true}
+                                passHref
+                            >
+                                {link.label}
+                            </Link>
+                        </li>
+                    ))}
+                </ul>
+                {/* <div className="hidden items-center gap-2 lg:flex">
+                    <Link
+                        href={'#'}
+                        aria-label={'#'}
+                        className="block py-3 text-center text-gray-700 hover:text-indigo-600 border rounded-lg md:border-none"
+                        prefetch={true}
+                        passHref
+                    >
+                        Մուտք գործել
+                    </Link>
+                </div> */}
+                <IconButton
+                    variant="text"
+                    color="gray"
+                    onClick={handleOpen}
+                    className="ml-auto inline-block lg:hidden"
+                    placeholder={undefined}
+                    onPointerEnterCapture={undefined}
+                    onPointerLeaveCapture={undefined}
+                >
+                    {open ? (
+                        <XMarkIcon strokeWidth={2} className="h-6 w-6" />
+                    ) : (
+                        <Bars3Icon strokeWidth={2} className="h-6 w-6" />
+                    )}
+                </IconButton>
+            </div>
+            <Collapse open={open}>
+                <div className="container mx-auto mt-3 border-t border-gray-200 px-2 pt-4">
+                    <ul className="flex flex-col gap-4">
                         {navigationLinks.map((link, key) => (
                             <li key={key}
                             >
                                 <Link
-                                    href={`${link.path}`}
+                                    href={link.path}
                                     aria-label={link.path}
                                     className="text-gray-700 hover:text-indigo-600"
                                     prefetch={true}
@@ -74,37 +135,31 @@ const NavBar = () => {
                                 </Link>
                             </li>
                         ))}
-                        <span className='hidden w-px h-6 bg-gray-300 md:block'></span>
-                        <div className='space-y-3 items-center gap-x-6 md:flex md:space-y-0'>
-                            <li>
-                                <Link
-                                    href={'#'}
-                                    aria-label={'#'}
-                                    className="block py-3 text-center text-gray-700 hover:text-indigo-600 border rounded-lg md:border-none"
-                                    prefetch={true}
-                                    passHref
-                                >
-                                    Մուտք գործել
-                                </Link>
-                            </li>
-                            <li>
-                                <Link
-                                    href={'#'}
-                                    aria-label={'#'}
-                                    className="block py-3 px-4 font-medium text-center text-white bg-indigo-600 hover:bg-indigo-500 active:bg-indigo-700 active:shadow-none rounded-lg shadow md:inline"
-                                    prefetch={true}
-                                    passHref
-                                >
-                                    Գրանցվել
-                                </Link>
-                            </li>
-                        </div>
+                        <Link
+                            href='tel:+37477122212'
+                            aria-label='tel:+37477122212'
+                            className="text-gray-700 hover:text-indigo-600"
+                            prefetch={true}
+                            passHref
+                        >
+                            +37477122212
+                        </Link>
                     </ul>
+                    {/* <div className="mt-6 mb-4 flex items-center gap-2">
+                        <Link
+                            href={'#'}
+                            aria-label={'#'}
+                            className="block py-3 text-center text-gray-700 hover:text-indigo-600 border rounded-lg md:border-none"
+                            prefetch={true}
+                            passHref
+                        >
+                            Մուտք գործել
+                        </Link>
+                    </div> */}
                 </div>
-            </div>
-        </nav>
-    )
+            </Collapse>
+        </MTNavbar>
+    );
 }
 
-
-export default NavBar;
+export default Navbar;

@@ -15,7 +15,9 @@
     --background-end-rgb: 0, 0, 0;
   }
 }
-
+html {
+  font-family: "Proxima Nova", system-ui, sans-serif;
+}
 * {
   margin: 0;
   padding: 0;

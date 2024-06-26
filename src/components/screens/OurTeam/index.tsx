@@ -1,65 +1,64 @@
+'use client';
 
-'use client'
+const teamMembers = [
+    {
+        name: "Joe Antonio",
+        role: "Founder CEO",
+        imgSrc: "https://tailone.tailwindtemplate.net/src/img/dummy/avatar1.png",
+    },
+    {
+        name: "Sarah Daeva",
+        role: "Marketing",
+        imgSrc: "https://tailone.tailwindtemplate.net/src/img/dummy/avatar3.png",
+    },
+    {
+        name: "Daniel Emo",
+        role: "Sales Manager",
+        imgSrc: "https://tailone.tailwindtemplate.net/src/img/dummy/avatar2.png",
+    }
+];
 
+const TeamMember = ({ member }: any) => (
+    <div className="flex-shrink max-w-full px-4 w-2/3 sm:w-1/2 md:w-5/12 lg:w-1/4 xl:px-6">
+        <div className="relative overflow-hidden mb-12 hover-grayscale-0 wow fadeInUp" data-wow-duration="1s" data-wow-delay=".3s">
+            <div className="relative overflow-hidden px-6">
+                <img src={member.imgSrc} className="max-w-full h-auto mx-auto rounded-full bg-gray-50 grayscale" alt={`${member.name} image`} />
+            </div>
+            <div className="pt-6 text-center">
+                <p className="text-lg leading-normal font-bold mb-1">{member.name}</p>
+                <p className="text-gray-500 leading-relaxed font-light">{member.role}</p>
+            </div>
+        </div>
+    </div>
+);
 
 const OurTeam = () => {
     return (
-        <section className="bg-gray-100 py-24 ">
-            <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-                <div className="max-w-2xl mx-auto text-center mb-8">
-                    {/* // <span className="flex items-center">
-                    //     <span className="h-px flex-1 bg-black"></span>
-                    //     <h2 className="shrink-0 px-6  mb-4 text-3xl font-bold text-black sm:text-4xl lg:text-5xl">Մեր թիմը</h2>
-                    //     <span className="h-px flex-1 bg-black"></span>
-                    // </span>
-                    // <p className="text-gray-600 mt-3">
-                    //     Մեր թիմը մեր ընտանիքն է: Յուրաքանչյուր աշխատակից ընկերության հիմքն ու հոգին է:
-                    // </p> */}
-                    <h2 className="mb-4 text-center text-2xl font-bold text-gray-800 md:mb-8 lg:text-3xl xl:mb-12">Մեր թիմը</h2>
-                    <p className="mx-auto max-w-screen-md text-center text-gray-500 md:text-lg">This is a section of some simple filler text, also known as placeholder text. It shares some characteristics of a real written text but is random or otherwise generated.</p>
+        <div id="team" className="section pt-20 pb-8 md:pt-16">
+            <div className="container xl:max-w-6xl mx-auto px-4">
+                <div className="max-w-xl mb-10 md:mx-auto sm:text-center lg:max-w-2xl md:mb-12">
+                    <div className="max-w-lg mb-6 font-sans text-3xl font-bold leading-none tracking-tight text-gray-900 sm:text-4xl md:mx-auto">
+                        <h2 className="flex flex-row flex-nowrap items-center mt-24">
+                            <span className="flex-grow block border-t border-black"></span>
+                            <span className="relative inline-block">
+                                <span className="relative mx-4 px-4 py-2.5">Մեր թիմը</span>
+                            </span>
+                            <span className="flex-grow block border-t border-black"></span>
+                        </h2>
+                    </div>
+                    <p className="text-base text-gray-700 md:text-lg">
+                        Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+                        accusantium doloremque rem aperiam, eaque ipsa quae.
+                    </p>
                 </div>
-
-
-                <div className="grid grid-cols-1 min-[500px]:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-8 max-w-xl mx-auto md:max-w-3xl lg:max-w-full">
-
-                    <div className="block group md:col-span-2 lg:col-span-1 ">
-                        <div className="relative mb-6">
-                            <img src="https://pagedone.io/asset/uploads/1696238374.png" alt="Antonio image"
-                                className="w-40 h-40 rounded-full mx-auto transition-all duration-500 object-cover border border-solid border-transparent group-hover:border-indigo-600" />
-                        </div>
-                        <h4
-                            className="text-xl font-semibold text-gray-900 mb-2 capitalize text-center transition-all duration-500 group-hover:text-indigo-600">
-                            Antonio Roberto </h4>
-                        <span
-                            className="text-gray-500 text-center block transition-all duration-500 group-hover:text-gray-900">Founder</span>
-                    </div>
-                    <div className="block group md:col-span-2 lg:col-span-1 ">
-                        <div className="relative mb-6">
-                            <img src="https://pagedone.io/asset/uploads/1696238396.png" alt="Patricia image"
-                                className="w-40 h-40 rounded-full mx-auto transition-all duration-500 object-cover border border-solid border-transparent group-hover:border-indigo-600" />
-                        </div>
-                        <h4
-                            className="text-xl font-semibold text-gray-900 mb-2 capitalize text-center transition-all duration-500 group-hover:text-indigo-600">
-                            Patricia Angely </h4>
-                        <span
-                            className="text-gray-500 text-center block transition-all duration-500 group-hover:text-gray-900">Co-Founder</span>
-                    </div>
-                    <div className="group group md:col-span-2 lg:col-span-1">
-                        <div className="relative mb-6">
-                            <img src="	https://pagedone.io/asset/uploads/1696238411.png" alt="Jerom image"
-                                className="w-40 h-40 rounded-full mx-auto transition-all duration-500 object-cover border border-solid border-transparent group-hover:border-indigo-600" />
-                        </div>
-                        <h4
-                            className="text-xl font-semibold text-gray-900 mb-2 capitalize text-center transition-all duration-500 group-hover:text-indigo-600">
-                            Jerom Bell </h4>
-                        <span
-                            className="text-gray-500 text-center block transition-all duration-500 group-hover:text-gray-900">Chairman</span>
-                    </div>
+                <div className="flex flex-wrap flex-row -mx-4 justify-center">
+                    {teamMembers.map((member, index) => (
+                        <TeamMember key={index} member={member} />
+                    ))}
                 </div>
             </div>
-            {/* </div> */}
-        </section>
-    )
-}
+        </div>
+    );
+};
 
 export default OurTeam;

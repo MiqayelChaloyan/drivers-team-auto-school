@@ -1,22 +1,45 @@
 'use client'
 
-import AboutUs from './AboutUs';
+import About from './AboutUs';
 import Advantages from './Advantages';
 import Pricing from './Pricing';
 import OurTeam from './OurTeam';
 import Parallax from './Parallax';
 import Statistic from './Statistic';
+import Fet from './Price';
+import { HeroHighlight } from './AboutUs/hero-highlight';
 
 
 const Home = () => {
     return (
         <>
-            <AboutUs />
+{/* <MultiLayerParallax /> */}
+{/* <Statistic /> */}
+{/* <HeroHighlight> */}
+            <About />
+            {/* <Advantages /> */}
+            <Parallax />
+            <Fet />
+
+            <Pricing />
+            <OurTeam />
+            <Statistic />
+            {/* 
             <Advantages />
             <OurTeam />
             <Parallax />
-            <Pricing />
-            <Statistic />
+          
+            <Statistic /> */}
+            {/* <Pricing />  */}
+            {/* <div style={{ backgroundColor: 'green', height: '500px' }} /> */}
+            {/* <Statistic /> */}
+            {/* <Pricing />
+            <OurTeam />
+            <Statistic /> */}
+
+            {/* <Advantages /> */}
+            {/* </HeroHighlight> */}
+
         </>
     )
 };
