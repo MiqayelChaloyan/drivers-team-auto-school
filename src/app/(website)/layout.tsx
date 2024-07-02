@@ -11,7 +11,7 @@ import ScrollBackToTop from '@/components/components/ScrollBackToTop';
 import { defaultMetadata } from '@/utils/default-metadata';
 
 import '@/styles/globals.css';
-import Snackbar from '@/components/components/Snackbar';
+// import Snackbar from '@/components/components/Snackbar';
 
 
 // const inter = Inter({ subsets: ['latin'] });
