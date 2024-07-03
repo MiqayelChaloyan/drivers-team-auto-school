@@ -1,16 +1,31 @@
 'use client'
 
-const Snackbar = () => {
-    return (
-                 <section className="px-0 py-12 mx-auto max-w-7xl sm:px-4">
-                    <div className="text-white bg-green-800 border-green-800 rounded-none card card-body sm:rounded-lg">
-                        <div className="flex flex-col items-center justify-between px-1 py-4 lg:flex-row sm:py-3 sm:px-3">
-                            <p className="mb-6 text-base font-semibold lg:mb-0">Sleep peacefully knowing that your website is performing at it’s best.</p>
-                            <a href="#" className="w-full text-green-800 shadow btn btn-white btn-lg sm:w-auto">Start for free</a>
-                        </div>
-                    </div>
-                </section> 
+import { useState } from "react";
+import { LuClock9 } from "react-icons/lu";
 
+const Snackbar = () => {
+    const [isVisible, setIsVisible] = useState<boolean>(true);
+
+    return isVisible && (
+        <div className="flex items-center justify-between gap-4 bg-gray-900 px-4 py-3 text-white transition duration-[2000ms] ease-in-out">
+            <div className="flex items-center">
+                <LuClock9 size={17} />
+                <p className="text-sm font-medium px-2">Աշխատանքային ժամեր - 10։00 - 21։00</p>
+            </div>
+            <button
+                aria-label="Dismiss"
+                className="shrink-0 rounded-lg bg-black/10 p-1 transition hover:bg-black/20"
+                onClick={() => setIsVisible(false)}
+            >
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                    <path
+                        fill-rule="evenodd"
+                        d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                        clip-rule="evenodd"
+                    />
+                </svg>
+            </button>
+        </div>
     )
 }
 

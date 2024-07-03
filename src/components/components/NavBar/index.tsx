@@ -16,7 +16,7 @@ import { XMarkIcon, Bars3Icon } from "@heroicons/react/24/solid";
 import PhoneIcon from "@/lib/ui/PhoneIcon";
 import { Pages } from "@/constants/pages";
 import { ImagePaths } from "@/constants";
-
+import './styles.css'
 
 const navigationLinks = [
     { path: Pages.HOME, label: 'Մեր Մասին' },
@@ -53,7 +53,7 @@ export function Navbar() {
                 <Link
                     href='/'
                     aria-label='/'
-                    className="text-gray-700 hover:text-indigo-600"
+                    className="text-gray-700 hover:text-indigo-600 flex items-center"
                     prefetch={true}
                     passHref
                 >
@@ -65,24 +65,25 @@ export function Navbar() {
                         width={70}
                         height={40}
                     />
+                    <p className="text-black-100">DRIVERS TEAM <br/> AUTO SCHOOL</p>
                 </Link>
                 <ul className="ml-10 hidden items-center gap-8 lg:flex">
                     <Link
                         href='tel:+37477122212'
                         aria-label='tel:+37477122212'
-                        className="text-gray-700 hover:text-indigo-600"
+                        className="text-gray-700"
                         prefetch={true}
                         passHref
                     >
                         <PhoneIcon />
                     </Link>
                     {navigationLinks.map((link, key) => (
-                        <li key={key}
-                        >
+                        <li key={key}>
                             <Link
                                 href={link.path}
                                 aria-label={link.path}
-                                className="text-gray-700 hover:text-indigo-600"
+                                // className="text-gray-700 hover:text-indigo-600"
+                                   className="dd"
                                 prefetch={true}
                                 passHref
                             >
@@ -91,17 +92,6 @@ export function Navbar() {
                         </li>
                     ))}
                 </ul>
-                {/* <div className="hidden items-center gap-2 lg:flex">
-                    <Link
-                        href={'#'}
-                        aria-label={'#'}
-                        className="block py-3 text-center text-gray-700 hover:text-indigo-600 border rounded-lg md:border-none"
-                        prefetch={true}
-                        passHref
-                    >
-                        Մուտք գործել
-                    </Link>
-                </div> */}
                 <IconButton
                     variant="text"
                     color="gray"
@@ -145,17 +135,6 @@ export function Navbar() {
                             +37477122212
                         </Link>
                     </ul>
-                    {/* <div className="mt-6 mb-4 flex items-center gap-2">
-                        <Link
-                            href={'#'}
-                            aria-label={'#'}
-                            className="block py-3 text-center text-gray-700 hover:text-indigo-600 border rounded-lg md:border-none"
-                            prefetch={true}
-                            passHref
-                        >
-                            Մուտք գործել
-                        </Link>
-                    </div> */}
                 </div>
             </Collapse>
         </MTNavbar>
