@@ -78,20 +78,20 @@ const AboutUs = () => {
                         <div>
                             <p className="text-base font-semibold tracking-wider text-blue-600 uppercase">Drivers Team Auto School</p>
                             <TypeAnimation
-                        sequence={[
-                            'Բարի գալուստ «Drivers Team Auto School» ավտոդպրոց',
-                            1000,
-                            'Վարիր անվտանգ  և  ստացիր վարորդական  իրավունք',
-                            1000,
-                            'Դու ես ընտրում քո գիծը',
-                            1000
-                        ]}
-                        wrapper="span"
-                        speed={50}
-                        // className={cn(styles.text, ArianAMU.className)}
-                        style={{ display: 'inline-block' }}
-                        repeat={Infinity}
-                    />
+                                sequence={[
+                                    'Բարի գալուստ «Drivers Team Auto School» ավտոդպրոց',
+                                    1000,
+                                    'Վարիր անվտանգ  և  ստացիր վարորդական  իրավունք',
+                                    1000,
+                                    'Դու ես ընտրում քո գիծը',
+                                    1000
+                                ]}
+                                wrapper="span"
+                                speed={50}
+                                // className={cn(styles.text, ArianAMU.className)}
+                                style={{ display: 'inline-block' }}
+                                repeat={Infinity}
+                            />
                             <h1 className="mt-4 text-4xl font-bold text-black lg:mt-8 sm:text-5xl xl:text-5xl mb-5">Միացեք և սովորեք փորձագետներից </h1>
                             <h2 className="mb-4 text-4xl tracking-tight font-extrabold">Մեր մասին</h2>
                             <p className="text-gray-900 leading-relaxed font-light">{aboutUs}</p>
@@ -108,8 +108,8 @@ const AboutUs = () => {
 
                         <div>
                             <div className="grid grid-cols-2 gap-4 mt-8 mb-5">
-                                <img className="w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/content/office-long-2.png" alt="office content 1" />
-                                <img className="mt-4 w-full lg:mt-10 rounded-lg" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/content/office-long-1.png" alt="office content 2" />
+                                <img className="w-full rounded-lg" src={ImagePaths._1Url.default.src} alt="office content 1" />
+                                <img className="mt-4 w-full lg:mt-10 rounded-lg" src={ImagePaths._3Url.default.src} alt="office content 2" />
                             </div>
                         </div>
                     </div>

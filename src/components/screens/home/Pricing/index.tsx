@@ -4,7 +4,6 @@ import React from 'react';
 import PricingPlan from './PricingPlan';
 // import { FaCar } from 'react-icons/fa';
 
-
 const pricingPlans = [
     {
         name: 'Տեսական \n դասընթաց',
@@ -58,7 +57,7 @@ const Pricing = () => {
                             <PricingPlan plan={plan} />
                             <div className="w-11/12 h-2 mx-auto bg-gray-900 rounded-b opacity-75" />
                             <div className="w-10/12 h-2 mx-auto bg-gray-900 rounded-b opacity-50" />
-                            <div className="w-9/12 h-2 mx-auto bg-gray-900 rounded-b opacity-25" />
+                            {/* <div className="w-9/12 h-2 mx-auto bg-gray-900 rounded-b opacity-25" /> */}
                         </div>
                     ))}
                 </div>

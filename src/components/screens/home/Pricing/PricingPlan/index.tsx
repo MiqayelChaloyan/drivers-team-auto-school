@@ -2,7 +2,7 @@
 
 const PricingPlan = ({ plan }: any) => {
     return (
-        <div className="p-8 bg-gray-900 rounded">
+        <div className="p-8 bg-black rounded">
             <div className="mb-10 text-center">
                 <p className="text-xl font-medium tracking-wide text-white whitespace-pre-line mb-8">{plan.name}</p>
                 <div className="flex items-center justify-center">
