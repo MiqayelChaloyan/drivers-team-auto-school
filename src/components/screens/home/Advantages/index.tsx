@@ -13,7 +13,7 @@ const aboutUs = `
 
 const Features = () => {
     return (
-        <section>
+        <section id='about-us'>
             {/* Container */}
             <div className="mx-auto w-full max-w-7xl px-5 py-12 md:px-10 md:py-16 lg:py-20">
                 {/* Component */}

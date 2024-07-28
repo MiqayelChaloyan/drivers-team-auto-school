@@ -23,8 +23,8 @@ export default function RootLayout({
     <html lang='en'>
       <body>
         <ThemeProvider>
-          <Snackbar/>
-          <ScrollBackToTop/>
+          <Snackbar />
+          <ScrollBackToTop />
           <NavBar />
           {children}
           <Footer />

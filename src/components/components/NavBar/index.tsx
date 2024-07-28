@@ -19,10 +19,10 @@ import { ImagePaths } from "@/constants";
 import './styles.css'
 
 const navigationLinks = [
-    { path: Pages.HOME, label: 'Մեր Մասին' },
+    { path: Pages.ABOUT_US, label: 'Մեր Մասին' },
     { path: Pages.TESTS, label: 'Փաթեթներ' },
     { path: Pages.TESTS, label: 'Մեր Առավելությունները' },
-    { path: Pages.TESTS, label: 'Մեր թիմը' },
+    // { path: Pages.TESTS, label: 'Մեր թիմը' },
     { path: Pages.TESTS, label: 'Թեստեր' },
 ];
 

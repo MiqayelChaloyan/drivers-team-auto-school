@@ -1,21 +1,16 @@
 'use client';
 
 const teamMembers = [
+    // {
+    //     name: "Joe Antonio",
+    //     role: "Founder CEO",
+    //     imgSrc: "https://tailone.tailwindtemplate.net/src/img/dummy/avatar1.png",
+    // },
     {
-        name: "Joe Antonio",
-        role: "Founder CEO",
-        imgSrc: "https://tailone.tailwindtemplate.net/src/img/dummy/avatar1.png",
-    },
-    {
-        name: "Sarah Daeva",
-        role: "Marketing",
+        name: "Կին հրահանգիչ",
+        // role: "Marketing",
         imgSrc: "https://tailone.tailwindtemplate.net/src/img/dummy/avatar3.png",
     },
-    {
-        name: "Daniel Emo",
-        role: "Sales Manager",
-        imgSrc: "https://tailone.tailwindtemplate.net/src/img/dummy/avatar2.png",
-    }
 ];
 
 const TeamMember = ({ member }: any) => (
@@ -26,7 +21,7 @@ const TeamMember = ({ member }: any) => (
             </div>
             <div className="pt-6 text-center">
                 <p className="text-lg leading-normal font-bold mb-1">{member.name}</p>
-                <p className="text-gray-500 leading-relaxed font-light">{member.role}</p>
+                {/* <p className="text-gray-500 leading-relaxed font-light">{member.role}</p> */}
             </div>
         </div>
     </div>
@@ -41,7 +36,7 @@ const OurTeam = () => {
                         <h2 className="flex flex-row flex-nowrap items-center mt-24">
                             <span className="flex-grow block border-t border-black"></span>
                             <span className="relative inline-block">
-                                <span className="relative mx-4 px-4 py-2.5">Մեր թիմը</span>
+                                <span className="relative mx-4 px-4 py-2.5">Մեր հրահանգիչները</span>
                             </span>
                             <span className="flex-grow block border-t border-black"></span>
                         </h2>

@@ -7,6 +7,7 @@ import { FaFacebookF } from 'react-icons/fa';
 import { BsInstagram } from 'react-icons/bs';
 import { FaPhone } from 'react-icons/fa6';
 import { IoMailOutline } from 'react-icons/io5';
+import { FaTiktok } from "react-icons/fa";
 
 import { ImagePaths } from '@/constants';
 
@@ -14,10 +15,14 @@ import { ImagePaths } from '@/constants';
 const iconsTab = [
     {
         icon: <FaFacebookF size={20} fill='black' />,
-        href: '#'
+        href: 'https://www.facebook.com/DriversTeamAutoSchool?locale=ru_RU'
     },
     {
         icon: <BsInstagram size={20} fill='black' />,
+        href: 'https://www.instagram.com/drivers_team_auto_school/'
+    },
+    {
+        icon: <FaTiktok size={20} fill='black' />,
         href: '#'
     },
 ];
@@ -103,8 +108,9 @@ const Footer = () => {
                                     key={index}
                                     href={href}
                                     // aria-label={link.href}
-                                    className={`text-2xl bg-[#efefef] p-2 rounded-full hover:bg-indigo-600 hover:text-indigo-600 ${index !== 0 && 'ml-2'}`}
+                                    className={`text-2xl bg-[#efefef] p-2 rounded-full hover:bg-indigo-600 hover:svg:color-indigo-600 ${index !== 0 && 'ml-2'}`}
                                     prefetch={true}
+                                    target="_blank"
                                     passHref
                                 >
                                     {icon}
