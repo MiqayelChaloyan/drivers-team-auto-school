@@ -34,10 +34,11 @@ export const Car = () => {
           </div>
         </div>
       </div>
-      <div className="inset-y-0 right-0 w-full max-w-xl px-4 mx-auto lg:pl-8 lg:pr-0 lg:mb-0 lg:mx-0 lg:w-1/2 lg:max-w-full lg:absolute xl:px-0">
+      <div className="inset-y-0 right-60 w-full max-w-xl px-4 mx-auto lg:pl-8 lg:pr-0 lg:mb-0 lg:mx-0 lg:w-1/3 lg:max-w-full lg:absolute xl:px-0">
         <img
-          className="object-contain w-full h-56 rounded shadow-lg lg:rounded-none lg:shadow-none sm:h-96 lg:h-full"
-          src={ImagePaths.icarUrl.default.src}
+          className="object-contain w-full h-56 rounded lg:rounded-none sm:h-96 lg:h-full"
+          // src={ImagePaths.icarUrl.default.src}
+          src='https://i.pinimg.com/originals/c7/df/3e/c7df3e80b19e7f4ce5c008081f1dd475.jpg'
           alt=""
         />
       </div>
