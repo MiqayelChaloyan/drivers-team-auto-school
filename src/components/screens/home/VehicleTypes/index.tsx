@@ -2,7 +2,7 @@
 
 import { ImagePaths } from "@/constants";
 
-export const Car = () => {
+const VehicleTypes = () => {
   return (
     <div className="relative flex flex-col py-16 lg:pt-0 lg:flex-col lg:pb-0">
       <div className="flex flex-col items-start w-full max-w-xl px-4 mx-auto lg:px-8 lg:max-w-screen-xl">
@@ -36,12 +36,14 @@ export const Car = () => {
       </div>
       <div className="inset-y-0 right-60 w-full max-w-xl px-4 mx-auto lg:pl-8 lg:pr-0 lg:mb-0 lg:mx-0 lg:w-1/3 lg:max-w-full lg:absolute xl:px-0">
         <img
-          className="object-contain w-full h-56 rounded lg:rounded-none sm:h-96 lg:h-full"
-          // src={ImagePaths.icarUrl.default.src}
-          src='https://i.pinimg.com/originals/c7/df/3e/c7df3e80b19e7f4ce5c008081f1dd475.jpg'
+          className="object-cover w-full h-56 rounded lg:rounded-none sm:h-96 lg:h-full"
+          src={ImagePaths.carUrl.default.src}
           alt=""
         />
       </div>
     </div>
   );
 };
+
+
+export default VehicleTypes;

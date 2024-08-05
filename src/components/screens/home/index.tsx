@@ -1,15 +1,16 @@
 'use client'
 
 import Header from './Header';
-
-import Advantages from './Advantages';
+import VehicleTypes from "./VehicleTypes";
+import AboutUs from './AboutUs';
 import Parallax from "./Parallax";
-import Fet from "./Price";
+import Advantages from "./Advantages";
 import Pricing from "./Pricing";
-import OurTeam from "./OurTeam";
-import Statistic from "./Statistic";
-import { Car } from "./Car/Car";
 import TypesOfTraining from './TypesOfTraining';
+
+import OurTeam from "./OurTeam";
+
+import OurCompetitiveAdvantages from "./OurCompetitiveAdvantages";
 
 
 
@@ -17,17 +18,17 @@ const Home = () => {
     return (
         <>
             <Header />
-            <Car/>
-            <Advantages />
+            <VehicleTypes />
+            <AboutUs />
             <Parallax />
-            <Fet />
+            <Advantages />
             <Pricing />
-            <TypesOfTraining/>
-
+            <TypesOfTraining />
             <OurTeam />
-            <Statistic />
+            <OurCompetitiveAdvantages />
         </>
     )
 };
 
 export default Home;
+
