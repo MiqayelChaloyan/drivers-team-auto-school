@@ -1,7 +1,7 @@
 // 'use server'
 
 
-import Test from '@/components/screens/test';
+import Test from '@/src/components/screens/test';
 
 export default function Page() {
   return (<Test/>);
