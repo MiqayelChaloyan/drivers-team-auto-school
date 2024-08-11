@@ -189,7 +189,7 @@ const Footer = () => {
                         <div className="my-6 text-base text-color f-f-l">
                             <ul className="md:flex items-center">
                                 {navigationLinks.map((link, index) => (
-                                    <li className=" md:mr-6 cursor-pointer pt-4 lg:py-0">{link.label}</li>
+                                    <li key={index} className=" md:mr-6 cursor-pointer pt-4 lg:py-0">{link.label}</li>
                                 ))}
                             </ul>
                         </div>
