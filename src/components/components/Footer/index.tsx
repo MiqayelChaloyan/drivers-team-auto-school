@@ -161,13 +161,13 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
-
 const navigationLinks = [
     { path: Pages.ABOUT_US, label: 'Մեր Մասին' },
     { path: Pages.TESTS, label: 'Փաթեթներ' },
     { path: Pages.TESTS, label: 'Մեր Առավելությունները' },
     { path: Pages.TESTS, label: 'Թեստեր' },
 ];
+
 
 const Footer = () => {
     const fullYear = new Date().getFullYear();
@@ -189,16 +189,7 @@ const Footer = () => {
                         <div className="my-6 text-base text-color f-f-l">
                             <ul className="md:flex items-center">
                                 {navigationLinks.map((link, index) => (
-                                    <Link
-                                        key={index}
-                                        href={link.path}
-                                        aria-label={link.label}
-                                        className="md:mr-6 pt-4 lg:py-0"
-                                        prefetch={true}
-                                        passHref
-                                    >
-                                        {link.label}
-                                    </Link>
+                                    <li className=" md:mr-6 cursor-pointer pt-4 lg:py-0">{link.label}</li>
                                 ))}
                             </ul>
                         </div>
@@ -236,3 +227,5 @@ const Footer = () => {
 }
 
 export default Footer;
+
+

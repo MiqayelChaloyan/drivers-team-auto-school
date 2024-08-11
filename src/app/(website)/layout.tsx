@@ -2,6 +2,8 @@ import type { Metadata } from 'next';
 
 import { Layout as ThemeProvider } from '@/src/context';
 
+import { StoreProvider } from '@/src/reducer/provider';
+
 import NavBar from '@/src/components/components/NavBar';
 import Footer from '@/src/components/components/Footer';
 import ScrollBackToTop from '@/src/components/components/ScrollBackToTop';
@@ -20,17 +22,19 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang='en'>
+    <html lang='am'>
       <body>
-        <CacheProvider>
-          <ThemeProvider>
-            {/* <Snackbar /> */}
-            <ScrollBackToTop />
-            <NavBar />
-            {children}
-            <Footer />
-          </ThemeProvider>
-        </CacheProvider>
+        <StoreProvider>
+          <CacheProvider>
+            <ThemeProvider>
+              {/* <Snackbar /> */}
+              <ScrollBackToTop />
+              <NavBar />
+              {children}
+              <Footer />
+            </ThemeProvider>
+          </CacheProvider>
+        </StoreProvider>
       </body>
     </html>
   );
