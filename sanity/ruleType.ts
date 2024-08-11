@@ -146,6 +146,11 @@ export type Document = {
 }
 
 export type PreviewProps = {
+  renderDefault(arg0: {
+      media: Icon; value: {
+          [key: string]: any
+      }
+  }, arg1: boolean): unknown
   value: {
     [key: string]: any
   }

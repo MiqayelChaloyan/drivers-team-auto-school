@@ -3,11 +3,11 @@ import { LinkIcon } from '@sanity/icons';
 // import ArrayMaxItems from '@/lib/utils/ArrayMaxItems';
 import { RuleType } from '../../ruleType';
 
-const contactUsSchemaArtHouse = {
-    name: 'art-house-contact-us',
+const contactUs = {
+    name: 'contact-us',
     type: 'document',
     title: 'Contact Us',
-    id: 'art-house-contact-us',
+    id: 'contact-us',
     fields: [
         {
             name: 'name',
@@ -78,4 +78,4 @@ const contactUsSchemaArtHouse = {
     ]
 };
 
-export default contactUsSchemaArtHouse;
+export default contactUs;

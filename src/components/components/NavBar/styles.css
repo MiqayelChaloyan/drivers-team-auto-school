@@ -1,12 +1,13 @@
 .dd {
-    color: gray;
+    color: #ec3237;
     text-transform: uppercase;
     text-decoration: none;
-    letter-spacing: 0.15em;
+    letter-spacing: 0.16em;
 
     display: inline-block;
     padding: 15px 20px;
     position: relative;
+    font-size: 14px
 }
 
 .dd:after {
@@ -17,7 +18,7 @@
     height: 2px;
     left: 50%;
     position: absolute;
-    background: gray;
+    background: #ec3237;
     transition: width 0.3s ease 0s, left 0.3s ease 0s;
     width: 0;
 }

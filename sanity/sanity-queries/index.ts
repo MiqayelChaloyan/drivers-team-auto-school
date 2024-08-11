@@ -1,63 +1,120 @@
-// interface Asset {
-//     _type: string,
-//     alt: string,
-//     _ref: string
-// };
+interface AssetReference {
+    _ref: string;
+    _type: 'reference';
+}
 
-// export interface BRANCH {
-//     _key: string,
-//     company_name: string,
-//     words: string,
-//     website_logo_front: {
-//         _type: string,
-//         alt: string,
-//         asset: Asset
-//     },
-//     website_logo_back: {
-//         _type: string,
-//         alt: string,
-//         asset: Asset
-//     },
-//     web_site_url: string
-// };
+interface Image {
+    _type: 'image';
+    alt: string;
+    asset: AssetReference;
+}
 
-// export interface PROGRESS {
-//     _key: string,
-//     title: string,
-//     quantity: number,
-//     isPlusSign: boolean
-// };
+interface Images {
+    imageOne: Image;
+    imageTwo: Image;
+}
 
-// export interface ART_HOUSE_HOME {
-//     our_websites: BRANCH[]
-//     progress_section: PROGRESS[]
-// };
+interface BackgroundImage {
+    _type: 'image';
+    alt: string;
+    asset: AssetReference;
+}
 
-// export interface Social_Links {
-//     _key: string,
-//     _type: string,
-//     social_link: string,
-//     social_name: string,
-// };
+interface MAIN_QUERYResult {
+    title: string;
+    description: string;
+    images: Images;
+    bg_image: BackgroundImage;
+}
 
-// export interface HOSTS {
-//     name: string,
-//     address: string,
-//     phone_numbers: string[],
-//     social_links: Social_Links[],
-// };
+interface CAR_TYPE_DETALIS_QUERYResult {
+    typesOfCars: string[];
+    image: Image;
+}
 
-// interface PortableChildren {
-//     marks: any;
-//     text: string;
-//     _key: string;
-//     _type: string;
-// };
+interface STUDENTS_QUERYResult {
+    map(arg0: (student: Image) => React.JSX.Element): JSX.Element[];
+    images: Images[];
+}
 
-// export interface TEXT {
-//     children: PortableChildren[];
-//     markDefs: any;
-//     style: string;
-//     _key: string;
-//     _type: string;
-// };
+interface FEATURE {
+    title: string;
+    content: string;
+    _type: string;
+    icon: any;
+    _key: string;
+}
+
+interface FETAURES_QUERYResult {
+    features: FEATURE[];
+}
+
+interface PRICE {
+    price: number;
+    _type: string;
+    _key: string;
+    packagesName: string;
+    features: string[];
+    period: string;
+}
+
+interface PRICING_QUERYResult {
+    pricing: PRICE[];
+}
+
+interface METHOD {
+    title: string;
+    content: string;
+    _type: string;
+    _key: string;
+}
+
+interface TRAINING_TYPE_DETALIS_QUERYResult {
+    trainingTypeDetalis: METHOD[]
+}
+
+interface ADVANTAGE {
+    _key: string;
+    isPlusSign: boolean;
+    quantity: number;
+    _type: string;
+    title: string;
+}
+
+interface COMPETITIVE_ADVANTAGES_QUERYResult {
+    competitiveAdvantages: ADVANTAGE[];
+}
+
+interface PortableChildren {
+    marks: any;
+    text: string;
+    _key: string;
+    _type: string;
+};
+
+interface TEXT {
+    children: PortableChildren[];
+    markDefs: any;
+    style: string;
+    _key: string;
+    _type: string;
+};
+
+interface ABOUT_US_QUERYResult {
+    bg_image: Image;
+    description: string;
+    content: TEXT;
+    image: Image;
+};
+
+interface REVIEW {
+    _key: string;
+    feedback: string;
+    user: string;
+    rating: number;
+    userImage: Image;
+};
+
+interface REVIEWS_QUERYResult {
+    reviews: REVIEW[];
+};

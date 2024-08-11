@@ -13,19 +13,18 @@ import {
 
 import { XMarkIcon, Bars3Icon } from "@heroicons/react/24/solid";
 
-import PhoneIcon from "@/lib/ui/PhoneIcon";
-import { Pages } from "@/constants/pages";
-import { ImagePaths } from "@/constants";
+import PhoneIcon from "@/src/lib/ui/PhoneIcon";
+import { Pages } from "@/src/constants/pages";
+import { ImagePaths } from "@/src/constants";
 import './styles.css'
+
 
 const navigationLinks = [
     { path: Pages.ABOUT_US, label: 'Մեր Մասին' },
     { path: Pages.TESTS, label: 'Փաթեթներ' },
     { path: Pages.TESTS, label: 'Մեր Առավելությունները' },
-    // { path: Pages.TESTS, label: 'Մեր թիմը' },
     { path: Pages.TESTS, label: 'Թեստեր' },
 ];
-
 
 export function Navbar() {
     const [open, setOpen] = React.useState(false);
@@ -53,21 +52,21 @@ export function Navbar() {
                 <Link
                     href='/'
                     aria-label='/'
-                    className="text-gray-700 hover:text-indigo-600 flex items-center"
+                    className="text-gray-700 flex items-center"
                     prefetch={true}
                     passHref
                 >
                     <Image
                         src={ImagePaths.logoURL}
                         alt="logo"
-                        className="h-50 w-50"
+                        className="h-50 w-51 object-contain"
                         priority
                         width={70}
                         height={40}
                     />
-                    <p className="text-black-100">DRIVERS TEAM <br/> AUTO SCHOOL</p>
+                    <p className="text-black-100">DRIVERS TEAM <br /> AUTO SCHOOL</p>
                 </Link>
-                <ul className="ml-10 hidden items-center gap-8 lg:flex">
+                <ul className="ml-15 hidden items-center gap-5 lg:flex">
                     <Link
                         href='tel:+37477122212'
                         aria-label='tel:+37477122212'
@@ -83,7 +82,7 @@ export function Navbar() {
                                 href={link.path}
                                 aria-label={link.path}
                                 // className="text-gray-700 hover:text-indigo-600"
-                                   className="dd"
+                                className="dd"
                                 prefetch={true}
                                 passHref
                             >

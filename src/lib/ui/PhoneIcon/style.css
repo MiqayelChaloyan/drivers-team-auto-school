@@ -5,7 +5,7 @@
 .pulse {
     height: 30px;
     width: 30px;
-    background-color: #77dd77;
+    background-color: #ec3237;
     border-radius: 50%;
     display: flex;
     justify-content: center;
@@ -16,7 +16,7 @@
 .pulse::before {
     content: "";
     position: absolute;
-    border: 1px solid #77dd77;
+    border: 1px solid #ec3237;
     width: calc(100% + 20px);
     height: calc(100% + 20px);
     border-radius: 50%;
@@ -26,7 +26,7 @@
 .pulse::after {
     content: "";
     position: absolute;
-    border: 1px solid #77dd77;
+    border: 1px solid #ec3237;
     width: calc(100% + 20px);
     height: calc(100% + 20px);
     border-radius: 50%;

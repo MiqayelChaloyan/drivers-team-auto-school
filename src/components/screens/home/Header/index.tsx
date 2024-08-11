@@ -1,27 +1,30 @@
 'use client';
 
+import Image from 'next/image';
+
 import { Link as ScrollLink } from 'react-scroll';
-import { ImagePaths } from '@/constants';
+
+import { urlForImage } from '@/sanity/lib/imageUrlBuilder';
+
+import { ImagePath } from '@/src/types';
 
 
+interface Props {
+  data?: MAIN_QUERYResult | any
+};
 
-const aboutUs = `
- «Drivers Team Auto School» ավտոդպրոցը Հայաստանում առաջատարներից է՝
-                                    մասնագիտացված ավտովարման որակյալ և բարձրակարգ ուսուցում
-                                    տրամադրելու ոլորտում: Ուսանելով ավտոդպրոցի հմուտ և
-                                    գիտակ ուսուցիչների մոտ դուք նույնպես ձեռք կբերեք անվտանգ
-                                    երթևեկության համար կարևորագույն ամփոփ և լիարժեք գիտելիքներ,
-                                    ինչի շնորհիվ դասընթացի ավարտին ամենայն վստահությամբ կստանձնեք ղեկի կառավարումը:
-                                    Եթե ​​դուք ցանկանում եք ավելին իմանալ «Drivers Team Auto School»-ի մասին, խնդրում եմ կապ հաստատել մեզ։`
+export const Header = ({ data }: Readonly<Props>) => {
+  const { title, description, images, bg_image } = data;
+  const pathLeft: ImagePath = urlForImage(images.imageOne);
+  const pathRight: ImagePath = urlForImage(images.imageTwo);
+  const pathBgImage: ImagePath = urlForImage(bg_image);
 
-
-
-
-
-export const Header = () => {
   return (
     <div className="relative">
-      <div className="bg-black absolute inset-0 object-cover w-full h-full" />
+      <div
+        className="absolute w-full h-full inset-0 top-0 left-0 bg-cover bg-center bg-no-repeat opacity-120 bg-fixed bg-gray-700 bg-blend-multiply"
+        style={{ backgroundImage: `url(${pathBgImage?.src})` }}
+      />
       <div className="relative bg-opacity-75 bg-deep-purple-accent-700">
         <svg
           className="absolute inset-x-0 bottom-0 text-white"
@@ -35,20 +38,24 @@ export const Header = () => {
         <div className="relative px-4 py-16 mx-auto overflow-hidden sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-30">
           <div className="flex flex-col items-center justify-between xl:flex-row">
             <div className="w-full max-w-xl mb-12 xl:mb-20 xl:pr-16 xl:w-7/12">
-              <h2 className="max-w-lg mb-6 font-sans text-3xl font-bold tracking-tight text-white sm:text-4xl sm:leading-none">
-                The quick, brown fox <br className="hidden md:block" />
-                jumps over a lazy dog
-              </h2>
+              <div className="max-w-7xl mb-4 mx-auto text-xl md:text-5xl font-bold text-white dark:text-neutral-200 font-sans">
+                <h1 className="mb-0 text-2xl font-bold md:text-4xl text-[#ec3237]">
+                  {title}
+                </h1>
+                <div className="mt-0">
+                  <span className="inline-block w-40 h-1 bg-[#ec3237] rounded-full"></span>
+                  <span className="inline-block w-3 h-1 ml-1 bg-[#ec3237] rounded-full"></span>
+                  <span className="inline-block w-1 h-1 ml-1 bg-[#ec3237] rounded-full"></span>
+                </div>
+              </div>
               <p className="max-w-xl mb-10 text-base text-gray-200 md:text-lg">
-                Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-                accusantium doloremque laudan, totam rem aperiam, eaque ipsa
-                quae.
+                {description}
               </p>
               <ScrollLink
                 to="pricing"
                 hashSpy={false}
                 offset={-110}
-                // isDynamic={false}
+                isDynamic={false}
                 smooth={false}
                 duration={500}
                 aria-label="Scroll down"
@@ -69,8 +76,22 @@ export const Header = () => {
               <div>
                 <div>
                   <div className="grid grid-cols-2 gap-2 mt-8 mb-3">
-                    <img className="w-full rounded-lg" src={ImagePaths._2Url.default.src} alt="office content 1" />
-                    <img className="mt-4 w-full lg:mt-10 rounded-lg" src={ImagePaths._3Url.default.src} alt="office content 2" />
+                    <Image
+                      src={pathLeft?.src}
+                      alt={images.imageOne?.alt}
+                      width={500}
+                      height={500}
+                      className="w-full rounded-lg"
+                      priority
+                    />
+                    <Image
+                      src={pathRight?.src}
+                      alt={images.imageTwo?.alt}
+                      width={500}
+                      height={500}
+                      className="mt-4 w-full lg:mt-10 rounded-lg"
+                      priority
+                    />
                   </div>
                 </div>
               </div>

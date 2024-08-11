@@ -1,4 +1,4 @@
-import { site } from '@/constants/config';
+import { site } from '@/src/constants/config';
 
 export const defaultMetadata = {
     metadataBase: new URL(site.url),

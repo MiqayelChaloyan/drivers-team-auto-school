@@ -1,16 +1,16 @@
 import type { Metadata } from 'next';
 
-import { Layout as ThemeProvider } from '@/context';
+import { Layout as ThemeProvider } from '@/src/context';
 
-import NavBar from '@/components/components/NavBar';
-import Footer from '@/components/components/Footer';
-import ScrollBackToTop from '@/components/components/ScrollBackToTop';
-import Snackbar from '@/components/components/Snackbar';
+import NavBar from '@/src/components/components/NavBar';
+import Footer from '@/src/components/components/Footer';
+import ScrollBackToTop from '@/src/components/components/ScrollBackToTop';
+import Snackbar from '@/src/components/components/Snackbar';
+import CacheProvider from 'react-inlinesvg/provider';
 
-import { defaultMetadata } from '@/utils/default-metadata';
+import { defaultMetadata } from '@/src/utils/default-metadata';
 
-import '@/styles/globals.css';
-
+import '@/src/styles/globals.css';
 
 export const metadata: Metadata = defaultMetadata;
 
@@ -22,13 +22,15 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <body>
-        <ThemeProvider>
-          <Snackbar />
-          <ScrollBackToTop />
-          <NavBar />
-          {children}
-          <Footer />
-        </ThemeProvider>
+        <CacheProvider>
+          <ThemeProvider>
+            {/* <Snackbar /> */}
+            <ScrollBackToTop />
+            <NavBar />
+            {children}
+            <Footer />
+          </ThemeProvider>
+        </CacheProvider>
       </body>
     </html>
   );

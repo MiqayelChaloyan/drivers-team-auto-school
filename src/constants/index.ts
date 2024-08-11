@@ -1,12 +1,29 @@
-export const ImagePaths = {
+const ImagePaths = {
     logoURL: require('../../public/assets/logo.png'),
-    image2URL: require('../../public/assets/s.png'),
-    imageFullUrl: require('../../public/assets/road-5704083_1280.jpg'),
-    carUrl: require('../../public/assets/elantra.png'),
-
-    _1Url: require('../../public/assets/1.jpeg'),
-    _2Url: require('../../public/assets/2.jpeg'),
-    _3Url: require('../../public/assets/3.jpeg'),
-    _4Url: require('../../public/assets/4.jpeg'),
 };
 
+const Titles = {
+    vehicleTypes: 'Մեքենաների տեսակներ',
+    features: 'Մեր մրցակցային առավելությունները',
+    trainingMethods: 'Ուսուցման տեսակներ',
+    ourStudents: 'Մեր ուսանողները',
+    aboutUs: 'Մեր մասին',
+    reviews: 'Կարծիքներ'
+};
+
+const Texts = {
+    callUs: 'Զանգահարեք մեզ',
+    or: 'կամ',
+    allReserved: 'Բոլոր իրավունքները պաշտպանված են'
+};
+
+const Buttons = {
+    signUp: 'Գրանցվեք'
+};
+
+export {
+    ImagePaths,
+    Titles,
+    Texts,
+    Buttons,
+}

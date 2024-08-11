@@ -10,7 +10,7 @@ function addVariablesForColors({ addBase, theme }: any) {
   let newVars = Object.fromEntries(
     Object.entries(allColors).map(([key, val]) => [`--${key}`, val])
   );
- 
+
   addBase({
     ":root": newVars,
   });
@@ -29,6 +29,19 @@ const config: Config = withMT({
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
+      animation: {
+        "background-shine": "background-shine 2s linear infinite"
+      },
+      keyframes: {
+        "background-shine": {
+          "from": {
+            "backgroundPosition": "0 0"
+          },
+          "to": {
+            "backgroundPosition": "-200% 0"
+          }
+        }
+      },
       screens: {
         sm: "640px",
         md: "768px",
@@ -40,6 +53,9 @@ const config: Config = withMT({
         backgroundGrey: '#E9E9E9',
         greenLight: '#76BC22',
         grey: 'rgba(0, 0, 0, 0.51)',
+        darkOrange: '#F25C05',
+        lightOrange: '#F2D3AC',
+        lightGray: 'rgb(224 224 224 / var(--tw-border-opacity))'
       },
       extend: {
         backgroundImage: {
