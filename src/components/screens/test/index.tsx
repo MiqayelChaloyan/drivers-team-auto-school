@@ -1,13 +1,12 @@
 'use client'
-
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from 'next/navigation';
-import { useEffect, useState } from "react";
 import * as Action from '@/src/reducer/store/testReducer';
 import { generateQuestionnaires } from '@/src/utils/generateQuestionnaires';
 import QuestionsViewer from "@/src/components/components/QuestionsViewer";
 
-const Test = () => {
+const Test: React.FC = () => {
     const params = useParams();
     const dispatch = useDispatch();
 
@@ -20,7 +19,51 @@ const Test = () => {
 
     const [selectedOptions, setSelectedOptions] = useState<any[]>([]);
     const currentQuestionData = selectedTest[trace];
-    
+
+    // // 30 minutes in seconds
+    // const [timeLeft, setTimeLeft] = useState<number>(30 * 60);
+    // const [isActive, setIsActive] = useState<boolean>(false);
+
+    // // Timer management
+    // const intervalRef = React.useRef<NodeJS.Timeout | null>(null);
+
+    // const startTimer = () => {
+    //     if (isActive) return; // Prevent multiple intervals
+
+    //     setIsActive(true);
+    //     intervalRef.current = setInterval(() => {
+    //         setTimeLeft(prevTime => {
+    //             if (prevTime <= 1) {
+    //                 clearInterval(intervalRef.current!);
+    //                 setIsActive(false);
+    //                 return 0;
+    //             }
+    //             return prevTime - 1;
+    //         });
+    //     }, 1000);
+    // };
+
+    // const stopTimer = () => {
+    //     setIsActive(false);
+    //     if (intervalRef.current) {
+    //         clearInterval(intervalRef.current);
+    //     }
+    // };
+
+    // const resetTimer = () => {
+    //     setIsActive(false);
+    //     setTimeLeft(30 * 60);
+    //     if (intervalRef.current) {
+    //         clearInterval(intervalRef.current);
+    //     }
+    // };
+
+    // const formatTime = (seconds: number): string => {
+    //     const minutes = Math.floor(seconds / 60);
+    //     const secs = seconds % 60;
+    //     return `${minutes < 10 ? `0${minutes}` : minutes}:${secs < 10 ? `0${secs}` : secs}`;
+    // };
+
     const startExam = () => {
         if (tests.length !== 0) {
             dispatch(Action.startTest(params.slug[0]));
@@ -31,10 +74,10 @@ const Test = () => {
         }
     };
 
+    // Initialize exam and timer when component mounts
     useEffect(() => {
         startExam();
-    }, [tests.length, dispatch, params.slug]);
-
+    }, [tests.length, params.slug]);
 
     const _handleNext = () => {
         if (selectedOptions[trace] === undefined) return;
@@ -42,6 +85,8 @@ const Test = () => {
             dispatch(Action.moveNextAction());
         } else {
             dispatch(Action.viewAnswer());
+            // stopTimer();
+            // resetTimer();
         }
     };
 
@@ -73,8 +118,7 @@ const Test = () => {
                     correctAnswer: currentQuestionData.correct_answer
                 }));
             }
-        }
-        else {
+        } else {
             dispatch(Action.updateAnswer({
                 question: currentQuestionData.question,
                 correctAnswer: currentQuestionData.correct_answer,
@@ -88,7 +132,7 @@ const Test = () => {
     };
 
     if (isViewAnswer) {
-        return <QuestionsViewer />
+        return <QuestionsViewer />;
     };
 
     return (
@@ -100,6 +144,7 @@ const Test = () => {
                 <div className="mt-4 text-lg text-gray-700">
                     {currentQuestionData?.question}
                 </div>
+                {/* <div>{formatTime(timeLeft)}</div> */}
             </div>
 
             <div className="flex flex-col mb-6">

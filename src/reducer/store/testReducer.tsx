@@ -74,6 +74,12 @@ export const testReducer = createSlice({
                 isViewAnswer: !state.isViewAnswer
             }
         },
+        viewAnswerRemove: (state) => {
+            return {
+                ...state,
+                isViewAnswer: false
+            }
+        },
         addedAnswer: (state, action) => {
             state.answers.push(action.payload)
         },
@@ -109,6 +115,7 @@ export const {
     addScore,
     resetAllAction,
     updateLoader,
+    viewAnswerRemove,
     viewAnswer,
     addedAnswer,
     updateAnswer

@@ -7,6 +7,9 @@ import Features from './Features';
 import Pricing from './Pricing';
 import TrainingMethods from './TrainingMethods';
 import OurCompetitiveAdvantages from './OurCompetitiveAdvantages';
+import * as Action from '@/src/reducer/store/testReducer';
+import { useDispatch } from 'react-redux';
+import { useEffect } from 'react';
 
 
 interface Props {
@@ -28,6 +31,12 @@ const Home = ({
     trainingMethods,
     advantages
 }: Readonly<Props>) => {
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        // dispatch(Action.viewAnswerRemove());
+    },[])
+
     return (
         <>
             <Header data={data[0]} />

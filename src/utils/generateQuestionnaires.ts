@@ -13,45 +13,69 @@ const groups = [group1, group2, group3, group4, group5, group6, group7, group8, 
 const questionsPerGroup = [3, 1, 1, 3, 5, 2, 1, 2, 1, 1];
 
 export const generateQuestionnaires = () => {
-    const numQuestionnaires = 20;
+    const numQuestionnaires = 60;
     const questionsPerQuestionnaire = 20;
 
     let questionnaires = [];
     let startingIndices = Array(groups.length).fill(0);
 
-    for (let i = 0; i < numQuestionnaires; i++) {
+    while (questionnaires.length < numQuestionnaires) {
         let currentQuestions = [];
-        let currentIndex = 0;
+        let currentQuestionCounts = Array(groups.length).fill(0);
+        let validTest = true;
 
         for (let g = 0; g < groups.length; g++) {
             const startIdx = startingIndices[g];
-            const endIdx = startIdx + questionsPerGroup[g];
-            const questions = groups[g].slice(startIdx, endIdx);
+            const neededQuestions = questionsPerGroup[g];
+            const availableQuestions = groups[g].length - startIdx;
 
-            if (currentIndex + questions.length <= questionsPerQuestionnaire) {
-                currentQuestions.push(...questions);
-                currentIndex += questions.length;
-                startingIndices[g] = endIdx;
+            if (availableQuestions < neededQuestions) {
+                if (availableQuestions > 0) {
+                    const questions = groups[g].slice(startIdx, startIdx + availableQuestions);
+                    currentQuestions.push(...questions);
+                    currentQuestionCounts[g] = availableQuestions;
+                    startingIndices[g] += availableQuestions;
+                } else {
+                    validTest = false;
+                    break;
+                }
             } else {
-                break;
+                const questions = groups[g].slice(startIdx, startIdx + neededQuestions);
+                currentQuestions.push(...questions);
+                currentQuestionCounts[g] = neededQuestions;
+                startingIndices[g] += neededQuestions;
             }
         }
 
         if (currentQuestions.length < questionsPerQuestionnaire) {
-            console.warn(`Not enough questions for questionnaire ${i + 1}. Available questions: ${currentQuestions.length}`);
-            while (currentQuestions.length < questionsPerQuestionnaire && startingIndices.some(idx => idx < groups[0].length)) {
-                for (let g = 0; g < groups.length; g++) {
-                    if (currentQuestions.length >= questionsPerQuestionnaire) break;
-                    const startIdx = startingIndices[g];
-                    const remainingQuestions = groups[g].slice(startIdx);
-                    currentQuestions.push(...remainingQuestions);
-                    startingIndices[g] = groups[g].length;
+            let additionalQuestionsNeeded = questionsPerQuestionnaire - currentQuestions.length;
+            for (let g = 0; g < groups.length; g++) {
+                if (additionalQuestionsNeeded <= 0) break;
+
+                const startIdx = startingIndices[g];
+                const remainingQuestions = groups[g].slice(startIdx);
+                if (remainingQuestions.length > 0) {
+                    const additionalQuestions = remainingQuestions.slice(0, additionalQuestionsNeeded);
+                    currentQuestions.push(...additionalQuestions);
+                    additionalQuestionsNeeded -= additionalQuestions.length;
                 }
             }
         }
 
-        questionnaires.push(currentQuestions.slice(0, questionsPerQuestionnaire));
+        if (currentQuestions.length === questionsPerQuestionnaire) {
+            questionnaires.push(currentQuestions);
+        } else {
+            break;
+        }
     }
 
     return questionnaires;
 };
+
+
+
+
+
+
+
+
