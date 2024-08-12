@@ -45,8 +45,8 @@ export function Navbar() {
             fullWidth
             className="border-0 sticky top-0 z-50 bg-white"
             placeholder={undefined}
-            onPointerEnterCapture={undefined}
-            onPointerLeaveCapture={undefined}
+            onPointerEnterCapture={() => null}
+            onPointerLeaveCapture={() => null}
         >
             <div className="container mx-auto flex items-center justify-between">
                 <Link

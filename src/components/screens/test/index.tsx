@@ -1,13 +1,14 @@
 'use client'
 
 import { useSelector } from "react-redux";
-import { useParams } from 'next/navigation'
+import { useParams } from 'next/navigation';
 import { useState } from "react";
+import './styles.css'; // Ensure this file contains the required CSS
 
 const Test = () => {
     const questions = useSelector((state: any) => state.questions?.test) || [];
     const isLoading = useSelector((state: any) => state.questions?.isLoading);
-    const params = useParams()
+    const params = useParams();
 
     const [currentQuestion, setCurrentQuestion] = useState(0);
     const [selectedOptions, setSelectedOptions] = useState<any[]>([]);
@@ -49,6 +50,7 @@ const Test = () => {
         setShowScore(true);
     };
 
+
     // Render component
     if (isLoading) {
         return <div className="text-center text-white">Loading...</div>;
@@ -62,7 +64,6 @@ const Test = () => {
         );
     }
 
-
     return (
         <div className="max-w-xl mx-auto p-4 bg-gray-800 rounded-lg mt-25">
             <div className="flex flex-col items-start">
@@ -72,15 +73,17 @@ const Test = () => {
                 <div className="mt-4 h-40 text-2xl text-white">
                     {currentQuestionData.question}
                 </div>
-                {currentQuestionData.image && <div>
-                    <img src={currentQuestionData.image.default.src} alt='image'/>
-                </div>}
+                {currentQuestionData.image && (
+                    <div className="mt-4">
+                        <img src={currentQuestionData.image.default.src} alt='image'/>
+                    </div>
+                )}
             </div>
             <div className="flex flex-col mt-6 h-180">
                 {currentQuestionData.answers?.map((answer: string, index: number) => (
                     <div
                         key={index}
-                        className="flex items-center py-3 px-4 mb-2 bg-gray-700 rounded-lg cursor-pointer"
+                        className={`flex items-center py-3 px-4 mb-2 bg-gray-700 rounded-lg cursor-pointer border-2 border-red`}
                         onClick={() => handleAnswerOption(answer)}
                     >
                         <input
@@ -115,6 +118,6 @@ const Test = () => {
             </div>
         </div>
     );
-}
+};
 
 export default Test;

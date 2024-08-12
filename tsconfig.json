@@ -36,5 +36,5 @@
 , "sanity/lib/imageUrlBuilder.js", "src/config/ArrayMaxItems.js"  ],
   "exclude": [
     "node_modules"
-  ]
+  ],
 }
