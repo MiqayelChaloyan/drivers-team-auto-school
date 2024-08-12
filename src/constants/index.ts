@@ -8,7 +8,8 @@ const Titles = {
     trainingMethods: 'Ուսուցման տեսակներ',
     ourStudents: 'Մեր ուսանողները',
     aboutUs: 'Մեր մասին',
-    reviews: 'Կարծիքներ'
+    reviews: 'Կարծիքներ',
+    testResult: 'Թեստի արդյունքները'
 };
 
 const Texts = {
