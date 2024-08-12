@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useEffect, useState } from 'react';
-// import { generateQuestionnaires } from './generateQuestionnaires';
+import { generateQuestionnaires } from './generateQuestionnaires';
 import Link from 'next/link';
 
 
@@ -11,24 +11,14 @@ import { useDispatch } from 'react-redux';
 
 
 const Tests = () => {
-    const [tests, setTests] = useState<any>([]);
-
-    const dispatch = useDispatch();
-
+      const [questionnaires, setQuestionnaires] = useState([]);
+      const dispatch = useDispatch();
 
     useEffect(() => {
-        const loadTests = async () => {
-            try {
-                // const generatedTests = await generateQuestionnaires(); 
-                // setTests(generatedTests)
-                // dispatch(Action.startExamAction(generatedTests))
-                // dispatch(Action.updateLoader(false))
-            } catch (error) {
-                console.error("Failed to load tests:", error);
-            }
-        };
-
-        loadTests();
+        const data: any = generateQuestionnaires();
+        setQuestionnaires(data);
+        dispatch(Action.startExamAction(data))
+        dispatch(Action.updateLoader(false))
     }, []);
 
 
@@ -42,7 +32,7 @@ const Tests = () => {
                     </p>
                 </div>
                 <div className="grid max-w-4xl lg:max-w-6xl grid-cols-1 mx-auto mt-8 text-center gap-y-4 sm:gap-x-8 sm:grid-cols-2 lg:grid-cols-3 sm:mt-12 lg:mt-20 sm:text-left">
-                    {[1,2,3,5]?.map((test: any, index: number) => (
+                    {questionnaires?.map((_: any, index: number) => (
                         <Link
                             href={`/tests/${index}`}
                             key={index}
