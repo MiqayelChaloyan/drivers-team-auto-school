@@ -1,26 +1,31 @@
 'use client'
 
 import React, { useEffect, useState } from 'react';
-import { generateQuestionnaires } from './generateQuestionnaires';
+// import { generateQuestionnaires } from './generateQuestionnaires';
 import Link from 'next/link';
 
 
 import * as Action from '@/src/reducer/store/testReducer'
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { generateQuestionnaires } from '@/src/utils/generateQuestionnaires';
 
 
 
 const Tests = () => {
-      const [questionnaires, setQuestionnaires] = useState([]);
-      const dispatch = useDispatch();
+    const tests = useSelector((state: any) => state.questions?.tests);
+    const isViewAnswer = useSelector((state: any) => state.questions?.isViewAnswer);
 
-    useEffect(() => {
+    const dispatch = useDispatch();
+
+    const startExam = () => {
         const data: any = generateQuestionnaires();
-        setQuestionnaires(data);
         dispatch(Action.startExamAction(data))
         dispatch(Action.updateLoader(false))
-    }, []);
+    };
 
+    useEffect(() => {
+        startExam();
+    }, []);
 
     return (
         <section className="py-12 bg-gray-900 text-gray-100 sm:py-12 lg:py-16">
@@ -32,7 +37,7 @@ const Tests = () => {
                     </p>
                 </div>
                 <div className="grid max-w-4xl lg:max-w-6xl grid-cols-1 mx-auto mt-8 text-center gap-y-4 sm:gap-x-8 sm:grid-cols-2 lg:grid-cols-3 sm:mt-12 lg:mt-20 sm:text-left">
-                    {questionnaires?.map((_: any, index: number) => (
+                    {tests?.map((_: any, index: number) => (
                         <Link
                             href={`/tests/${index}`}
                             key={index}

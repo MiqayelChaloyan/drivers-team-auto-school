@@ -1,34 +1,44 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 export interface TEST {
-    test: any
+    tests: any
+    selectedTest: any
     trace: number
     score: number
-    answer: any
+    answers: any
     isLoading: boolean
     isViewAnswer: boolean
 
 }
 
 const initialState: TEST = {
-    test: [],
+    tests: [],
+    selectedTest: [],
     trace: 0,
     score: 0,
-    answer: [],
+    answers: [],
     isLoading: true,
     isViewAnswer: false,
 };
 
 export const testReducer = createSlice({
-    name: 'test',
+    name: 'tests',
     initialState,
     reducers: {
         startExamAction: (state, action) => {
-            let test = action.payload
+            let tests = action.payload
 
             return {
                 ...state,
-                test: test,
+                tests: tests,
+            }
+        },
+        startTest: (state, action) => {
+            let selected = state.tests[action.payload]
+
+            return {
+                ...state,
+                selectedTest: selected,
             }
         },
         addScore: (state) => {
@@ -50,14 +60,7 @@ export const testReducer = createSlice({
             }
         },
         resetAllAction: () => {
-            return {
-                test: [],
-                trace: 0,
-                score: 0,
-                answer: [],
-                isLoading: true,
-                isViewAnswer: false,
-            }
+            return initialState;
         },
         updateLoader: (state, action) => {
             return {
@@ -72,26 +75,43 @@ export const testReducer = createSlice({
             }
         },
         addedAnswer: (state, action) => {
-            state.answer.push(action.payload)
+            state.answers.push(action.payload)
         },
-        addedDuration: (state, action) => {
-            return {
-                ...state,
-                duration: action.payload
+        updateAnswer: (state, action) => {
+            const { question, correctAnswer, selectedAnswer } = action.payload;
+            const existingAnswerIndex = state.answers.findIndex(
+                (answer: any) => answer.question === question
+            );
+
+            if (existingAnswerIndex !== -1) {
+                state.answers[existingAnswerIndex] = {
+                    ...state.answers[existingAnswerIndex],
+                    selectedAnswer: selectedAnswer,
+                    correctAnswer: correctAnswer,
+                    wrongAnswer: selectedAnswer !== correctAnswer ? selectedAnswer : null,
+                };
             }
         },
+        // addedDuration: (state, action) => {
+        //     return {
+        //         ...state,
+        //         duration: action.payload
+        //     }
+        // },
     }
 })
 
 export const {
     startExamAction,
+    startTest,
     moveNextAction,
     movePrevAction,
     addScore,
     resetAllAction,
     updateLoader,
     viewAnswer,
-    addedAnswer
+    addedAnswer,
+    updateAnswer
 } = testReducer.actions;
 
 export default testReducer.reducer;

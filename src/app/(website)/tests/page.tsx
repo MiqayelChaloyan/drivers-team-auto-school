@@ -1,6 +1,3 @@
-// 'use server'
-
-
 import Tests from '@/src/components/screens/tests';
 
 export default function Page() {
