@@ -13,7 +13,7 @@ import { generateQuestionnaires } from '@/src/utils/generateQuestionnaires';
 
 const Tests = () => {
     const tests = useSelector((state: any) => state.questions?.tests);
-    const isViewAnswer = useSelector((state: any) => state.questions?.isViewAnswer);
+    // const isViewAnswer = useSelector((state: any) => state.questions?.isViewAnswer);
 
     const dispatch = useDispatch();
 
@@ -44,7 +44,7 @@ const Tests = () => {
                             href={`/tests/examen/${index}`}
                             key={index}
                             className='relative overflow-hidden'
-                            aria-label={`/tests/${index}`}
+                            aria-label={`/tests/examen/${index}`}
                         >
                             <div className={`relative overflow-hidden bg-white shadow-md rounded-xl h-30`}>
                                 <div className="p-5">

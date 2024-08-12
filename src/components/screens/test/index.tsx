@@ -20,6 +20,20 @@ const Test: React.FC = () => {
     const [selectedOptions, setSelectedOptions] = useState<any[]>([]);
     const currentQuestionData = selectedTest[trace];
 
+    const startExam = () => {
+        if (tests.length !== 0) {
+            dispatch(Action.startTest(params.slug[0]));
+            dispatch(Action.updateLoader(false));
+        } else {
+            const data: any = generateQuestionnaires();
+            dispatch(Action.startExamAction(data));
+        }
+    };
+
+    useEffect(() => {
+        startExam();
+    }, [tests.length, params.slug, !selectedTest.length]);
+    
     // // 30 minutes in seconds
     // const [timeLeft, setTimeLeft] = useState<number>(30 * 60);
     // const [isActive, setIsActive] = useState<boolean>(false);
@@ -64,20 +78,6 @@ const Test: React.FC = () => {
     //     return `${minutes < 10 ? `0${minutes}` : minutes}:${secs < 10 ? `0${secs}` : secs}`;
     // };
 
-    const startExam = () => {
-        if (tests.length !== 0) {
-            dispatch(Action.startTest(params.slug[0]));
-            dispatch(Action.updateLoader(false));
-        } else {
-            const data: any = generateQuestionnaires();
-            dispatch(Action.startExamAction(data));
-        }
-    };
-
-    // Initialize exam and timer when component mounts
-    useEffect(() => {
-        startExam();
-    }, [tests.length, params.slug]);
 
     const _handleNext = () => {
         if (selectedOptions[trace] === undefined) return;
