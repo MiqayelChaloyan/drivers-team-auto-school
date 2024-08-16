@@ -16,8 +16,11 @@
   }
 }
 
-html {
-  font-family: "Proxima Nova", system-ui, sans-serif;
+
+@layer base {
+  html {
+    font-family: sans-serif;
+  }
 }
 
 * {

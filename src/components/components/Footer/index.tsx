@@ -120,14 +120,14 @@
 //                         </div>
 //                     </nav>
 //                 </div>
-//                 <div className="flex flex-col items-start justify-between pt-10 mt-10 border-t border-gray-400 md:flex-row md:items-center">
-//                     <p className="mb-2 text-xs text-left text-gray-600 md:mb-0">
-//                         Տեսական քննությունների հարցաշարերը վերցված են Police.am կայքից
-//                     </p>
-//                     <p className="mb-0 text-xs text-left text-gray-600 md:mb-0">
-//                         © {fullYear} |  Բոլոր իրավունքները պաշտպանված են
-//                     </p>
-//                 </div>
+// <div className="flex flex-col items-start justify-between pt-10 mt-10 border-t border-gray-400 md:flex-row md:items-center">
+//     <p className="mb-2 text-xs text-left text-gray-600 md:mb-0">
+//         Տեսական քննությունների հարցաշարերը վերցված են Police.am կայքից
+//     </p>
+//     <p className="mb-0 text-xs text-left text-gray-600 md:mb-0">
+//         © {fullYear} |  Բոլոր իրավունքները պաշտպանված են
+//     </p>
+// </div>
 //             </div>
 //         </footer>
 
@@ -185,7 +185,7 @@ const Footer = () => {
                         />
                     </div>
                     <div className="text-black flex flex-col md:items-center f-f-l pt-3">
-                        <h1 className="text-2xl font-black">DRIVERS TEAM AUTO SCHOOL</h1>
+                        <h1 className="text-1xl font-black">DRIVERS TEAM AUTO SCHOOL</h1>
                         <div className="my-6 text-base text-color f-f-l">
                             <ul className="md:flex items-center">
                                 {navigationLinks.map((link, index) => (
@@ -217,6 +217,17 @@ const Footer = () => {
                         </div>
                     </div>
                     <div className="w-9/12  h-0.5 bg-gray-100 rounded-full" />
+                    <div className="grid flex-col items-start justify-between md:flex-row md:items-center">
+
+                        <p className="text-sm text-color f-f-l mt-5 mb-2 text-center">
+                            Տեսական քննությունների հարցաշարերը վերցված են Police.am կայքից
+                        </p>
+
+                        <p className="text-sm text-color f-f-l mb-5 text-center">
+                        ՀԱՅԱՍՏԱՆԻ ՀԱՆՐԱՊԵՏՈՒԹՅԱՆ ՕՐԵՆՔԸ ՃԱՆԱՊԱՐՀԱՅԻՆ ԵՐԹԵՎԵԿՈՒԹՅԱՆ ԱՆՎՏԱՆԳՈՒԹՅԱՆ ԱՊԱՀՈՎՄԱՆ ՄԱՍԻՆ
+                        </p>
+
+                    </div>
                     <div className="text-sm mt-10 text-color mb-10 f-f-l">
                         <p>  © {fullYear} |  {Texts.allReserved} </p>
                     </div>

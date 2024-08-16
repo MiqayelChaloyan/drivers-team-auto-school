@@ -5,6 +5,7 @@ const withMT = require("@material-tailwind/react/utils/withMT");
 const {
   default: flattenColorPalette,
 } = require("tailwindcss/lib/util/flattenColorPalette");
+
 function addVariablesForColors({ addBase, theme }: any) {
   let allColors = flattenColorPalette(theme("colors"));
   let newVars = Object.fromEntries(
@@ -15,6 +16,10 @@ function addVariablesForColors({ addBase, theme }: any) {
     ":root": newVars,
   });
 }
+
+
+
+// const defaultTheme = require('tailwindcss/defaultTheme')
 
 const config: Config = withMT({
   content: [

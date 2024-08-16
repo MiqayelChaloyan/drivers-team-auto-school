@@ -5,6 +5,9 @@ import { useParams } from 'next/navigation';
 import * as Action from '@/src/reducer/store/testReducer';
 import { generateQuestionnaires } from '@/src/utils/generateQuestionnaires';
 import QuestionsViewer from "@/src/components/components/QuestionsViewer";
+import Image from 'next/image';
+
+import img from '@/src/driving_theory/group_1/images/image_1.jpg'
 
 const Test: React.FC = () => {
     const params = useParams();
@@ -20,6 +23,10 @@ const Test: React.FC = () => {
     const [selectedOptions, setSelectedOptions] = useState<any[]>([]);
     const currentQuestionData = selectedTest[trace];
 
+    // const num = Number(params.slug[0]) + 1;
+    // const imagePath = currentQuestionData?.image && require(`@/src/driving_theory/group_${num}/${currentQuestionData?.image}`);
+    // console.log(imagePath)
+
     const startExam = () => {
         if (tests.length !== 0) {
             dispatch(Action.startTest(params.slug[0]));
@@ -33,7 +40,7 @@ const Test: React.FC = () => {
     useEffect(() => {
         startExam();
     }, [tests.length, params.slug, !selectedTest.length]);
-    
+
     // // 30 minutes in seconds
     // const [timeLeft, setTimeLeft] = useState<number>(30 * 60);
     // const [isActive, setIsActive] = useState<boolean>(false);
@@ -135,6 +142,7 @@ const Test: React.FC = () => {
         return <QuestionsViewer />;
     };
 
+
     return (
         <div className="max-w-4xl mx-auto p-6 bg-white shadow-md mt-10">
             <div className="flex flex-col items-start mb-6">
@@ -146,6 +154,13 @@ const Test: React.FC = () => {
                 </div>
                 {/* <div>{formatTime(timeLeft)}</div> */}
             </div>
+            {/* {currentQuestionData?.image && imagePath &&
+                <Image
+                    src={imagePath}
+                    alt={`Question ${currentQuestionData?.id} image`}
+                    width={500}
+                    height={500}
+                />} */}
 
             <div className="flex flex-col mb-6">
                 {currentQuestionData?.answers.map((answer: string, index: number) => (

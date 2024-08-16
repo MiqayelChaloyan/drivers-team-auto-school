@@ -15,7 +15,7 @@ const Features = ({
     <section id='features'>
       <div className="py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-7xl pl-0 mx-auto text-xl md:text-5xl font-bold text-neutral-800 dark:text-neutral-200 font-sans">
+          <div className="max-w-7xl pl-0 mx-auto text-xl md:text-5xl font-bold text-neutral-800 dark:text-neutral-200">
             <h1 className="mb-0 text-2xl font-bold md:text-4xl text-[#ec3237]">
               {Titles.features}
             </h1>

@@ -38,7 +38,7 @@ export const Header = ({ data }: Readonly<Props>) => {
         <div className="relative px-4 py-16 mx-auto overflow-hidden sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-30">
           <div className="flex flex-col items-center justify-between xl:flex-row">
             <div className="w-full max-w-xl mb-12 xl:mb-20 xl:pr-16 xl:w-7/12">
-              <div className="max-w-7xl mb-4 mx-auto text-xl md:text-5xl font-bold text-white dark:text-neutral-200 font-sans">
+              <div className="max-w-7xl mb-4 mx-auto text-xl md:text-5xl font-bold text-white dark:text-neutral-200">
                 <h1 className="mb-0 text-2xl font-bold md:text-4xl text-[#ec3237]">
                   {title}
                 </h1>
@@ -52,24 +52,18 @@ export const Header = ({ data }: Readonly<Props>) => {
                 {description}
               </p>
               <ScrollLink
-                to="pricing"
-                hashSpy={false}
-                offset={-110}
-                isDynamic={false}
-                smooth={false}
+                to="our-students"
+                spy={true}
+                smooth={true}
+                offset={-100}
                 duration={500}
                 aria-label="Scroll down"
-                className="flex items-center justify-center w-10 h-10 mx-auto cursor-pointer text-white duration-300 transform border border-gray-400 rounded-full hover:text-teal-accent-400 hover:border-teal-accent-400 hover:shadow hover:scale-110"
               >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="12"
-                  height="12"
-                  viewBox="0 0 12 12"
-                  fill="currentColor"
-                >
-                  <path d="M10.293,3.293,6,7.586,1.707,3.293A1,1,0,0,0,.293,4.707l5,5a1,1,0,0,0,1.414,0l5-5a1,1,0,1,0-1.414-1.414Z" />
-                </svg>
+                <div className="flex mt-5 justify-center">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="cursor-pointer my-6 mx-auto h-10 w-10 animate-bounce rounded-full bg-blue-50 p-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M16 17l-4 4m0 0l-4-4m4 4V3" />
+                  </svg>
+                </div>
               </ScrollLink>
             </div>
             <div className="w-full max-w-xl xl:px-8 xl:w-5/12">

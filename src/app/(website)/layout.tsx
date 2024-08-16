@@ -10,9 +10,12 @@ import ScrollBackToTop from '@/src/components/components/ScrollBackToTop';
 import Snackbar from '@/src/components/components/Snackbar';
 import CacheProvider from 'react-inlinesvg/provider';
 
+import { Mardoto } from '@/src/constants/font';
+
 import { defaultMetadata } from '@/src/utils/default-metadata';
 
 import '@/src/styles/globals.css';
+import FormModal from '@/src/components/components/FormModal';
 
 export const metadata: Metadata = defaultMetadata;
 
@@ -22,12 +25,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang='am'>
+    <html lang='am' className={Mardoto.className}>
       <body>
         <StoreProvider>
           <CacheProvider>
             <ThemeProvider>
               {/* <Snackbar /> */}
+              <FormModal/>
               <ScrollBackToTop />
               <NavBar />
               {children}

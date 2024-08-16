@@ -10,7 +10,7 @@ interface Props {
 const TrainingMethods = ({ data }: Readonly<Props>) => {
     return (
         <section className="py-1">
-            <div className="max-w-7xl pl-6 mx-auto text-xl md:text-5xl font-bold text-neutral-800 dark:text-neutral-200 font-sans">
+            <div className="max-w-7xl pl-6 mx-auto text-xl md:text-5xl font-bold text-neutral-800 dark:text-neutral-200">
                 <h1 className="mb-0 text-2xl font-bold md:text-4xl text-[#ec3237]">
                     {Titles.trainingMethods}
                 </h1>
@@ -31,7 +31,7 @@ const TrainingMethods = ({ data }: Readonly<Props>) => {
                                 <h2 className="mb-5 text-xl font-medium lg:mt-8">
                                     {method.title}
                                 </h2>
-                                <p className="font-inter max-w-md pr-5 text-base text-gray-500">
+                                <p className="max-w-md pr-5 text-base text-gray-500">
                                     {method.content}
                                 </p>
                             </div>

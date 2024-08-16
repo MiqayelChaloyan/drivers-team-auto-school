@@ -28,7 +28,7 @@ const Reviews = ({ reviews }: Readonly<Props>) => {
             <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-4">
                 <div className="mb-14 flex flex-col justify-center items-center sm:flex-row sm:items-center sm:justify-between max-sm:gap-8">
                     <div className="text-4xl mb-10 text-center font-bold text-gray-900 lg:text-left">
-                        <div className="max-w-7xl pl-0 mx-auto text-xl md:text-5xl font-bold text-neutral-800 dark:text-neutral-200 font-sans">
+                        <div className="max-w-7xl pl-0 mx-auto text-xl md:text-5xl font-bold text-neutral-800 dark:text-neutral-200">
                             <h1 className="mb-0 text-2xl text-[#ec3237] font-bold md:text-4xl">
                                 {Titles.reviews}
                             </h1>

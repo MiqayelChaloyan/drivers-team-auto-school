@@ -1,29 +1,30 @@
-.dd {
-    color: #ec3237;
-    text-transform: uppercase;
-    text-decoration: none;
-    letter-spacing: 0.16em;
-
-    display: inline-block;
-    padding: 15px 20px;
-    position: relative;
-    font-size: 14px
+.link {
+  padding: 15px 0px;
+  position: relative;
 }
 
-.dd:after {
-    background: none repeat scroll 0 0 transparent;
-    bottom: 0;
-    content: "";
-    display: block;
-    height: 2px;
-    left: 50%;
-    position: absolute;
-    background: #ec3237;
-    transition: width 0.3s ease 0s, left 0.3s ease 0s;
-    width: 0;
+.link:after {
+  background: none repeat scroll 0 0 transparent;
+  bottom: 0;
+  content: "";
+  display: block;
+  height: 2px;
+  left: 50%;
+  position: absolute;
+  background: #ec3237;
+  transition: width 0.3s ease 0s, left 0.3s ease 0s;
+  width: 0;
 }
 
-.dd:hover:after {
-    width: 100%;
-    left: 0;
+.link:hover:after {
+  width: 100%;
+  left: 0;
+}
+
+.link:hover {
+  color: #ec3237;
+}
+
+.active {
+  color: #ec3237;
 }

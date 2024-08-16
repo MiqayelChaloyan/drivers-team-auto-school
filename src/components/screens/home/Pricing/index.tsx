@@ -2,6 +2,9 @@
 
 import React, { useState } from 'react';
 
+import { useDispatch } from 'react-redux';
+import * as Action from '@/src/reducer/store/modalReducer'
+
 import { Texts, Buttons } from '@/src/constants';
 import { Palette } from '@/src/themes';
 
@@ -14,6 +17,7 @@ interface Props {
 
 const Pricing = ({ data }: Readonly<Props>) => {
     const [selectedPlan, setSelectedPlan] = useState<PRICE>(data.pricing[0]);
+    const dispatch = useDispatch();
 
     const handleChange: React.ChangeEventHandler<HTMLInputElement> = (e) => {
         const selectedId = e.target.value;
@@ -21,9 +25,13 @@ const Pricing = ({ data }: Readonly<Props>) => {
         setSelectedPlan(plan);
     };
 
+    const handleOpenModal = () => {
+        dispatch(Action.toggleModal())
+    };
+
 
     return (
-        <section>
+        <section id='pricing'>
             <div className="mx-auto w-full max-w-7xl px-5 py-16 md:px-10 md:py-20">
                 <div className="rounded-xl bg-gray-100 px-6 py-12 sm:px-12 sm:py-16 md:py-20">
                     <div className="grid w-full place-items-center">
@@ -85,7 +93,8 @@ const Pricing = ({ data }: Readonly<Props>) => {
                 <button
                     type="submit"
                     title="Submit"
-                    className="block w-full sm:w-auto py-3 px-6 text-center rounded-xl transition bg-[#ec3237] hover:bg-[#f7d046] active:bg-purple-800 focus:bg-indigo-600 mx-auto"
+                    className="block w-full sm:w-auto py-3 px-6 text-center rounded-xl transition bg-[#ec3237] hover:bg-[#f7d046] mx-auto"
+                    onClick={handleOpenModal}
                 >
                     <span className="text-white font-semibold">
                         {Buttons.signUp}

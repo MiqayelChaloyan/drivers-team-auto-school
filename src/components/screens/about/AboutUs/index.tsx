@@ -35,7 +35,7 @@ const About = ({ data }: Readonly<Props>) => {
             <div className="mx-auto max-w-7xl px-5 py-12 md:px-10 md:py-16 lg:py-20">
                 <div className="relative flex max-w-7xl flex-col gap-4 lg:flex-row lg:justify-end">
                     <div className="max-w-xl lg:mr-[520px] lg:max-w-xs">
-                        <div className="max-w-7xl pl-0 mb-10 mx-auto text-xl md:text-5xl font-bold text-neutral-800 dark:text-neutral-200 font-sans">
+                        <div className="max-w-7xl pl-0 mb-10 mx-auto text-xl md:text-5xl font-bold text-neutral-800 dark:text-neutral-200">
                             <h1 className="mb-0 text-[#ec3237] text-2xl font-bold md:text-4xl">
                                 {Titles.aboutUs}
                             </h1>

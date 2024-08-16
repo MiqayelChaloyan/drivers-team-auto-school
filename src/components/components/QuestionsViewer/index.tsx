@@ -13,7 +13,7 @@ const QuestionsViewer = () => {
             <div className="p-4 mt-4">
                 <div className="container mx-auto">
                     <div className="flex flex-col md:grid grid-cols-12 text-gray-800">
-                        <div className="max-w-7xl mb-10 pl-2 mx-auto text-xl md:text-5xl font-bold text-neutral-800 dark:text-neutral-200 font-sans">
+                        <div className="max-w-7xl mb-10 pl-2 mx-auto text-xl md:text-5xl font-bold text-neutral-800 dark:text-neutral-200">
                             <h1 className="mb-0 text-2xl font-bold md:text-4xl text-[#ec3237]">
                                 {Titles.testResult}
                             </h1>
