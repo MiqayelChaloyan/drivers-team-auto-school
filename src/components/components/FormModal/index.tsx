@@ -22,7 +22,9 @@ const FormModal = () => {
     const [state, setState] = useState(initState);
     const { values } = state;
 
-    const [formErrors, setFormErrors] = useState(initValues);
+    const [formErrors, setFormErrors] = useState(
+        { firstName: '', lastName: '', email: '', phone: '' }
+    );
 
     const handleCloseModal = () => {
         dispatch(Action.closeModal());
