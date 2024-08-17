@@ -23,9 +23,9 @@ const Test: React.FC = () => {
     const [selectedOptions, setSelectedOptions] = useState<any[]>([]);
     const currentQuestionData = selectedTest[trace];
 
-    // const num = Number(params.slug[0]) + 1;
-    // const imagePath = currentQuestionData?.image && require(`@/src/driving_theory/group_${num}/${currentQuestionData?.image}`);
-    // console.log(imagePath)
+    console.log(currentQuestionData)
+
+    const imagePath = currentQuestionData?.image && require(`@/src/driving_theory/group_${currentQuestionData?.group}/${currentQuestionData?.image}`);
 
     const startExam = () => {
         if (tests.length !== 0) {
@@ -154,13 +154,13 @@ const Test: React.FC = () => {
                 </div>
                 {/* <div>{formatTime(timeLeft)}</div> */}
             </div>
-            {/* {currentQuestionData?.image && imagePath &&
+            {currentQuestionData?.image && imagePath &&
                 <Image
                     src={imagePath}
                     alt={`Question ${currentQuestionData?.id} image`}
                     width={500}
                     height={500}
-                />} */}
+                />}
 
             <div className="flex flex-col mb-6">
                 {currentQuestionData?.answers.map((answer: string, index: number) => (

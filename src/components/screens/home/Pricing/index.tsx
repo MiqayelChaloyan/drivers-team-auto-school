@@ -92,8 +92,7 @@ const Pricing = ({ data }: Readonly<Props>) => {
                 </div>
                 <button
                     type="submit"
-                    title="Submit"
-                    className="block w-full sm:w-auto py-3 px-6 text-center rounded-xl transition bg-[#ec3237] hover:bg-[#f7d046] mx-auto"
+                    className="block w-full sm:w-auto py-3 px-6 text-center rounded-xl transition bg-[#ec3237] hover:bg-[#ffab91] mx-auto"
                     onClick={handleOpenModal}
                 >
                     <span className="text-white font-semibold">

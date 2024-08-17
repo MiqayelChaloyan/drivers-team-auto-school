@@ -179,9 +179,10 @@ const Footer = () => {
                         <Image
                             src={ImagePaths.logoURL}
                             alt="logo"
+                            className="h-50 w-51 object-cover"
                             priority
-                            width={120}
-                            height={50}
+                            width={70}
+                            height={40}
                         />
                     </div>
                     <div className="text-black flex flex-col md:items-center f-f-l pt-3">
@@ -216,18 +217,15 @@ const Footer = () => {
                             </Link>
                         </div>
                     </div>
-                    <div className="w-9/12  h-0.5 bg-gray-100 rounded-full" />
-                    <div className="grid flex-col items-start justify-between md:flex-row md:items-center">
-
+                    <div className="text-sm mt-2 text-color mb-2 f-f-l p-2">
                         <p className="text-sm text-color f-f-l mt-5 mb-2 text-center">
                             Տեսական քննությունների հարցաշարերը վերցված են Police.am կայքից
                         </p>
-
                         <p className="text-sm text-color f-f-l mb-5 text-center">
-                        ՀԱՅԱՍՏԱՆԻ ՀԱՆՐԱՊԵՏՈՒԹՅԱՆ ՕՐԵՆՔԸ ՃԱՆԱՊԱՐՀԱՅԻՆ ԵՐԹԵՎԵԿՈՒԹՅԱՆ ԱՆՎՏԱՆԳՈՒԹՅԱՆ ԱՊԱՀՈՎՄԱՆ ՄԱՍԻՆ
+                            ՀՀ ՕՐԵՆՔԸ ՃԱՆԱՊԱՐՀԱՅԻՆ ԵՐԹԵՎԵԿՈՒԹՅԱՆ ԱՆՎՏԱՆԳՈՒԹՅԱՆ ԱՊԱՀՈՎՄԱՆ ՄԱՍԻՆ
                         </p>
-
                     </div>
+                    <div className="w-9/12  h-0.5 bg-gray-100 rounded-full" />
                     <div className="text-sm mt-10 text-color mb-10 f-f-l">
                         <p>  © {fullYear} |  {Texts.allReserved} </p>
                     </div>
@@ -238,5 +236,3 @@ const Footer = () => {
 }
 
 export default Footer;
-
-

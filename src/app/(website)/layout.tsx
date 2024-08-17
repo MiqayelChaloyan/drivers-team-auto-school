@@ -16,6 +16,7 @@ import { defaultMetadata } from '@/src/utils/default-metadata';
 
 import '@/src/styles/globals.css';
 import FormModal from '@/src/components/components/FormModal';
+import SuccessModal from '@/src/components/components/SuccessModal';
 
 export const metadata: Metadata = defaultMetadata;
 
@@ -31,6 +32,7 @@ export default function RootLayout({
           <CacheProvider>
             <ThemeProvider>
               {/* <Snackbar /> */}
+              <SuccessModal/>
               <FormModal/>
               <ScrollBackToTop />
               <NavBar />

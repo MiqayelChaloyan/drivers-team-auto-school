@@ -33,7 +33,7 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts"
-, "sanity/lib/imageUrlBuilder.js", "src/config/ArrayMaxItems.js"  ],
+, "sanity/lib/imageUrlBuilder.js", "src/config/ArrayMaxItems.js", "src/utils/generateQuestionnaires.js"  ],
   "exclude": [
     "node_modules"
   ],

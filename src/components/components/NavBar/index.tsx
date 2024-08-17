@@ -21,7 +21,7 @@ const navLinks = [
 ];
 
 const NavBar = () => {
-    const [isMobile, setIsMobile] = useState<boolean>(false);
+    const [isMobile, setIsMobile] = useState<boolean>(typeof window !== 'undefined' && window.innerWidth < 1200);
     const [showModal, setShowModal] = useState<boolean>(false);
     const [linkActive, setLinkActive] = useState<string>('');
     const dispatch = useDispatch();
@@ -140,8 +140,7 @@ const NavBar = () => {
                         </ul>
                         <button
                             type="submit"
-                            title="Submit"
-                            className="block py-3 px-6 text-center rounded-xl transition bg-[#ec3237] hover:bg-[#f7d046]"
+                            className="block py-3 px-6 text-center rounded-xl transition bg-[#ec3237] hover:bg-[#ffab91]"
                             onClick={handleOpenModal}
                         >
                             <span className="text-white font-semibold">{Buttons.signUp}</span>
@@ -225,8 +224,7 @@ const NavBar = () => {
                                 </Link>
                                 <button
                                     type="submit"
-                                    title="Submit"
-                                    className="block w-[80%] sm:w-auto py-3 px-6 text-center rounded-xl transition bg-[#ec3237] hover:bg-[#f7d046] mx-auto"
+                                    className="block w-[80%] sm:w-auto py-3 px-6 text-center rounded-xl transition bg-[#ec3237] hover:bg-[#ffab91] mx-auto"
                                     onClick={handleOpenModal}
                                 >
                                     <span className="text-white font-semibold">
