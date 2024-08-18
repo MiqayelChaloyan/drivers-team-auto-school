@@ -31,7 +31,7 @@ const TrainingMethods = ({ data }: Readonly<Props>) => {
                                 <h2 className="mb-5 text-xl font-medium lg:mt-8">
                                     {method.title}
                                 </h2>
-                                <p className="max-w-md pr-5 text-base text-gray-500">
+                                <p className="max-w-md pr-5 text-base text-[#1c1917]">
                                     {method.content}
                                 </p>
                             </div>

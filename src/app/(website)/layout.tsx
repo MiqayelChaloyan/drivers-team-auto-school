@@ -14,9 +14,11 @@ import { Mardoto } from '@/src/constants/font';
 
 import { defaultMetadata } from '@/src/utils/default-metadata';
 
-import '@/src/styles/globals.css';
 import FormModal from '@/src/components/components/FormModal';
 import SuccessModal from '@/src/components/components/SuccessModal';
+
+import '@/src/styles/globals.css';
+
 
 export const metadata: Metadata = defaultMetadata;
 

@@ -1,5 +1,5 @@
 .link {
-  padding: 15px 0px;
+  padding: 15px 0;
   position: relative;
 }
 
@@ -25,6 +25,4 @@
   color: #ec3237;
 }
 
-.active {
-  color: #ec3237;
-}
+
