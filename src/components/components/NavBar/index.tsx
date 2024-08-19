@@ -19,6 +19,7 @@ import './styles.css';
 
 
 import { IoClose } from "react-icons/io5";
+import PhoneIcon from '@/src/lib/ui/PhoneIcon';
 
 type RefType = HTMLDivElement | null;
 
@@ -158,6 +159,16 @@ const NavBar: React.FC = () => {
                         <IoClose size={30} />
                     </button>
                     <ul className="flex flex-col lg:flex-row items-center space-y-6 lg:space-y-0 lg:space-x-6 xl:space-x-8">
+                        {isPageWide && (
+                            <li className="text-lg lg:text-base xl:text-lg font-medium group">
+                                <Link
+                                    href={`tel:${'+37477122212'}`}
+                                    aria-label={'37477122212'}
+                                >
+                                    <PhoneIcon />
+                                </Link>
+                            </li>
+                        )}
                         {navLinks.map(link =>
                             link.path.startsWith('/') ? (
                                 <li
@@ -193,6 +204,16 @@ const NavBar: React.FC = () => {
                                     </ScrollLink>
                                 </li>
                             )
+                        )}
+                        {!isPageWide && (
+                            <li className="text-lg lg:text-base xl:text-lg font-medium group">
+                                <Link
+                                    href={`tel:${'+37477122212'}`}
+                                    aria-label={'37477122212'}
+                                >
+                                    +37477122212
+                                </Link>
+                            </li>
                         )}
                         {!isPageWide && (
                             <Link
