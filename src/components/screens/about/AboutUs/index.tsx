@@ -26,7 +26,7 @@ const About = ({ data }: Readonly<Props>) => {
                 className="w-full h-full inset-0 bottom-0 left-0 bg-cover bg-bottom bg-no-repeat opacity-120 bg-gray-700 bg-blend-multiply"
                 style={{ backgroundImage: `url(${pathBg?.src})` }}
             >
-                <div className="mx-auto max-w-7xl px-5 py-16 md:px-10 md:py-20">
+                <div className="mx-auto max-w-7xl px-5 py-16 md:px-7 md:py-20">
                     <h1 className="text-white mb-6 max-w-3xl text-4xl font-bold md:mb-10 md:text-6xl lg:mb-12">
                         {description}
                     </h1>

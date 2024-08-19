@@ -185,16 +185,9 @@ const Footer = () => {
                             height={40}
                         />
                     </div>
-                    <div className="text-black flex flex-col md:items-center f-f-l pt-3">
+                    <div className="text-black flex flex-col items-center md:items-center f-f-l pt-3">
                         <h1 className="text-1xl font-black">DRIVERS TEAM AUTO SCHOOL</h1>
-                        <div className="my-6 text-base text-color f-f-l">
-                            <ul className="md:flex items-center">
-                                {navigationLinks.map((link, index) => (
-                                    <li key={index} className=" md:mr-6 cursor-pointer pt-4 lg:py-0">{link.label}</li>
-                                ))}
-                            </ul>
-                        </div>
-                        <div className="md:flex items-center mt-5 mb-5 md:mt-10 text-base text-color f-f-l">
+                        <div className="md:flex items-center mt-5 mb-5 md:mt-10 text-base text-[#1c1917] f-f-l">
                             <Link
                                 href={`tel:${'+37477122212'}`}
                                 aria-label={'37477122212'}
@@ -202,7 +195,7 @@ const Footer = () => {
                                 prefetch={true}
                                 passHref
                             >
-                                <FaPhone size={20} />
+                                <FaPhone size={20} color='#1c1917'/>
                                 <span className='ml-2'>{+37477122212}</span>
                             </Link>
                             <Link
@@ -212,21 +205,21 @@ const Footer = () => {
                                 prefetch={true}
                                 passHref
                             >
-                                <IoMailOutline size={20} />
+                                <IoMailOutline size={20} color='#1c1917'/>
                                 <span className='ml-2'>{'info@lorem.mail'}</span>
                             </Link>
                         </div>
                     </div>
-                    <div className="text-sm mt-2 text-color mb-2 f-f-l p-2">
-                        <p className="text-sm text-color f-f-l mt-5 mb-2 text-center">
+                    <div className="text-sm mt-2 text-[#1c1917] mb-2 f-f-l p-2">
+                        <p className="text-sm f-f-l mt-5 mb-2 text-center">
                             Տեսական քննությունների հարցաշարերը վերցված են Police.am կայքից
                         </p>
-                        <p className="text-sm text-color f-f-l mb-5 text-center">
+                        <p className="text-sm f-f-l mb-5 text-center">
                             ՀՀ ՕՐԵՆՔԸ ՃԱՆԱՊԱՐՀԱՅԻՆ ԵՐԹԵՎԵԿՈՒԹՅԱՆ ԱՆՎՏԱՆԳՈՒԹՅԱՆ ԱՊԱՀՈՎՄԱՆ ՄԱՍԻՆ
                         </p>
                     </div>
                     <div className="w-9/12  h-0.5 bg-gray-100 rounded-full" />
-                    <div className="text-sm mt-10 text-color mb-10 f-f-l">
+                    <div className="text-sm mt-10 text-[#1c1917] mb-10 f-f-l">
                         <p>  © {fullYear} |  {Texts.allReserved} </p>
                     </div>
                 </div>

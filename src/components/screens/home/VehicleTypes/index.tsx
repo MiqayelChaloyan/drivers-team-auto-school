@@ -44,12 +44,12 @@ const VehicleTypes = ({ data }: Readonly<Props>) => {
               </div>
             </div>
             <div>
-              <ul className="space-y-4 pl-0 text-left text-gray-500 dark:text-gray-400 py-10">
+              <ul className="space-y-4 pl-0 text-left text-[#1c1917] py-10">
                 {typesList}
               </ul>
             </div>
           </div>
-          <div className="relative h-64 overflow-hidden rounded-lg sm:h-80 lg:order-last lg:h-full">
+          <div className="relative h-80 overflow-hidden rounded-lg sm:h-80 lg:order-last lg:h-[500px]">
             <Image
               src={path?.src}
               alt={image?.alt}

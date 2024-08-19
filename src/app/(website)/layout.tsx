@@ -17,6 +17,8 @@ import { defaultMetadata } from '@/src/utils/default-metadata';
 import FormModal from '@/src/components/components/FormModal';
 import SuccessModal from '@/src/components/components/SuccessModal';
 
+import 'swiper/css';
+import 'swiper/css/pagination';
 import '@/src/styles/globals.css';
 
 

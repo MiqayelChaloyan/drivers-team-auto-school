@@ -1,0 +1,12 @@
+.form-group {
+    position: relative;
+    margin-bottom: 1rem;
+}
+
+.form-group:focus-within .label {
+    color: #374151;
+}
+
+.label {
+    transition: color 0.3s ease;
+}

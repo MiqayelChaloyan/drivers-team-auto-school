@@ -14,7 +14,7 @@ const OurCompetitiveAdvantages = ({ data }: Readonly<Props>) => {
           <dl className="mt-1 grid grid-cols-1 gap-0.5 overflow-hidden rounded-2xl text-center sm:grid-cols-2 lg:grid-cols-4">
             {data?.map((stat) => (
               <div key={stat._key} className="flex flex-col bg-[#ec3237] p-8">
-                <dt className="text-sm font-semibold leading-6 text-gray-300">{stat.title}</dt>
+                <dt className="text-sm font-semibold leading-6 text-white">{stat.title}</dt>
                 <dd className="order-first text-3xl font-semibold tracking-tight text-white">{stat.quantity}{stat.isPlusSign && '+'}</dd>
               </div>
             ))}

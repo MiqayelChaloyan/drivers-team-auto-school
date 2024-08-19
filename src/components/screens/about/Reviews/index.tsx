@@ -2,9 +2,6 @@
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 
-import 'swiper/css';
-import 'swiper/css/pagination';
-
 import { options } from './options';
 
 import { FaArrowRight } from 'react-icons/fa6';
@@ -24,8 +21,8 @@ interface Props {
 
 const Reviews = ({ reviews }: Readonly<Props>) => {
     return (
-        <section className="relative py-10">
-            <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-4">
+        <section className="relative bg-[#232331] py-10">
+            <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-4">
                 <div className="mb-14 flex flex-col justify-center items-center sm:flex-row sm:items-center sm:justify-between max-sm:gap-8">
                     <div className="text-4xl mb-10 text-center font-bold text-gray-900 lg:text-left">
                         <div className="max-w-7xl pl-0 mx-auto text-xl md:text-5xl font-bold text-neutral-800 dark:text-neutral-200">
@@ -41,14 +38,14 @@ const Reviews = ({ reviews }: Readonly<Props>) => {
                     </div>
                     <div className="flex items-center gap-8">
                         <button id="slider-button-left"
-                            className="swiper-button-prev group flex justify-center items-center border border-solid border-[#ec3237] w-12 h-12 transition-all duration-500 rounded-full hover:bg-[#ec3237]"
+                            className="swiper-button-prev group flex justify-center items-center border border-solid border-white w-12 h-12 transition-all duration-500 rounded-full hover:bg-[#ec3237]"
                         >
-                            <FaArrowLeft color={Palette.red} />
+                            <FaArrowLeft color={Palette.white} />
                         </button>
                         <button id="slider-button-right"
-                            className="swiper-button-next group flex justify-center items-center border border-solid border-[#ec3237] w-12 h-12 transition-all duration-500 rounded-full hover:bg-[#ec3237]"
+                            className="swiper-button-next group flex justify-center items-center border border-solid border-white w-12 h-12 transition-all duration-500 rounded-full hover:bg-[#ec3237]"
                             data-carousel-next>
-                            <FaArrowRight color={Palette.red} />
+                            <FaArrowRight color={Palette.white} />
                         </button>
                     </div>
                 </div>
@@ -56,7 +53,7 @@ const Reviews = ({ reviews }: Readonly<Props>) => {
                     <Swiper {...options}>
                         {reviews[0].reviews?.map((review: REVIEW) => (
                             <SwiperSlide key={review._key}>
-                                <Review review={review}/>
+                                <Review review={review} />
                             </SwiperSlide>
                         ))}
                     </Swiper>

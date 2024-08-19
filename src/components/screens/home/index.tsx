@@ -10,7 +10,7 @@ import OurCompetitiveAdvantages from './OurCompetitiveAdvantages';
 import * as Action from '@/src/reducer/store/testReducer';
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
-
+    
 
 interface Props {
     data?: MAIN_QUERYResult | any

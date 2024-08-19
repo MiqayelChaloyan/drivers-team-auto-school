@@ -8,6 +8,7 @@
 
 .swiper-pagination {
     bottom: 2px !important;
+    margin-bottom: 30px;
 }
 
 .swiper-wrapper {
@@ -17,6 +18,10 @@
 }
 
 .swiper-pagination-bullet-active {
+    background: #ec3237 !important;
+}
+
+.swiper-pagination-bullet {
     background: #ec3237 !important;
 }
 

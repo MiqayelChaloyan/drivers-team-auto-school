@@ -32,7 +32,7 @@ const Feature = ({
                     {headline}
                 </p>
             </dt>
-            <dd className="mt-2 ml-16 text-base text-gray-800">
+            <dd className="mt-2 ml-16 text-base text-[#1c1917]">
                 {content}
             </dd>
         </div>
