@@ -25,22 +25,22 @@ type RefType = HTMLDivElement | null;
 
 const navLinks = [
     { path: Pages.ABOUT_US, title: 'Մեր Մասին' },
-    { path: 'pricing', title: 'Փաթեթներ' },
     { path: 'features', title: 'Մեր Առավելությունները' },
+    { path: 'pricing', title: 'Փաթեթներ' },
     { path: Pages.TESTS, title: 'Թեստեր' },
 ];
 
+
 const NavBar: React.FC = () => {
     const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
-    const [linkActive, setLinkActive] = useState<string>('');
+    const [linkActive, setLinkActive] = useState<string>(usePathname());
     const menuRef = useRef<RefType>(null);
     const overlayRef = useRef<RefType>(null);
 
     const isPageWide = useMediaQuery("(min-width: 1024px)");
-
     const dispatch = useDispatch();
-    const pathname = usePathname();
     const router = useRouter();
+    const pathname = usePathname();
 
     const toggleMenu = () => {
         setIsMenuOpen(prev => !prev);
@@ -66,7 +66,8 @@ const NavBar: React.FC = () => {
         const observer = new MutationObserver((_, obs) => {
             const element = document.getElementById(scrollTo);
             if (element) {
-                const topPosition = element.offsetTop;
+                const offset = -100;
+                const topPosition = element.offsetTop + offset;
                 window.scrollTo({ top: topPosition, behavior: 'smooth' });
                 obs.disconnect();
             }
@@ -76,20 +77,47 @@ const NavBar: React.FC = () => {
     };
 
     const handleActiveLink = (newPath: string) => {
-        handleChangeActiveLink(newPath);
+
+        console.log(newPath)
+        setLinkActive(newPath);
         setIsMenuOpen(false);
+
 
         if (pathname !== '/') {
             router.push('/');
             setTimeout(() => {
                 handleRouteChangeComplete(newPath);
-            }, 100);
-        } else {
-            handleRouteChangeComplete(newPath);
+            }, 150);
         }
     };
 
-    const handleChangeActiveLink = (link: string) => setLinkActive(link);
+    useEffect(() => {
+        const handleScroll = () => {
+            const scrollPosition = window.scrollY + window.innerHeight / 2;
+
+            let activeLinkFound = false;
+
+            navLinks.forEach(link => {
+                const section = document.getElementById(link.path);
+                if (section) {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.offsetHeight;
+
+                    if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                        setLinkActive(link.path);
+                        activeLinkFound = true;
+                    }
+                }
+            });
+
+            if (!activeLinkFound) {
+                setLinkActive('');
+            }
+        };
+
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
 
     const handleOpenModal = () => {
         dispatch(Action.toggleModal());
@@ -127,26 +155,24 @@ const NavBar: React.FC = () => {
                         />
                     </svg>
                 </button>
-                {isPageWide && (
-                    <Link
-                        href="/"
-                        aria-label="home"
-                        className="flex flex-col lg:flex-row items-center justify-center tracking-wide"
-                        onClick={() => setLinkActive('/')}
-                    >
-                        <Image
-                            src={ImagePaths.logoURL}
-                            alt="logo"
-                            className="object-cover"
-                            priority
-                            width={70}
-                            height={70}
-                        />
-                        <p className="text-black-100 text-sm lg:text-base font-bold text-center lg:text-left">
-                            DRIVERS TEAM <br /> AUTO SCHOOL
-                        </p>
-                    </Link>
-                )}
+                <Link
+                    href="/"
+                    aria-label="home"
+                    className="logo flex flex-col lg:flex-row items-center justify-center tracking-wide"
+                    onClick={() => setLinkActive('/')}
+                >
+                    <Image
+                        src={ImagePaths.logoURL}
+                        alt="logo"
+                        className="object-cover"
+                        priority
+                        width={70}
+                        height={70}
+                    />
+                    <p className="text-black-100 text-sm lg:text-base font-bold text-center lg:text-left">
+                        DRIVERS TEAM <br /> AUTO SCHOOL
+                    </p>
+                </Link>
                 <div
                     ref={menuRef}
                     className={`menu-responsive fixed inset-0 bg-white/70 backdrop-blur-xl transition-all z-40 ${isMenuOpen ? 'flex' : 'hidden'
@@ -206,34 +232,34 @@ const NavBar: React.FC = () => {
                             )
                         )}
                         {!isPageWide && (
-                            <li className="text-lg lg:text-base xl:text-lg font-medium group">
+                            <>
+                                <li className="text-lg lg:text-base xl:text-lg font-medium group">
+                                    <Link
+                                        href={`tel:${'+37477122212'}`}
+                                        aria-label={'37477122212'}
+                                    >
+                                        +37477122212
+                                    </Link>
+                                </li>
                                 <Link
-                                    href={`tel:${'+37477122212'}`}
-                                    aria-label={'37477122212'}
+                                    href="/"
+                                    aria-label="home"
+                                    className="flex flex-col lg:flex-row items-center justify-center tracking-wide"
+                                    onClick={() => setLinkActive('/')}
                                 >
-                                    +37477122212
+                                    <Image
+                                        src={ImagePaths.logoURL}
+                                        alt="logo"
+                                        className="object-cover"
+                                        priority
+                                        width={70}
+                                        height={70}
+                                    />
+                                    <p className="text-black-100 text-sm lg:text-1xl font-bold text-center lg:text-left">
+                                        DRIVERS TEAM <br /> AUTO SCHOOL
+                                    </p>
                                 </Link>
-                            </li>
-                        )}
-                        {!isPageWide && (
-                            <Link
-                                href="/"
-                                aria-label="home"
-                                className="flex flex-col lg:flex-row items-center justify-center tracking-wide"
-                                onClick={() => setLinkActive('/')}
-                            >
-                                <Image
-                                    src={ImagePaths.logoURL}
-                                    alt="logo"
-                                    className="object-cover"
-                                    priority
-                                    width={70}
-                                    height={70}
-                                />
-                                <p className="text-black-100 text-sm lg:text-1xl font-bold text-center lg:text-left">
-                                    DRIVERS TEAM <br /> AUTO SCHOOL
-                                </p>
-                            </Link>
+                            </>
                         )}
                     </ul>
                 </div>

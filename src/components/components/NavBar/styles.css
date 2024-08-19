@@ -25,4 +25,8 @@
   color: #ec3237;
 }
 
-
+@media (max-width: 1024px) {
+  .logo {
+    display: none !important;
+  }
+}

@@ -58,7 +58,7 @@ const Pricing = ({ data }: Readonly<Props>) => {
                         </div>
                     </div>
                     <div className="mx-auto grid h-auto w-full gap-4 rounded-md px-0 py-12 lg:grid-cols-2">
-                        <div className="grid grid-cols-1 gap-4 rounded-md border border-[#c4b5fd] bg-[#c4b5fd] px-10 py-14 sm:grid-cols-2">
+                        <div className="grid grid-cols-1 gap-4 rounded-md border border-[#d4d4d4] bg-[#d4d4d4] px-10 py-14 sm:grid-cols-2">
                             {selectedPlan.features?.map((feature, index) => (
                                 <div className="flex items-center gap-2" key={index}>
                                     <IoIosCheckmarkCircle size={20} color={Palette.red} />
