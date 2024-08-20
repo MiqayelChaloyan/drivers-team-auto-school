@@ -9,7 +9,8 @@ const Titles = {
     ourStudents: 'Մեր ուսանողները',
     aboutUs: 'Մեր մասին',
     reviews: 'Կարծիքներ',
-    testResult: 'Թեստի արդյունքները'
+    testResult: 'Թեստի արդյունքները',
+    companyName: 'DRIVERS TEAM\nAUTO SCHOOL'
 };
 
 const Texts = {

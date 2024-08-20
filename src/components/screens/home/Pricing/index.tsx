@@ -35,9 +35,9 @@ const Pricing = ({ data }: Readonly<Props>) => {
             <div className="mx-auto w-full max-w-7xl px-5 py-16 md:px-10 md:py-20">
                 <div className="rounded-xl bg-[#e7e5e4] px-6 py-12 sm:px-12 sm:py-16 md:py-20">
                     <div className="grid w-full place-items-center">
-                        <div className="grid w-full  grid-cols-2 sm:grid-cols-4 gap-2 rounded-xl bg-[#ec3237] py-2 px-3.5">
+                        <div className="grid w-full grid-cols-2 sm:grid-cols-4 gap-2 rounded-xl bg-[#ec3237] py-2 px-3.5">
                             {data.pricing?.map((plan) => (
-                                <div key={plan._key}>
+                                <div key={plan._key} className="relative">
                                     <input
                                         type="radio"
                                         name="option"
@@ -49,7 +49,9 @@ const Pricing = ({ data }: Readonly<Props>) => {
                                     />
                                     <label
                                         htmlFor={`plan-${plan._key}`}
-                                        className="block text-base  cursor-pointer text-white select-none rounded-xl p-2 text-center peer-checked:bg-white peer-checked:font-bold peer-checked:text-[#ec3237] transition-all duration-300 ease-in-out transform peer-checked:scale-105"
+                                        className={`block text-base cursor-pointer text-white select-none rounded-lg p-2 text-center transition-all duration-300 ease-in-out transform 
+                        peer-checked:bg-white peer-checked:text-[#ec3237] 
+                        peer-checked:scale-105 peer-checked:shadow-lg`}
                                     >
                                         {plan.packagesName}
                                     </label>

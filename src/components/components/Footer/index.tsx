@@ -160,6 +160,7 @@ import { Pages } from "@/src/constants/pages";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import SocialLinks from './social';
 
 const navigationLinks = [
     { path: Pages.ABOUT_US, label: 'Մեր Մասին' },
@@ -174,7 +175,7 @@ const Footer = () => {
     return (
         <>
             <div className="bg-linear-pink-invert">
-                <div className="mx-auto container pt-4 lg:pt-4 flex flex-col items-center justify-center">
+                <div className="mx-auto container pt-5 lg:pt-5 flex flex-col items-center justify-center">
                     <div>
                         <Image
                             src={ImagePaths.logoURL}
@@ -195,7 +196,7 @@ const Footer = () => {
                                 prefetch={true}
                                 passHref
                             >
-                                <FaPhone size={20} color='#1c1917'/>
+                                <FaPhone size={20} color='#1c1917' />
                                 <span className='ml-2'>{+37477122212}</span>
                             </Link>
                             <Link
@@ -205,10 +206,11 @@ const Footer = () => {
                                 prefetch={true}
                                 passHref
                             >
-                                <IoMailOutline size={20} color='#1c1917'/>
+                                <IoMailOutline size={20} color='#1c1917' />
                                 <span className='ml-2'>{'info@lorem.mail'}</span>
                             </Link>
                         </div>
+
                     </div>
                     <div className="text-sm mt-2 text-[#1c1917] mb-2 f-f-l p-2">
                         <p className="text-sm f-f-l mt-5 mb-2 text-center">
@@ -218,6 +220,8 @@ const Footer = () => {
                             ՀՀ ՕՐԵՆՔԸ ՃԱՆԱՊԱՐՀԱՅԻՆ ԵՐԹԵՎԵԿՈՒԹՅԱՆ ԱՆՎՏԱՆԳՈՒԹՅԱՆ ԱՊԱՀՈՎՄԱՆ ՄԱՍԻՆ
                         </p>
                     </div>
+                    <SocialLinks />
+
                     <div className="w-9/12  h-0.5 bg-gray-100 rounded-full" />
                     <div className="text-sm mt-10 text-[#1c1917] mb-10 f-f-l">
                         <p>  © {fullYear} |  {Texts.allReserved} </p>

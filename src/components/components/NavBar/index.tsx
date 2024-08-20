@@ -1,24 +1,32 @@
 'use client';
 
-import React, { useState, useEffect, useRef, useCallback } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link as ScrollLink } from 'react-scroll';
+
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter, usePathname } from 'next/navigation';
-import { useMediaQuery } from '@/src/hooks/useMediaQuery';
-import { Buttons, ImagePaths } from '@/src/constants';
-import { Pages } from '@/src/constants/pages';
+
 import { useDispatch } from 'react-redux';
 import * as Action from '@/src/reducer/store/modalReducer';
-import './styles.css';
-import { IoClose } from "react-icons/io5";
+
+import { useMediaQuery } from '@/src/hooks/useMediaQuery';
+
+import { Buttons, ImagePaths, Titles } from '@/src/constants';
+import { Pages } from '@/src/constants/pages';
+
 import PhoneIcon from '@/src/lib/ui/PhoneIcon';
-import { HiOutlineMenuAlt2 } from "react-icons/hi";
+
+import { IoClose } from 'react-icons/io5';
+import { HiOutlineMenuAlt2 } from 'react-icons/hi';
+
+import './styles.css';
+
 
 const navLinks = [
     { path: Pages.ABOUT_US, title: 'Մեր Մասին' },
-    { path: 'features', title: 'Մեր Առավելությունները' },
-    { path: 'pricing', title: 'Փաթեթներ' },
+    { path: Pages.FEATURES, title: 'Մեր Առավելությունները' },
+    { path: Pages.PRICING, title: 'Փաթեթներ' },
     { path: Pages.TESTS, title: 'Թեստեր' },
 ];
 
@@ -30,55 +38,63 @@ const linkProps = {
 };
 
 const NavBar: React.FC = () => {
+    const [scrollTo, setScrollTo] = useState<string | null>(null);
     const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
     const [linkActive, setLinkActive] = useState<string>('/');
+
     const menuRef = useRef<HTMLDivElement | null>(null);
-    const overlayRef = useRef<HTMLDivElement | null>(null);
 
     const isPageWide = useMediaQuery("(min-width: 1024px)");
+
     const dispatch = useDispatch();
     const router = useRouter();
     const pathname = usePathname();
 
+
     const toggleMenu = () => setIsMenuOpen(prev => !prev);
-
-    const handleClickOutside = useCallback((event: MouseEvent) => {
-        if (
-            menuRef.current &&
-            !menuRef.current.contains(event.target as Node) &&
-            overlayRef.current &&
-            !overlayRef.current.contains(event.target as Node)
-        ) {
-            setIsMenuOpen(false);
-        }
-    }, []);
-
-    useEffect(() => {
-        document.addEventListener('mousedown', handleClickOutside);
-        return () => document.removeEventListener('mousedown', handleClickOutside);
-    }, [handleClickOutside]);
-
-    const handleRouteChangeComplete = useCallback((scrollTo: string) => {
-        const element = document.getElementById(scrollTo);
-        if (element) {
-            const offset = -100;
-            const topPosition = element.offsetTop + offset;
-            window.scrollTo({ top: topPosition, behavior: 'smooth' });
-        }
-    }, []);
 
     const handleActiveLink = (newPath: string) => {
         setLinkActive(newPath);
         setIsMenuOpen(false);
 
         if (pathname !== Pages.HOME) {
+            setScrollTo(newPath);
             router.push(Pages.HOME);
-            setTimeout(() => {
-                handleRouteChangeComplete(newPath);
-            }, 150);
+        } else {
+            const element = document.getElementById(newPath);
+            if (element) {
+                const offset = -100;
+                const topPosition = element.getBoundingClientRect().top + window.pageYOffset + offset;
+
+                window.scrollTo({ top: topPosition, behavior: 'smooth' });
+            }
         }
     };
-    
+
+    useEffect(() => {
+        if (pathname !== Pages.HOME) {
+            setLinkActive(pathname);
+        }
+    }, [handleActiveLink])
+
+
+    useEffect(() => {
+        if (scrollTo) {
+            const timer = setTimeout(() => {
+                const element = document.getElementById(scrollTo);
+                if (element) {
+                    const offset = -100;
+                    const topPosition = element.getBoundingClientRect().top + window.pageYOffset + offset;
+
+                    window.scrollTo({ top: topPosition, behavior: 'smooth' });
+                }
+                setScrollTo(null);
+            }, 300);
+
+            return () => clearTimeout(timer);
+        }
+    }, [pathname, scrollTo]);
+
 
     useEffect(() => {
         const handleScroll = () => {
@@ -108,26 +124,20 @@ const NavBar: React.FC = () => {
     }, []);
 
 
-    const scrollToTop = () => {
-        setLinkActive('');
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    };
-
     return (
         <nav className="sticky top-0 bg-white shadow-lg z-50">
-            <div className="flex justify-between items-center py-8 px-5 mx-auto max-w-screen-xl">
+            <div className="flex justify-between items-center py-5 px-5 mx-auto max-w-screen-xl">
                 <button
                     className="sidebar-open block lg:hidden relative z-30 focus:outline-none"
                     onClick={toggleMenu}
                 >
-                    {/* Open and Close Icons */}
                     <HiOutlineMenuAlt2 size={30} />
                 </button>
                 <Link
-                    href="/"
+                    href={Pages.HOME}
                     aria-label="home"
                     className="logo flex flex-col lg:flex-row items-center justify-center tracking-wide"
-                    onClick={scrollToTop}
+                    onClick={toggleMenu}
                 >
                     <Image
                         src={ImagePaths.logoURL}
@@ -137,8 +147,8 @@ const NavBar: React.FC = () => {
                         width={70}
                         height={70}
                     />
-                    <p className="text-black-100 text-sm lg:text-base font-bold text-center lg:text-left">
-                        DRIVERS TEAM <br /> AUTO SCHOOL
+                    <p className="block whitespace-pre-wrap text-black-100 text-sm lg:text-base font-bold text-left lg:text-left">
+                        {Titles.companyName}
                     </p>
                 </Link>
                 <div
@@ -177,7 +187,7 @@ const NavBar: React.FC = () => {
                             ) : (
                                 <li
                                     key={link.path}
-                                    className={`cursor-pointer text-sm lg:text-base xl:text-lg font-medium group ${linkActive === link.path ? 'text-[#ec3237]' : 'text-color'}`}
+                                    className={`cursor-pointer text-lg lg:text-base xl:text-lg font-medium group ${linkActive === link.path ? 'text-[#ec3237]' : 'text-color'}`}
                                 >
                                     <ScrollLink
                                         to={link.path}
@@ -192,16 +202,16 @@ const NavBar: React.FC = () => {
                         )}
                         {!isPageWide && (
                             <>
-                                <li className="text-lg lg:text-base xl:text-lg font-bold group">
+                                <li className="text-lg lg:text-base xl:text-lg font-medium group  text-color hover:text-[#ec3237]">
                                     <Link href={`tel:${'+37477122212'}`} aria-label={'37477122212'}>
                                         +37477122212
                                     </Link>
                                 </li>
                                 <Link
-                                    href="/"
+                                    href={Pages.HOME}
                                     aria-label="home"
                                     className="flex flex-col lg:flex-row items-center justify-center tracking-wide"
-                                    onClick={scrollToTop}
+                                    onClick={toggleMenu}
                                 >
                                     <Image
                                         src={ImagePaths.logoURL}
@@ -211,8 +221,8 @@ const NavBar: React.FC = () => {
                                         width={70}
                                         height={70}
                                     />
-                                    <p className="text-black-100 text-sm lg:text-1xl font-bold text-center lg:text-left">
-                                        DRIVERS TEAM <br /> AUTO SCHOOL
+                                    <p className="block whitespace-pre-wrap text-black-100 text-sm lg:text-1xl font-bold text-center lg:text-left">
+                                        {Titles.companyName}
                                     </p>
                                 </Link>
                             </>
