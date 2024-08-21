@@ -4,11 +4,15 @@ import React, { useEffect, useState } from 'react';
 
 import { useDispatch } from 'react-redux';
 import * as Action from '@/src/reducer/store/testReducer';
+import { useSearchParams } from 'next/navigation';
 
 
 const TimerCountdown = () => {
     const [timeLeft, setTimeLeft] = useState<number>(30 * 60);
     const isLastFiveMinutes = timeLeft <= 5 * 60;
+
+    const params = useSearchParams();
+    const query = params.get('test');
 
     const dispatch = useDispatch();
 
@@ -17,7 +21,10 @@ const TimerCountdown = () => {
             const timerId = setInterval(() => setTimeLeft((prev) => prev - 1), 1000);
             return () => clearInterval(timerId);
         } else {
-            dispatch(Action.handleTestEnded(true));
+            dispatch(Action.handleTestEnded({
+                isClose: true,
+                test: Number(query) - 1
+            }));
             setTimeLeft(0);
         }
     }, [timeLeft]);

@@ -11,7 +11,8 @@ import { DRIVING_THEORY_EXAM as group8 } from '@/src/driving_theory/group_8';
 import { DRIVING_THEORY_EXAM as group9 } from '@/src/driving_theory/group_9';
 import { DRIVING_THEORY_EXAM as group10 } from '@/src/driving_theory/group_10';
 
-import { Answer, Question, TestState } from '@/src/types';
+import { Answer, Question, Step, TestEnd, TestState } from '@/src/types';
+
 
 const tests: Question[][] = [
     group1,
@@ -34,6 +35,20 @@ const initialState: TestState = {
     answers: [],
     isLoading: true,
     isTestEnded: false,
+    isOpenModal: false,
+};
+
+const loadFromLocalStorage = () => {
+    try {
+        const savedState = localStorage.getItem('testState');
+        return savedState ? JSON.parse(savedState) : [];
+    } catch (_) {
+        return [];
+    }
+};
+
+const saveToLocalStorage = (state: Step) => {
+    localStorage.setItem('testState', JSON.stringify(state));
 };
 
 const testReducer = createSlice({
@@ -45,6 +60,13 @@ const testReducer = createSlice({
             state.tests = tests;
         },
         startTest: (state, action: PayloadAction<number>) => {
+            const data = loadFromLocalStorage();
+            const existingTest = data.filter((item: Step) => item.test === action.payload);
+
+            if (existingTest.length) {
+                state.isOpenModal = true;
+            }
+
             const selected = state.tests[action.payload];
             state.selectedTest = selected;
         },
@@ -57,18 +79,78 @@ const testReducer = createSlice({
         handlePrevious: (state) => {
             state.trace -= 1;
         },
-        handleSaveAnswer: (state, action: PayloadAction<{ question: string; selectedAnswer: string }>) => {
-            const { question, selectedAnswer } = action.payload;
+        handleSaveAnswer: (state, action: PayloadAction<{ question: string; step: number; selectedAnswer: string }>) => {
+            const { question, step, selectedAnswer } = action.payload;
             const existingAnswer = state.answers.find((answer: Answer) => answer.question === question);
 
             if (existingAnswer) {
                 existingAnswer.selectedAnswer = selectedAnswer;
             } else {
-                state.answers.push({ question, selectedAnswer });
+                state.answers.push({ question, step, selectedAnswer });
             }
+
         },
-        handleTestEnded: (state, action: PayloadAction<boolean>) => {
-            state.isTestEnded = action.payload;
+        handleTestEnded: (state, action: PayloadAction<TestEnd>) => {
+            const data = loadFromLocalStorage();
+            const updatedData = data.filter((item: Step) => item.test !== action.payload.test);
+
+            if (updatedData.length !== data.length) {
+                saveToLocalStorage(updatedData);
+            }
+
+            state.isTestEnded = action.payload.isClose;
+        },
+        handleSaveTest: (_, action: PayloadAction<Step>) => {
+            const data = loadFromLocalStorage();
+            const existingTestIndex = data.findIndex((item: Step) => item.test === action.payload.test);
+
+            if (existingTestIndex !== -1) {
+                data[existingTestIndex].steps.push({
+                    step: action.payload.step,
+                    selectedAnswer: action.payload.selectedAnswer,
+                });
+            } else {
+                data.push({
+                    test: action.payload.test,
+                    steps: [{
+                        step: action.payload.step,
+                        selectedAnswer: action.payload.selectedAnswer,
+                    }],
+                });
+            }
+
+            saveToLocalStorage(data);
+        },
+        handleStartOver: (state, action: PayloadAction<number>) => {
+            const data = loadFromLocalStorage();
+            const updatedData = data.filter((item: Step) => item.test !== action.payload);
+
+            if (updatedData.length !== data.length) {
+                saveToLocalStorage(updatedData);
+            }
+
+            state.isOpenModal = false;
+        },
+        handleContinue: (state, action: PayloadAction<number>) => {
+            const data = loadFromLocalStorage();
+            const existingTest = data.filter((item: Step) => item.test === action.payload);
+
+            if (existingTest.length) {
+                const result = existingTest[0].steps;
+
+                if (state.selectedTest.length >= result[result.length - 1].step) {
+                    state.trace = result[result.length - 1].step;
+                } else {
+                    state.trace = result[result.length - 1].step + 1;
+                }
+
+                result.map(({ step, selectedAnswer }: Answer) => {
+                    const question = state.selectedTest[step].question
+                    state.answers.push({ question, step, selectedAnswer });
+                });
+
+                state.isOpenModal = false;
+            }
         },
         resetAllAction: () => initialState,
     },
@@ -82,7 +164,39 @@ export const {
     handleAddScore,
     handleSaveAnswer,
     handleTestEnded,
+    handleSaveTest,
+    handleStartOver,
+    handleContinue,
     resetAllAction,
 } = testReducer.actions;
 
 export default testReducer.reducer;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -16,6 +16,7 @@ import { Buttons, Texts } from '@/src/constants';
 import { Answer, RootState } from '@/src/types';
 
 import './styles.css';
+import ContinueTest from '../ContinueTest';
 
 
 const Quiz = () => {
@@ -48,7 +49,7 @@ const Quiz = () => {
             dispatch(Action.startTest(Number(query) - 1));
         }
     }, [query, !selectedTest.length]);
-    
+
 
     useEffect(() => {
         const existingAnswer = answers.find((answer: Answer) => answer.question === currentQuestionData?.question);
@@ -70,7 +71,14 @@ const Quiz = () => {
 
         dispatch(Action.handleSaveAnswer({
             question: currentQuestionData?.question,
+            step: trace,
             selectedAnswer: answer
+        }));
+
+        dispatch(Action.handleSaveTest({
+            test: Number(query) - 1,
+            step: trace,
+            selectedAnswer: answer,
         }));
     };
 
@@ -80,7 +88,10 @@ const Quiz = () => {
             setIsAnswered(false);
             dispatch(Action.handleNext());
         } else {
-            dispatch(Action.handleTestEnded(true));
+            dispatch(Action.handleTestEnded({
+                isClose: true,
+                test: Number(query) - 1
+            }));
         }
     };
 
@@ -95,8 +106,8 @@ const Quiz = () => {
     };
 
     const imagePath = currentQuestionData?.image
-    ? require(`@/src/driving_theory/group_${query}/${currentQuestionData?.image}`)
-    : null;
+        ? require(`@/src/driving_theory/group_${query}/${currentQuestionData?.image}`)
+        : null;
 
 
     return (

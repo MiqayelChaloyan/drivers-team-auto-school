@@ -41,11 +41,12 @@ export interface Question {
 };
 
 export interface TestState {
+    [x: string]: any;
     tests: Question[][];
     selectedTest: Question[];
     trace: number;
     score: number;
-    answers: { question: string; selectedAnswer: string }[];
+    answers: Answer[];
     isLoading: boolean;
     isTestEnded: boolean;
 };
@@ -56,5 +57,17 @@ export interface RootState {
 
 export interface Answer {
     question: string;
+    step: number;
     selectedAnswer: string;
+};
+
+export interface Step {
+    test: number;
+    step: number;
+    selectedAnswer: string;
+};
+
+export interface TestEnd {
+    isClose: boolean;
+    test: number;
 };
