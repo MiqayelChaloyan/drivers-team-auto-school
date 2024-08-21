@@ -31,3 +31,30 @@ export interface SwiperTypes {
         },
     }
 };
+
+export interface Question {
+    id: number;
+    question: string;
+    answers: string[];
+    correct_answer: string;
+    image?: string | null;
+};
+
+export interface TestState {
+    tests: Question[][];
+    selectedTest: Question[];
+    trace: number;
+    score: number;
+    answers: { question: string; selectedAnswer: string }[];
+    isLoading: boolean;
+    isTestEnded: boolean;
+};
+
+export interface RootState {
+    questions: TestState;
+};
+
+export interface Answer {
+    question: string;
+    selectedAnswer: string;
+};

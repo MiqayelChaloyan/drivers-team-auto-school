@@ -3,7 +3,8 @@ const Pages = {
     ABOUT_US: '/about',
     FEATURES: 'features',
     PRICING: 'pricing',
-    TESTS: '/tests'
+    TESTS: '/tests',
+    TEST: '/tests/examen/'
 }
 
 export {
