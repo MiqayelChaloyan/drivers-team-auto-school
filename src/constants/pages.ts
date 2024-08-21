@@ -4,7 +4,7 @@ const Pages = {
     FEATURES: 'features',
     PRICING: 'pricing',
     TESTS: '/tests',
-    TEST: '/tests/examen/'
+    TEST: '/tests/examen'
 }
 
 export {

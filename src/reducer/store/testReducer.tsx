@@ -46,7 +46,7 @@ const testReducer = createSlice({
             state.tests = tests;
         },
         startTest: (state, action: PayloadAction<number>) => {
-            const selected = state.tests[action.payload] || [];
+            const selected = state.tests[action.payload];
             state.selectedTest = selected;
         },
         handleAddScore: (state) => {
@@ -71,13 +71,6 @@ const testReducer = createSlice({
         handleTestEnded: (state, action: PayloadAction<boolean>) => {
             state.isTestEnded = action.payload;
         },
-        loadProgress: (state, action: PayloadAction<Partial<TestState>>) => {
-            return {
-                ...state,
-                ...action.payload,
-                isLoading: false,
-            };
-        },
         resetAllAction: () => initialState,
     },
 });
@@ -90,7 +83,6 @@ export const {
     handleAddScore,
     handleSaveAnswer,
     handleTestEnded,
-    loadProgress,
     resetAllAction,
 } = testReducer.actions;
 

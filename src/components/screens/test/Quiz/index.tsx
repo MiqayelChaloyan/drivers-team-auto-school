@@ -23,8 +23,8 @@ const Quiz = () => {
     const [isAnswered, setIsAnswered] = useState<boolean>(false);
 
     const dispatch = useDispatch();
-    const searchParams = useSearchParams();
-    const query = searchParams.get('test');
+    const params = useSearchParams();
+    const query = params.get('test');
 
     const {
         selectedTest,
