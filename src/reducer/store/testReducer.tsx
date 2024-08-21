@@ -1,6 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-// Import your question data
 import { DRIVING_THEORY_EXAM as group1 } from '@/src/driving_theory/group_1';
 import { DRIVING_THEORY_EXAM as group2 } from '@/src/driving_theory/group_2';
 import { DRIVING_THEORY_EXAM as group3 } from '@/src/driving_theory/group_3';

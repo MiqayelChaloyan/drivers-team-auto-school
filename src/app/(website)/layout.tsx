@@ -1,3 +1,5 @@
+import { Suspense } from 'react';
+
 import type { Metadata } from 'next';
 
 import { Layout as ThemeProvider } from '@/src/context';
@@ -7,7 +9,6 @@ import { StoreProvider } from '@/src/reducer/provider';
 import NavBar from '@/src/components/components/NavBar';
 import Footer from '@/src/components/components/Footer';
 import ScrollBackToTop from '@/src/components/components/ScrollBackToTop';
-import Snackbar from '@/src/components/components/Snackbar';
 import CacheProvider from 'react-inlinesvg/provider';
 
 import { Mardoto } from '@/src/constants/font';
@@ -35,12 +36,13 @@ export default function RootLayout({
         <StoreProvider>
           <CacheProvider>
             <ThemeProvider>
-              {/* <Snackbar /> */}
-              <SuccessModal/>
-              <FormModal/>
+              <SuccessModal />
+              <FormModal />
               <ScrollBackToTop />
               <NavBar />
-              {children}
+              <Suspense>
+                {children}
+              </Suspense>
               <Footer />
             </ThemeProvider>
           </CacheProvider>
