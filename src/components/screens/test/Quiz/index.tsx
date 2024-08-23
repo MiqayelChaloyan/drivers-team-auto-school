@@ -9,7 +9,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import * as Action from '@/src/reducer/store/testReducer';
 
 import TimerCountdown from '@/src/components/components/TimerCountdown';
-import Loader from '@/src/lib/ui/Loader';
 
 import { WiTime2 } from 'react-icons/wi';
 
@@ -28,7 +27,7 @@ const Quiz = () => {
     const testId = params.get('test');
 
     const {
-        selectedTest, trace, isLoading, answers
+        selectedTest, trace, answers
     } = useSelector((state: RootState) => state.questions);
 
 
@@ -107,10 +106,6 @@ const Quiz = () => {
         ? require(`@/src/driving_theory/group_${testId}/${currentQuestionData?.image}`)
         : null;
 
-
-    if (isLoading) {
-        return <Loader />;
-    };
 
     return (
         <div className="test">

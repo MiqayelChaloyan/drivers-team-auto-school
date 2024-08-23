@@ -16,7 +16,7 @@ import { Mardoto } from '@/src/constants/font';
 import { defaultMetadata } from '@/src/utils/default-metadata';
 
 import FormModal from '@/src/components/components/FormModal';
-import SuccessModal from '@/src/components/components/SuccessModal';
+import SuccessModal from '@/src/components/components/Modal';
 
 import 'swiper/css';
 import 'swiper/css/pagination';

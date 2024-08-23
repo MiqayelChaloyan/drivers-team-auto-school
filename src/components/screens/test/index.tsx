@@ -4,19 +4,26 @@ import React from 'react';
 
 import { useRouter, useSearchParams } from 'next/navigation';
 
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from 'react-redux';
 import * as Action from '@/src/reducer/store/testReducer';
 
 import Quiz from './Quiz';
 import NotificationDialogResult from './NotificationDialogResult';
+import Loader from '@/src/lib/ui/Loader';
+import ContinueTest from './ContinueTest';
 
 import { Pages } from '@/src/constants/pages';
-import ContinueTest from './ContinueTest';
+
+import { RootState } from '@/src/types';
 
 
 const Test = () => {
     const dispatch = useDispatch();
-    const router = useRouter()
+    const router = useRouter();
+
+    const {isLoading} = useSelector((state: RootState) => state.questions);
+
+
     const params = useSearchParams();
     const query = params.get('test');
 
@@ -26,7 +33,12 @@ const Test = () => {
             test: Number(query) - 1
         }));
         router.push(Pages.TESTS)
-    }
+    };
+
+
+    if (isLoading) {
+        return <Loader />;
+    };
 
     return (
         <section id='test' className='min-h-[90vh] flex items-center justify-center bg-[#dddfeb]'>
