@@ -43,8 +43,6 @@
     transition: 0.3s linear;
 }
 
-
-
 @media (max-width: 468px) {
     .test {
         min-height: 100vh;

@@ -16,7 +16,6 @@ import { Buttons, Texts } from '@/src/constants';
 import { Answer, RootState } from '@/src/types';
 
 import './styles.css';
-import ContinueTest from '../ContinueTest';
 
 
 const Quiz = () => {
@@ -25,39 +24,26 @@ const Quiz = () => {
 
     const dispatch = useDispatch();
     const params = useSearchParams();
-    const query = params.get('test');
+    const testId = params.get('test');
 
     const {
-        selectedTest,
-        trace,
-        answers,
-        isLoading,
+        selectedTest, trace, isLoading, answers
     } = useSelector((state: RootState) => state.questions);
 
 
     // TODO
     // change example to selectedTest
     const example = selectedTest.slice(0, 6);
-    console.log('render')
     ///////
 
     const currentQuestionData = example?.[trace];
 
     useEffect(() => {
-        if (query && !selectedTest.length) {
+        if (testId && !selectedTest.length) {
             dispatch(Action.startExamAction());
-            dispatch(Action.startTest(Number(query) - 1));
+            dispatch(Action.startTest(Number(testId) - 1));
         }
-    }, [query, !selectedTest.length]);
-
-
-    useEffect(() => {
-        const existingAnswer = answers.find((answer: Answer) => answer.question === currentQuestionData?.question);
-        if (existingAnswer) {
-            setSelectedOption(existingAnswer.selectedAnswer);
-            setIsAnswered(true);
-        }
-    }, [trace, answers, currentQuestionData]);
+    }, [testId, !selectedTest.length]);
 
     const handleAnswerOption = (answer: string) => {
         if (isAnswered) return;
@@ -72,11 +58,11 @@ const Quiz = () => {
         dispatch(Action.handleSaveAnswer({
             question: currentQuestionData?.question,
             step: trace,
-            selectedAnswer: answer
+            selectedAnswer: answer,
         }));
 
         dispatch(Action.handleSaveTest({
-            test: Number(query) - 1,
+            test: Number(testId) - 1,
             step: trace,
             selectedAnswer: answer,
         }));
@@ -87,10 +73,11 @@ const Quiz = () => {
             setSelectedOption(null);
             setIsAnswered(false);
             dispatch(Action.handleNext());
+
         } else {
             dispatch(Action.handleTestEnded({
                 isClose: true,
-                test: Number(query) - 1
+                test: Number(testId) - 1,
             }));
         }
     };
@@ -101,12 +88,20 @@ const Quiz = () => {
         }
     };
 
+    useEffect(() => {
+        const existingAnswer = answers.find((answer: Answer) => answer.question === currentQuestionData?.question);
+        if (existingAnswer) {
+            setSelectedOption(existingAnswer.selectedAnswer);
+            setIsAnswered(true);
+        }
+    }, [trace, answers, currentQuestionData]);
+
     if (isLoading) {
         return <div className="text-black text-center">Loading...</div>;
     };
 
     const imagePath = currentQuestionData?.image
-        ? require(`@/src/driving_theory/group_${query}/${currentQuestionData?.image}`)
+        ? require(`@/src/driving_theory/group_${testId}/${currentQuestionData?.image}`)
         : null;
 
 
@@ -124,7 +119,7 @@ const Quiz = () => {
                             <TimerCountdown />
                         </div>
                     </div>
-                    <div className="text-[#1f2847] text-[20px] font-medium mb-5 max-w-[500px]">
+                    <div className="text-[#1f2847] text-[20px] font-medium mb-5 max-w-full">
                         {currentQuestionData?.question}
                     </div>
                 </div>
@@ -161,14 +156,15 @@ const Quiz = () => {
                     <div className="flex justify-between">
                         <button
                             onClick={handlePrevious}
-                            className="w-32 py-2 bg-[#a8a29e] rounded-lg text-white hover:bg-gray-400"
+                            className="cursor-pointer w-32 py-2 bg-[#a8a29e] rounded-lg text-white hover:bg-gray-400"
                             disabled={trace === 0}
                         >
                             {Buttons.back}
                         </button>
                         <button
                             onClick={handleNext}
-                            className="w-32 py-2 bg-indigo-600 rounded-lg text-white hover:bg-indigo-700"
+                            className={`cursor-pointer w-32 py-2 rounded-lg text-white hover:bg-[#991b1b] ${!isAnswered ? 'bg-[#f87171] cursor-not-allowed' : 'bg-[#ec3237]'
+                                }`}
                             disabled={!isAnswered}
                         >
                             {trace === example.length - 1 ? Buttons.end : Buttons.next}
@@ -181,31 +177,3 @@ const Quiz = () => {
 };
 
 export default Quiz;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
