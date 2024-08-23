@@ -89,12 +89,19 @@ const Quiz = () => {
     };
 
     useEffect(() => {
-        const existingAnswer = answers.find((answer: Answer) => answer.question === currentQuestionData?.question);
+        const existingAnswer = answers.find(
+            (answer: Answer) => answer.question === currentQuestionData?.question
+        );
+    
         if (existingAnswer) {
             setSelectedOption(existingAnswer.selectedAnswer);
             setIsAnswered(true);
+        } else {
+            setSelectedOption(null);
+            setIsAnswered(false);
         }
     }, [trace, answers, currentQuestionData]);
+    
 
     if (isLoading) {
         return <div className="text-black text-center">Loading...</div>;
