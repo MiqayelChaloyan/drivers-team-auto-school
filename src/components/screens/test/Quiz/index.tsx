@@ -9,6 +9,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import * as Action from '@/src/reducer/store/testReducer';
 
 import TimerCountdown from '@/src/components/components/TimerCountdown';
+import Loader from '@/src/lib/ui/Loader';
 
 import { WiTime2 } from 'react-icons/wi';
 
@@ -92,7 +93,7 @@ const Quiz = () => {
         const existingAnswer = answers.find(
             (answer: Answer) => answer.question === currentQuestionData?.question
         );
-    
+
         if (existingAnswer) {
             setSelectedOption(existingAnswer.selectedAnswer);
             setIsAnswered(true);
@@ -101,16 +102,15 @@ const Quiz = () => {
             setIsAnswered(false);
         }
     }, [trace, answers, currentQuestionData]);
-    
-
-    if (isLoading) {
-        return <div className="text-black text-center">Loading...</div>;
-    };
 
     const imagePath = currentQuestionData?.image
         ? require(`@/src/driving_theory/group_${testId}/${currentQuestionData?.image}`)
         : null;
 
+
+    if (isLoading) {
+        return <Loader />;
+    };
 
     return (
         <div className="test">
