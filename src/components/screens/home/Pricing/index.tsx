@@ -26,14 +26,14 @@ const Pricing = ({ data }: Readonly<Props>) => {
     };
 
     const handleOpenModal = () => {
-        dispatch(Action.toggleModal())
+        dispatch(Action.openeModal())
     };
 
 
     return (
         <section id='pricing'>
             <div className="mx-auto w-full max-w-7xl px-5 py-16 md:px-10 md:py-20">
-                <div className="rounded-xl bg-[#e7e5e4] px-6 py-12 sm:px-12 sm:py-16 md:py-20">
+                <div className="rounded-xl bg-[#f5f5f4] px-6 py-12 sm:px-12 sm:py-16 md:py-20">
                     <div className="grid w-full place-items-center">
                         <div className="grid w-full grid-cols-2 sm:grid-cols-4 gap-2 rounded-xl bg-[#ec3237] py-2 px-3.5">
                             {data.pricing?.map((plan) => (
@@ -60,11 +60,11 @@ const Pricing = ({ data }: Readonly<Props>) => {
                         </div>
                     </div>
                     <div className="mx-auto grid h-auto w-full gap-4 rounded-md px-0 py-12 lg:grid-cols-2">
-                        <div className="grid grid-cols-1 gap-4 rounded-md border border-[#d4d4d4] bg-[#d4d4d4] px-10 py-14 sm:grid-cols-2">
+                        <div className="grid grid-cols-1 gap-4 rounded-md border border-[#d4d4d4] bg-[#374151] px-10 py-14 sm:grid-cols-2">
                             {selectedPlan.features?.map((feature, index) => (
                                 <div className="flex items-center gap-2" key={index}>
                                     <IoIosCheckmarkCircle size={20} color={Palette.red} />
-                                    <p className="text-sm sm:text-base text-[#1c1917]">{feature}</p>
+                                    <p className="text-sm sm:text-base text-white">{feature}</p>
                                 </div>
                             ))}
                         </div>

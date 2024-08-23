@@ -21,7 +21,7 @@ interface Props {
 
 const Reviews = ({ reviews }: Readonly<Props>) => {
     return (
-        <section className="relative bg-[#232331] py-10">
+        <section className="relative bg-[#374151] py-10">
             <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-4">
                 <div className="mb-14 flex flex-col justify-center items-center sm:flex-row sm:items-center sm:justify-between max-sm:gap-8">
                     <div className="text-4xl mb-10 text-center font-bold text-gray-900 lg:text-left">

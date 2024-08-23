@@ -121,7 +121,7 @@ const Quiz = () => {
                             <TimerCountdown />
                         </div>
                     </div>
-                    <div className="text-[#1f2847] text-[20px] font-medium mb-5 max-w-full">
+                    <div className="text-[#1f2847] text-[15px] lg:text-[20px] font-medium mb-5 max-w-full">
                         {currentQuestionData?.question}
                     </div>
                 </div>

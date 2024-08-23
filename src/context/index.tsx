@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { ThemeProvider } from '@material-tailwind/react';
+import { ThemeProvider, Dialog } from '@material-tailwind/react';
 
 type LayoutProps = {
   children: React.ReactNode | any
@@ -10,5 +10,7 @@ type LayoutProps = {
 export function Layout({ children }: Readonly<LayoutProps>) {
   return (<ThemeProvider>{children}</ThemeProvider>);
 };
+
+export { Dialog };
 
 

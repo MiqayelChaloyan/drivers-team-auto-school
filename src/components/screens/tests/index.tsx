@@ -38,7 +38,7 @@ const Tests = () => {
     };
 
     return (
-        <section className="bg-[#dddfeb] py-12 text-gray-100 sm:py-12 lg:py-16">
+        <section className="bg-[#374151] py-12 text-gray-100 sm:py-12 lg:py-16">
             <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
                 <div className="max-w-7xl pl-0 mx-auto text-xl md:text-5xl font-bold text-neutral-800 dark:text-neutral-200">
                     <h1 className="text-center mb-0 text-2xl font-bold md:text-4xl text-[#ec3237]">

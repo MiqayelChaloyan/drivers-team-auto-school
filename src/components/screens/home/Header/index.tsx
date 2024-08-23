@@ -60,7 +60,7 @@ export const Header = ({ data }: Readonly<Props>) => {
                 aria-label="Scroll down"
               >
                 <div className="flex mt-5 justify-center">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="cursor-pointer my-6 mx-auto h-10 w-10 animate-bounce rounded-full bg-blue-50 p-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="cursor-pointer my-6 mx-auto h-10 w-10 animate-bounce rounded-full bg-white p-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M16 17l-4 4m0 0l-4-4m4 4V3" />
                   </svg>
                 </div>

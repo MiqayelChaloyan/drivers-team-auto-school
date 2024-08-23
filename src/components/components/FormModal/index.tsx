@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 
-import { Dialog } from '@material-tailwind/react';
+import { Dialog } from '@/src/context/index';
 
 import { useSelector, useDispatch } from 'react-redux';
 import * as Action from '@/src/reducer/store/modalReducer';
@@ -108,13 +108,19 @@ const FormModal = () => {
         }
     };
 
+
     return (
         <Dialog
+            size="xl"
             open={isOpen}
             handler={() => null}
-            className="container bg-transparent shadow-none border-none"
+            className="bg-transparent shadow-none border-none"
+            animate={{
+                mount: { scale: 1, y: 0 },
+                unmount: { scale: 0.9, y: -100 },
+            }}
         >
-            <div className={`bg-white mx-auto w-full max-w-[30rem] p-5 rounded-3xl ${Mardoto.className}`}>
+            <div className={`container bg-white mx-auto w-full max-w-[30rem] p-5 rounded-3xl ${Mardoto.className}`}>
                 <div className="flex flex-col gap-4 relative">
                     <button
                         type="button"
@@ -186,7 +192,7 @@ const FormModal = () => {
                                         className={`w-full pl-5 pr-3 py-3 text-gray-800 rounded-lg border-2 ${formErrors.email ? 'border-red-500 outline-red-500' : 'border-[#f1f5f9] outline-[#374151]'}`}
                                         style={{ color: '#333' }} />
                                     <span className="absolute inset-y-0 end-0 grid place-content-center px-4">
-                                        <MdAlternateEmail size={15} color={`${formErrors.email ? '#ec3237' :'#374151'}`} />
+                                        <MdAlternateEmail size={15} color={`${formErrors.email ? '#ec3237' : '#374151'}`} />
                                     </span>
                                 </div>
                                 {formErrors.email && <span className="text-red-500 text-xs">{formErrors.email}</span>}
@@ -210,7 +216,7 @@ const FormModal = () => {
                                         placeholder="| XX-XX-XX-XX"
                                     />
                                     <span className="absolute inset-y-0 end-0 grid place-content-center px-4">
-                                        <FaPhoneAlt size={15} color={`${formErrors.phone ? '#ec3237' :'#374151'}`} />
+                                        <FaPhoneAlt size={15} color={`${formErrors.phone ? '#ec3237' : '#374151'}`} />
                                     </span>
                                 </div>
                                 {formErrors.phone && <span className="text-red-500 text-xs">{formErrors.phone}</span>}

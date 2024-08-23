@@ -232,7 +232,7 @@ const NavBar: React.FC = () => {
                 <button
                     type="submit"
                     className="block py-3 px-6 text-center rounded-xl transition bg-[#ec3237] hover:bg-[#991b1b] md:mr-10 sm:mx-4 lg:mx-8 text-sm sm:text-base md:text-base lg:text-md font-semibold"
-                    onClick={() => dispatch(Action.toggleModal())}
+                    onClick={() => dispatch(Action.openeModal())}
                 >
                     <span className="text-white">
                         {Buttons.signUp}

@@ -8,15 +8,16 @@ import { StoreProvider } from '@/src/reducer/provider';
 
 import NavBar from '@/src/components/components/NavBar';
 import Footer from '@/src/components/components/Footer';
+import FormModal from '@/src/components/components/FormModal';
+import Modal from '@/src/components/components/Modal';
 import ScrollBackToTop from '@/src/components/components/ScrollBackToTop';
+
 import CacheProvider from 'react-inlinesvg/provider';
 
 import { Mardoto } from '@/src/constants/font';
 
 import { defaultMetadata } from '@/src/utils/default-metadata';
 
-import FormModal from '@/src/components/components/FormModal';
-import SuccessModal from '@/src/components/components/Modal';
 
 import 'swiper/css';
 import 'swiper/css/pagination';
@@ -36,7 +37,7 @@ export default function RootLayout({
         <StoreProvider>
           <CacheProvider>
             <ThemeProvider>
-              <SuccessModal />
+              <Modal />
               <FormModal />
               <ScrollBackToTop />
               <NavBar />
