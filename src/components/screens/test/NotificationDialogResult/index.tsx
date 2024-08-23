@@ -17,7 +17,9 @@ interface NotificationDialogResultProps {
   onClose: () => void;
 };
 
-const NotificationDialogResult = ({ onClose }: Readonly<NotificationDialogResultProps>) => {
+const NotificationDialogResult = ({
+  onClose
+}: Readonly<NotificationDialogResultProps>) => {
   const { score, isTestEnded } = useSelector((state: RootState) => state.questions);
 
   const result = score >= 18;

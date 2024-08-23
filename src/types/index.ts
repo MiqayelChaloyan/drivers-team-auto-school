@@ -65,9 +65,11 @@ export interface Step {
     test: number;
     step: number;
     selectedAnswer: string;
+    timeLeft?: number;
 };
 
 export interface TestEnd {
     isClose: boolean;
     test: number;
 };
+

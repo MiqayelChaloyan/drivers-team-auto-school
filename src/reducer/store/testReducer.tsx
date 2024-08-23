@@ -38,7 +38,7 @@ const initialState: TestState = {
     isOpenModal: false,
 };
 
-const loadFromLocalStorage = () => {
+export const loadFromLocalStorage = () => {
     try {
         const savedState = localStorage.getItem('testState');
         return savedState ? JSON.parse(savedState) : [];
@@ -47,7 +47,7 @@ const loadFromLocalStorage = () => {
     }
 };
 
-const saveToLocalStorage = (state: Step) => {
+export const saveToLocalStorage = (state: Step) => {
     localStorage.setItem('testState', JSON.stringify(state));
 };
 
@@ -171,32 +171,3 @@ export const {
 } = testReducer.actions;
 
 export default testReducer.reducer;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

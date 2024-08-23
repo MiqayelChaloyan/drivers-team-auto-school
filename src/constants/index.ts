@@ -23,7 +23,8 @@ const Texts = {
     test: 'Թեստ',
     congratulations: 'Գերազանց է, շնորհավորում ենք',
     tryAgain: 'Կրկին Փորձեք',
-    resultInformation: '* Թեստի արդյունքը դրական է նվազագույնը 18 ճիշտ պատասխանի դեպքում։'
+    resultInformation: '* Թեստի արդյունքը դրական է նվազագույնը 18 ճիշտ պատասխանի դեպքում։',
+    continue: ' Ցանկանու՞մ եք շարունակել այնտեղ, որտեղ թողել եք:'
 };
 
 const Buttons = {
@@ -31,8 +32,9 @@ const Buttons = {
     goBack: 'Վերադառնալ',
     end: 'Վերջ',
     next: 'Հաջորդ',
-    back: 'Նախորդ'
-
+    back: 'Նախորդ',
+    again: 'Սկսել նորից',
+    continueTest: 'Շարունակել'
 };
 
 export {
@@ -40,4 +42,4 @@ export {
     Titles,
     Texts,
     Buttons,
-}
+};
