@@ -5,13 +5,9 @@
 
 ## Installation
 
-   1. Clone the repository:
-        git clone https://github.com/yourusername/auto-drive-school.git
-        cd auto-drive-school
-   2. Install dependencies:
-        npm install
-   3. Run the application:
-        npm run dev
+   1. **Clone the repository:** git clone https://github.com/yourusername/auto-drive-school.git
+   2. **Install dependencies:** npm install
+   3. **Run the application:** npm run dev
 
 
 ### Technologies Used
