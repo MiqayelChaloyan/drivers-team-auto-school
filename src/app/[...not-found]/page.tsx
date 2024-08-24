@@ -1,8 +1,11 @@
 'use client';
 
-import { ImagePaths } from '@/src/constants';
-import './styles.css';
 import Image from 'next/image';
+
+import { ImagePaths } from '@/src/constants';
+
+import './styles.css';
+
 
 export default function NotFound() {
     return (

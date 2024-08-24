@@ -1,4 +1,4 @@
-import { ArrayOfPrimitivesFunctions } from 'sanity'
+import { ArrayOfPrimitivesFunctions } from 'sanity';
 
 function ArrayFunctions(props) {
   const valRules = props?.schemaType?.validation?.[0]?._rules || []
@@ -16,7 +16,6 @@ export const getTotalTextLength = (textData) => {
   }, 0);
 };
 
-// Utility function to truncate text
 export const flattenText = (textData) => {
   return textData?.reduce((flatText, block) => {
     return flatText + block.children.reduce((blockText, child) => {
@@ -66,4 +65,4 @@ export const truncateText = (textData, limit) => {
 
 export default function ArrayMaxItems(props) {
   return props.renderDefault({ ...props, arrayFunctions: ArrayFunctions })
-}
+};

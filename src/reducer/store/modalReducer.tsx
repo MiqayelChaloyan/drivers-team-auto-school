@@ -1,10 +1,5 @@
+import { StateModal } from '@/src/types';
 import { createSlice } from'@reduxjs/toolkit';
-
-export interface StateModal {
-	isOpen: boolean;
-	status: 'success' | 'error' | 'idle';
-	isStatus: boolean;
-}
 
 const initialState: StateModal = {
 	isOpen: false,

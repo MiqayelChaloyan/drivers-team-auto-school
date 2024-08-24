@@ -40,6 +40,13 @@ export interface Question {
     image?: string | null;
 };
 
+export interface Form {
+    firstName: string;
+    lastName: string;
+    email: string;
+    phone: string;
+};
+
 export interface TestState {
     [x: string]: any;
     tests: Question[][];
@@ -49,6 +56,13 @@ export interface TestState {
     answers: Answer[];
     isLoading: boolean;
     isTestEnded: boolean;
+};
+
+export interface StateModal {
+    [x: string]: any;
+    isOpen: boolean;
+    status: 'success' | 'error' | 'idle';
+    isStatus: boolean;
 };
 
 export interface RootState {

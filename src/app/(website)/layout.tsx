@@ -2,6 +2,8 @@ import { Suspense } from 'react';
 
 import type { Metadata } from 'next';
 
+import { notFound } from 'next/navigation';
+
 import { Layout as ThemeProvider } from '@/src/context';
 
 import { StoreProvider } from '@/src/reducer/provider';
@@ -35,6 +37,8 @@ export default async function RootLayout({
   const contact = await getContact();
   const redirects = await getRedirectPath();
   const texts = await getFooterTexts();
+
+  if (!contact || !redirects || !texts) return notFound();
 
   return (
     <html lang='am' className={Mardoto.className}>

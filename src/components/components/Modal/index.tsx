@@ -12,10 +12,11 @@ import { BiError } from 'react-icons/bi';
 
 import { Mardoto } from '@/src/constants/font';
 import { Buttons, Texts, Titles } from '@/src/constants';
+import { StateModal } from '@/src/types';
 
 
 const Modal = () => {
-    const { status, isStatus } = useSelector((state: any) => state.modal);
+    const { status, isStatus } = useSelector((state: StateModal) => state.modal);
     const dispatch = useDispatch();
 
     const message = status === 'success' ? Texts.success : Texts.error;

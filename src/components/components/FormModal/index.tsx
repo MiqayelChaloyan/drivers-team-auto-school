@@ -16,6 +16,8 @@ import { Buttons, Labels, Texts, Titles } from '@/src/constants';
 
 import sendContactForm from '../../../api/contact';
 
+import { Form, StateModal } from '@/src/types';
+
 import './styles.css';
 
 
@@ -24,13 +26,13 @@ const initValues = { firstName: '', lastName: '', email: '', phone: '' };
 const initState = { values: initValues, isLoading: false };
 
 const FormModal = () => {
-    const isOpen = useSelector((state: any) => state.modal?.isOpen);
+    const { isOpen } = useSelector((state: StateModal) => state?.modal);
     const dispatch = useDispatch();
 
     const [state, setState] = useState(initState);
     const { values } = state;
 
-    const [formErrors, setFormErrors] = useState(initValues);
+    const [formErrors, setFormErrors] = useState<Form>(initValues);
 
     const handleCloseModal = () => {
         dispatch(Action.closeModal());
