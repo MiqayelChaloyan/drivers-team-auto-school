@@ -235,7 +235,7 @@ const NavBar: React.FC = () => {
                     onClick={() => dispatch(Action.openeModal())}
                 >
                     <span className="text-white">
-                        {Buttons.signUp}
+                        {Buttons.register}
                     </span>
                 </button>
             </div>

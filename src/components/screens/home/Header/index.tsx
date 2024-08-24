@@ -22,7 +22,7 @@ export const Header = ({ data }: Readonly<Props>) => {
   return (
     <div className="relative">
       <div
-        className="absolute w-full h-full inset-0 top-0 left-0 lg:bg-contain bg-cover bg-center bg-no-repeat opacity-120 bg-scroll lg:bg-fixed bg-gray-700 bg-blend-multiply"
+        className="absolute w-full h-full inset-0 top-0 left-0 bg-cover bg-center bg-no-repeat opacity-120 bg-scroll bg-gray-700 bg-blend-multiply"
         style={{ backgroundImage: `url(${pathBgImage?.src})` }}
       />
       <div className="relative bg-opacity-75 bg-deep-purple-accent-700">

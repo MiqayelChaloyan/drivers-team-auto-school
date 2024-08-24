@@ -1,0 +1,27 @@
+.pulse {
+	background-color: #86efac;
+	border-radius: 50%;
+	animation: pulse-effect 2s infinite;
+	height: 50px;
+	width: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@keyframes pulse-effect {
+	0% {
+		transform: scale(0.9);
+		box-shadow: 0 0 0 0 #86efac;
+	}
+
+	70% {
+		transform: scale(1);
+		box-shadow: 0 0 0 10px rgba(255, 82, 82, 0);
+	}
+
+	100% {
+		transform: scale(0.9);
+		box-shadow: 0 0 0 0 rgba(255, 82, 82, 0);
+	}
+}

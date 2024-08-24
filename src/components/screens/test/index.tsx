@@ -21,7 +21,7 @@ const Test = () => {
     const dispatch = useDispatch();
     const router = useRouter();
 
-    const {isLoading} = useSelector((state: RootState) => state.questions);
+    const { isLoading } = useSelector((state: RootState) => state.questions);
 
 
     const params = useSearchParams();

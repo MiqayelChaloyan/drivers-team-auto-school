@@ -1,15 +1,12 @@
-import React, { useState } from 'react';
 import { MdOutlinePhone } from "react-icons/md";
 
-import './style.css'
+import './styles.css'
 
-const PhoneIcon = () => {
+const PhoneIcon = () => (
+    <div className="pulse">
+        <MdOutlinePhone size={30} color="white" />
+    </div>
+);
 
-    return (
-        <div className="content-center">
-            <div className="pulse"> <MdOutlinePhone size={15} color='white' /> </div>
-        </div>
-    );
-};
 
 export default PhoneIcon;

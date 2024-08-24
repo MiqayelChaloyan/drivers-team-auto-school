@@ -34,6 +34,7 @@ const Texts = {
 
 const Buttons = {
     signUp: 'Գրանցվեք',
+    register: 'Գրանցվել',
     goBack: 'Վերադառնալ',
     end: 'Վերջ',
     next: 'Հաջորդ',

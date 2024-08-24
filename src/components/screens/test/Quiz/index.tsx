@@ -30,13 +30,7 @@ const Quiz = () => {
         selectedTest, trace, answers
     } = useSelector((state: RootState) => state.questions);
 
-
-    // TODO
-    // change example to selectedTest
-    const example = selectedTest.slice(0, 6);
-    ///////
-
-    const currentQuestionData = example?.[trace];
+    const currentQuestionData = selectedTest?.[trace];
 
     useEffect(() => {
         if (testId && !selectedTest.length) {
@@ -69,7 +63,7 @@ const Quiz = () => {
     };
 
     const handleNext = () => {
-        if (trace < example.length - 1) {
+        if (trace < selectedTest.length - 1) {
             setSelectedOption(null);
             setIsAnswered(false);
             dispatch(Action.handleNext());
@@ -103,7 +97,7 @@ const Quiz = () => {
     }, [trace, answers, currentQuestionData]);
 
     const imagePath = currentQuestionData?.image
-        ? require(`@/src/driving_theory/group_${testId}/${currentQuestionData?.image}`)
+        ? require(`@/src/tests/test_${testId}/${currentQuestionData?.image}`)
         : null;
 
 
@@ -114,7 +108,7 @@ const Quiz = () => {
                     <div className="flex justify-between items-center">
                         <div className="number text-[#a2aace] text-[25px] font-medium">
                             {Texts.question} <span className="current">{trace + 1}</span>
-                            <span className="total text-[#576081] text-[18px]">/{example.length}</span>
+                            <span className="total text-[#576081] text-[18px]">/{selectedTest.length}</span>
                         </div>
                         <div className="flex justify-center items-center">
                             <WiTime2 size={20} color="#1f2847" />
@@ -169,7 +163,7 @@ const Quiz = () => {
                                 }`}
                             disabled={!isAnswered}
                         >
-                            {trace === example.length - 1 ? Buttons.end : Buttons.next}
+                            {trace === selectedTest.length - 1 ? Buttons.end : Buttons.next}
                         </button>
                     </div>
                 </div>
