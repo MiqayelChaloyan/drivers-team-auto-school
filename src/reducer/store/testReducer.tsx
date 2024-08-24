@@ -113,16 +113,28 @@ const testReducer = createSlice({
         handlePrevious: (state) => {
             state.trace -= 1;
         },
-        handleSaveAnswer: (state, action: PayloadAction<{ question: string; step: number; selectedAnswer: string }>) => {
-            const { question, step, selectedAnswer } = action.payload;
-            const existingAnswer = state.answers.find((answer: Answer) => answer.question === question);
+        handleSaveAnswer: (_, action: PayloadAction<Step>) => {
+            const data = loadFromLocalStorage();
+            const existingTestIndex = data.findIndex((item: Step) => item.test === action.payload.test);
 
-            if (existingAnswer) {
-                existingAnswer.selectedAnswer = selectedAnswer;
+            const { step, selectedAnswer, test } = action.payload;
+
+            if (existingTestIndex !== -1) {
+                data[existingTestIndex].steps.push({
+                    step,
+                    selectedAnswer,
+                });
             } else {
-                state.answers.push({ question, step, selectedAnswer });
+                data.push({
+                    test: test,
+                    steps: [{
+                        step,
+                        selectedAnswer,
+                    }],
+                });
             }
 
+            saveToLocalStorage(data);
         },
         handleTestEnded: (state, action: PayloadAction<TestEnd>) => {
             const data = loadFromLocalStorage();
@@ -133,27 +145,6 @@ const testReducer = createSlice({
             }
 
             state.isTestEnded = action.payload.isClose;
-        },
-        handleSaveTest: (_, action: PayloadAction<Step>) => {
-            const data = loadFromLocalStorage();
-            const existingTestIndex = data.findIndex((item: Step) => item.test === action.payload.test);
-
-            if (existingTestIndex !== -1) {
-                data[existingTestIndex].steps.push({
-                    step: action.payload.step,
-                    selectedAnswer: action.payload.selectedAnswer,
-                });
-            } else {
-                data.push({
-                    test: action.payload.test,
-                    steps: [{
-                        step: action.payload.step,
-                        selectedAnswer: action.payload.selectedAnswer,
-                    }],
-                });
-            }
-
-            saveToLocalStorage(data);
         },
         handleStartOver: (state, action: PayloadAction<number>) => {
             const data = loadFromLocalStorage();
@@ -172,7 +163,7 @@ const testReducer = createSlice({
             if (existingTest.length) {
                 const result = existingTest[0].steps;
 
-                if (state.selectedTest.length >= result[result.length - 1].step) {
+                if (19 === result[result.length - 1].step) {
                     state.trace = result[result.length - 1].step;
                 } else {
                     state.trace = result[result.length - 1].step + 1;
@@ -198,7 +189,6 @@ export const {
     handleAddScore,
     handleSaveAnswer,
     handleTestEnded,
-    handleSaveTest,
     handleStartOver,
     handleContinue,
     resetAllAction,

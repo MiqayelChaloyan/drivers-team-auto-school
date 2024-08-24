@@ -13,7 +13,7 @@ import Loader from '@/src/lib/ui/Loader';
 import { WiTime2 } from 'react-icons/wi';
 
 import { Buttons, Texts } from '@/src/constants';
-import { Answer, RootState } from '@/src/types';
+import { RootState, Step } from '@/src/types';
 
 import './styles.css';
 
@@ -26,8 +26,10 @@ const Quiz = () => {
     const params = useSearchParams();
     const testId = params.get('test');
 
+    const data = Action.loadFromLocalStorage();
+
     const {
-        selectedTest, trace, answers, isLoading
+        selectedTest, trace, isLoading
     } = useSelector((state: RootState) => state.questions);
 
     const currentQuestionData = selectedTest?.[trace];
@@ -37,7 +39,7 @@ const Quiz = () => {
             dispatch(Action.startExamAction());
             dispatch(Action.startTest(Number(testId) - 1));
         }
-    }, [testId, !selectedTest.length]);
+    }, [!selectedTest.length]);
 
     const handleAnswerOption = (answer: string) => {
         if (isAnswered) return;
@@ -50,15 +52,9 @@ const Quiz = () => {
         }
 
         dispatch(Action.handleSaveAnswer({
-            question: currentQuestionData?.question,
             step: trace,
             selectedAnswer: answer,
-        }));
-
-        dispatch(Action.handleSaveTest({
             test: Number(testId) - 1,
-            step: trace,
-            selectedAnswer: answer,
         }));
     };
 
@@ -67,7 +63,6 @@ const Quiz = () => {
             setSelectedOption(null);
             setIsAnswered(false);
             dispatch(Action.handleNext());
-
         } else {
             dispatch(Action.handleTestEnded({
                 isClose: true,
@@ -83,26 +78,26 @@ const Quiz = () => {
     };
 
     useEffect(() => {
-        const existingAnswer = answers.find(
-            (answer: Answer) => answer.question === currentQuestionData?.question
-        );
+        const answer = data?.find((p: Step) => p.test + 1 === Number(testId));
+        const selectedAnswer = answer?.steps.find((a: Step) => a.step === trace)?.selectedAnswer;
 
-        if (existingAnswer) {
-            setSelectedOption(existingAnswer.selectedAnswer);
+        if (selectedAnswer === currentQuestionData?.correct_answer) {
+            setSelectedOption(selectedAnswer);
             setIsAnswered(true);
         } else {
-            setSelectedOption(null);
-            setIsAnswered(false);
+            setSelectedOption(selectedAnswer || null);
+            setIsAnswered(!!selectedAnswer);
         }
-    }, [trace, answers, currentQuestionData]);
+    }, [trace, currentQuestionData, testId, data.length]);
+
 
     const imagePath = currentQuestionData?.image
         ? require(`@/src/tests/test_${testId}/${currentQuestionData?.image}`)
         : null;
 
 
-    if(isLoading) {
-        return <Loader />
+    if (isLoading) {
+        return <Loader color='white' />
     };
 
     return (

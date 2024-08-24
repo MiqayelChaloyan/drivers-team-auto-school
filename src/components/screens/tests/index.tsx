@@ -34,7 +34,7 @@ const Tests = () => {
 
 
     if (isLoading) {
-        return <Loader />;
+        return <Loader color="#9a9aa8"/>;
     };
 
     return (

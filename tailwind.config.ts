@@ -60,7 +60,7 @@ const config: Config = withMT({
         grey: 'rgba(0, 0, 0, 0.51)',
         darkOrange: '#F25C05',
         lightOrange: '#F2D3AC',
-        lightGray: 'rgb(224 224 224 / var(--tw-border-opacity))'
+        lightGray: 'rgb(224 224 224 / var(--tw-border-opacity))',
       },
       extend: {
         backgroundImage: {
