@@ -228,7 +228,7 @@ const FormModal = () => {
                             type="button"
                             disabled={state.isLoading}
                             onClick={handleSubmit}
-                            className="block w-full max-w-xs mx-auto bg-[#404040] hover:bg-[#ec3237] focus:bg-[#ec3237] text-white rounded-lg px-3 py-3 font-semibold"
+                            className="block w-full max-w-xs mx-auto bg-[#9a9aa8] hover:bg-[#ec3237] focus:bg-[#ec3237] text-white rounded-lg px-3 py-3 font-semibold"
                         >
                             {state.isLoading ? Buttons.sending : Buttons.send}
                         </button>
