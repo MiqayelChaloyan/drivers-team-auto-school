@@ -50,7 +50,7 @@ const Tests = () => {
                         <Link
                             key={index}
                             href={{ pathname: Pages.TEST, query: { test: index + 1 } }}
-                            className="rounded-md border border-solid border-gray-300 bg-[#374151] p-6 text-white"
+                            className="rounded-md border border-solid border-gray-300 bg-[#404040] p-6 text-white"
                             aria-label={Pages.TEST}
                             onClick={() => _startTest(index)}
                         >

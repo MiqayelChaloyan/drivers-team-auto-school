@@ -41,7 +41,7 @@ const Test = () => {
     };
 
     return (
-        <section id='test' className='min-h-[90vh] flex items-center justify-center bg-[#374151]'>
+        <section id='test' className='min-h-[90vh] flex items-center justify-center bg-[#404040]'>
             <Quiz />
             <ContinueTest />
             <NotificationDialogResult onClose={_onClose} />

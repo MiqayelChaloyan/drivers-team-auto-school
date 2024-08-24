@@ -121,8 +121,8 @@ const Quiz = () => {
                 </div>
                 {imagePath && (
                     <div className="w-full flex justify-center mb-6">
-                        <Image
-                            src={imagePath}
+                        <img
+                            src={imagePath.default.src}
                             alt={`Question ${currentQuestionData?.id} image`}
                             width={500}
                             height={500}

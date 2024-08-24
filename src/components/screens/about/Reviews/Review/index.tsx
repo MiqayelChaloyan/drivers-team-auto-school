@@ -9,7 +9,7 @@ interface Props {
 
 const Review = ({ review }: Readonly<Props>) => {
     return (
-        <div className="swiper-slide group bg-[#374151] border border-solid border-white rounded-2xl p-6 transition-all duration-500 w-full">
+        <div className="swiper-slide group bg-[#404040] border border-solid border-white rounded-2xl p-6 transition-all duration-500 w-full">
             <div className="flex items-start mb-9 gap-2 text-amber-500  swiper-slide-active:text-indigo-600">
                 <FaStar size={20} />
                 <p className="cursor-default text-white font-medium  swiper-slide-active:text-indigo-600">
