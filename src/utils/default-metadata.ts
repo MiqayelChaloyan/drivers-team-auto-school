@@ -1,4 +1,5 @@
 import { site } from '@/src/constants/config';
+import { ImagePaths } from '../constants';
 
 export const defaultMetadata = {
     metadataBase: new URL(site.url),
@@ -6,7 +7,6 @@ export const defaultMetadata = {
     description: site.description,
     category: site.category,
     robots: { index: true },
-    authors: { name: site.authorName },
     keywords: site.keywords,
     creator: site.authorUsername,
     publisher: site.authorUsername,
@@ -15,14 +15,26 @@ export const defaultMetadata = {
         description: site.description,
         url: site.url,
         siteName: site.title,
-        images: 'https://skaters-inifarhan.vercel.app/images/screenshoot.PNG',
+        images: [
+            {
+                url: ImagePaths.drivingSchoolURL.default.src,
+                width: 500,
+                height: 500
+            }
+        ],
         type: 'website',
         locale: site.locale
     },
     twitter: {
         card: 'summary_large_image',
-        title:  site.title,
+        title: site.title,
         description: site.description,
-        images: ['https://skaters-inifarhan.vercel.app/images/screenshoot.PNG'],
+        images: [
+            {
+                url: ImagePaths.drivingSchoolURL.default.src,
+                width: 500,
+                height: 500
+            }
+        ],
     },
 };
