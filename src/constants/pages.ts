@@ -5,8 +5,8 @@ const Pages = {
     PRICING: 'pricing',
     TESTS: '/tests',
     TEST: '/tests/examen'
-}
+};
 
 export {
     Pages
-}
+};

@@ -1,29 +1,32 @@
-import { ProjectsIcon, TrendUpwardIcon } from '@sanity/icons';
-// import { RuleType } from '../../../ruleType';
+const title = 'Այլ վեբ էջերի հղումներ';
 
-// import ArrayMaxItems from '@/lib/utils/ArrayMaxItems';
-
-const redirect = {
+const redirects = {
     name: 'redirects',
     type: 'document',
     title: 'Redirects',
     id: 'redirects',
     fields: [
         {
-            name: "productName",
+            name: "policeLink",
             type: "string",
-            title: "Product name",
+            title: "Police.am",
         },
-        // {
-        //     name: 'productSKU',
-        //     type: 'string',
-        //     title: 'SKU',
-        //     readOnly: ({currentUser}: any) => {
-        //       return !(currentUser.roles.find(({name}: any) => name === 'administrator'))
-        //     }
-        //   }
-        
+        {
+            name: "lawLink",
+            type: "string",
+            title: "ՀՀ ՕՐԵՆՔԸ ՃԱՆԱՊԱՐՀԱՅԻՆ ԵՐԹԵՎԵԿՈՒԹՅԱՆ ԱՆՎՏԱՆԳՈՒԹՅԱՆ ԱՊԱՀՈՎՄԱՆ ՄԱՍԻՆ",
+        },
     ],
+    preview: {
+        select: {
+            title: 'title',
+        },
+        prepare() {
+            return {
+                title,
+            };
+        },
+    }
 };
 
-export default redirect;
+export default redirects;

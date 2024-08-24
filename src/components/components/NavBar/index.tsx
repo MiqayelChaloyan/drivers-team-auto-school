@@ -23,6 +23,10 @@ import { HiOutlineMenuAlt2 } from 'react-icons/hi';
 import './styles.css';
 
 
+interface Props {
+    contact: CONTACT_US_QUERYResult
+};
+
 const navLinks = [
     { path: Pages.ABOUT_US, title: 'Մեր Մասին' },
     { path: Pages.FEATURES, title: 'Մեր Առավելությունները' },
@@ -37,7 +41,7 @@ const linkProps = {
     duration: 500,
 };
 
-const NavBar: React.FC = () => {
+const NavBar = ({ contact }: Readonly<Props>) => {
     const [scrollTo, setScrollTo] = useState<string | null>(null);
     const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
     const [linkActive, setLinkActive] = useState<string>('/');
@@ -164,7 +168,7 @@ const NavBar: React.FC = () => {
                     <ul className="flex flex-col lg:flex-row items-center space-y-6 lg:space-y-0 lg:space-x-6 xl:space-x-8">
                         {isPageWide && (
                             <li className="text-lg lg:text-base xl:text-lg font-medium group">
-                                <Link href={`tel:${'+37477122212'}`} aria-label={'37477122212'}>
+                                <Link href={`tel:${contact?.phoneNumber ? contact.phoneNumber : '+37477122212'}`}>
                                     <PhoneIcon />
                                 </Link>
                             </li>
@@ -203,8 +207,8 @@ const NavBar: React.FC = () => {
                         {!isPageWide && (
                             <>
                                 <li className="text-lg lg:text-base xl:text-lg font-medium group  text-color hover:text-[#ec3237]">
-                                    <Link href={`tel:${'+37477122212'}`} aria-label={'37477122212'}>
-                                        +37477122212
+                                    <Link href={`tel:${contact?.phoneNumber ? contact.phoneNumber : '+37477122212'}`}>
+                                        {contact?.phoneNumber ? contact.phoneNumber : +37477122212}
                                     </Link>
                                 </li>
                                 <Link

@@ -1,8 +1,6 @@
-import { ProjectsIcon, TrendUpwardIcon } from '@sanity/icons';
-import { RuleType } from '../../../../ruleType';
-import { BookOpenIcon } from '@heroicons/react/24/solid';
-
-// import ArrayMaxItems from '@/lib/utils/ArrayMaxItems';
+import { RuleType } from '@/sanity/ruleType';
+import ArrayMaxItems from '@/src/config/ArrayMaxItems';
+import { TrendUpwardIcon } from '@sanity/icons';
 
 const title = 'Փաթեթներ';
 
@@ -10,12 +8,13 @@ const pricing = {
     name: 'pricing',
     title: 'Pricing',
     type: 'document',
-    // __experimental_formPreviewTitle: false,
     fields: [
         {
             name: "pricing",
             type: "array",
             title: "Pricing",
+            validation: (Rule: RuleType) => Rule.max(10).unique(),
+            components: { input: ArrayMaxItems },
             of: [
                 {
                     type: 'object',

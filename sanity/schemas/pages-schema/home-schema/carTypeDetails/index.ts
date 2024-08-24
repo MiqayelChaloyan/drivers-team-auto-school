@@ -1,6 +1,3 @@
-import { ProjectsIcon, TrendUpwardIcon } from '@sanity/icons';
-import { RuleType } from '../../../../ruleType';
-
 const title = 'Մեքենաների տեսակներ';
 
 const carTypeDetails = {

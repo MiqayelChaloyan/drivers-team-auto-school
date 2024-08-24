@@ -1,17 +1,27 @@
 'use client'
 
-import { Texts } from '@/src/constants';
-import Logo from '@/src/lib/icons/Logo';
-import SocialLinks from '../Footer/social';
-import { Pages } from '@/src/constants/pages';
-
 import React, { useState, useEffect } from 'react';
-import { Link as ScrollLink } from 'react-scroll';
-import { FaPhone } from 'react-icons/fa6';
-import { IoMailOutline } from 'react-icons/io5';
+
 import Link from 'next/link';
 import { useRouter, usePathname } from 'next/navigation';
 
+import { Link as ScrollLink } from 'react-scroll';
+
+import Logo from '@/src/lib/icons/Logo';
+import SocialLinks from './SocialLinks';
+
+import { Pages } from '@/src/constants/pages';
+import { Texts } from '@/src/constants';
+
+import { FaPhone } from 'react-icons/fa6';
+import { IoMailOutline } from 'react-icons/io5';
+
+
+interface Props {
+    contact: CONTACT_US_QUERYResult;
+    redirects: REDIRECTS_QUERYResult;
+    texts: TEXTS_QUERYResult;
+};
 
 const navLinks = [
     { path: Pages.ABOUT_US, title: 'Մեր Մասին' },
@@ -27,7 +37,11 @@ const linkProps = {
     duration: 500,
 };
 
-const TFooter = () => {
+const Footer = ({
+    contact,
+    redirects,
+    texts
+}: Readonly<Props>) => {
     const fullYear = new Date().getFullYear();
 
     const [scrollTo, setScrollTo] = useState<string | null>(null);
@@ -35,8 +49,6 @@ const TFooter = () => {
 
     const router = useRouter();
     const pathname = usePathname();
-
-
 
     const handleActiveLink = (newPath: string) => {
         setLinkActive(newPath);
@@ -112,30 +124,34 @@ const TFooter = () => {
         <footer className="w-full min-h-[500px] py-10 px-10 px-10px lg:px-0 flex items-center justify-center bg-black">
             <div className="md:w-2/3 w-full text-white flex flex-col mx-auto max-w-screen-xl my-px-2 pr-4">
                 <div className="w-full text-4xl font-bold">
-                    <h1 className="w-full md:w-2/3">ՍՏԱՑԵՔ ՁԵՐ ՎԱՐՈՐԴԱԿԱՆ ԻՐԱՎՈՒՆՔՆ ԱՌԱՋԻՆ ԱՆԳԱՄԻՑ</h1>
+                    <h1 className="w-full md:w-2/3">
+                        {texts.title}
+                    </h1>
                 </div>
                 <div className="flex mt-2 flex-col md:flex-row md:justify-between">
-                    <p className="w-full md:w-2/3 text-white">To ensure that all Wikipedia content is verifiable, anyone may question an uncited claim. If your work has been tagged</p>
+                    <p className="w-full md:w-2/3 text-white">
+                        {texts.content}
+                    </p>
                     <div className='md:mt-0 mt-10'>
                         <Link
-                            href={`tel:${'+37477122212'}`}
-                            aria-label={'37477122212'}
-                            className="flex items-center justify-start lg:justify-between pb-4 md:py-0"
+                            href={`tel:${contact?.phoneNumber ? contact.phoneNumber : '+37477122212'}`}
+                            aria-label={contact?.phoneNumber ? contact.phoneNumber : '+37477122212'}
+                            className="flex items-center justify-start lg:justify-end pb-4 md:py-0"
                             prefetch={true}
                             passHref
                         >
                             <FaPhone size={17} color='white' />
-                            <span className='ml-2'>+{37477122212}</span>
+                            <span className='ml-2'>{contact?.phoneNumber ? contact.phoneNumber : '+37477122212'}</span>
                         </Link>
                         <Link
-                            href={`mailto:${'info@lorem.mail'}`}
-                            aria-label={'info@lorem.mail'}
-                            className="flex items-center justify-start lg:justify-between pb-4 md:py-0"
+                            href={`mailto:${contact?.gmail ? contact.gmail : 'driversteamautoschool@gmail.com'}`}
+                            aria-label={contact?.gmail ? contact.gmail : 'driversteamautoschool@gmail.com'}
+                            className="flex items-center justify-start lg:justify-end pb-4 md:py-0"
                             prefetch={true}
                             passHref
                         >
                             <IoMailOutline size={20} color='white' />
-                            <span className='ml-2'>{'info@lorem.mail'}</span>
+                            <span className='ml-2'>{contact?.gmail ? contact.gmail : 'driversteamautoschool@gmail.com'}</span>
                         </Link>
                     </div>
                 </div>
@@ -178,26 +194,33 @@ const TFooter = () => {
                             )}
                         </nav>
                         <div className="flex space-x-4">
-                            <SocialLinks />
+                            <SocialLinks links={contact?.socialLinks} />
                         </div>
                     </div>
                     <div className="h-px bg-gray-800"></div>
                     <div className="flex flex-col md:flex-row md:justify-between text-xs mt-4 mb-2 text-gray-500">
                         <div className="text-center md:text-left">© {fullYear} {Texts.allReserved}</div>
                         <nav className="mt-2 md:mt-0 grid text-center md:text-right">
-                            <a href="#" className="mb-5 hover:underline">
-                                Տեսական քննությունների հարցաշարերը վերցված են Police.am կայքից
-                            </a>
-                            <a href="#" className="hover:underline">
-                                ՀՀ ՕՐԵՆՔԸ ՃԱՆԱՊԱՐՀԱՅԻՆ ԵՐԹԵՎԵԿՈՒԹՅԱՆ ԱՆՎՏԱՆԳՈՒԹՅԱՆ ԱՊԱՀՈՎՄԱՆ ՄԱՍԻՆ
-                            </a>
+                            <Link
+                                href={redirects?.policeLink}
+                                target="_blank"
+                                className="mb-5 hover:underline"
+                            >
+                                {Texts.exams}
+                            </Link>
+                            <Link
+                                href={redirects?.lawLink}
+                                target="_blank"
+                                className="mb-5 hover:underline"
+                            >
+                                {Texts.law}
+                            </Link>
                         </nav>
                     </div>
-
                 </div>
             </div>
         </footer>
     )
-}
+};
 
-export default TFooter;
+export default Footer;

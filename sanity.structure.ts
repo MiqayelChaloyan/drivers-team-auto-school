@@ -19,10 +19,8 @@ export default (S: any) =>
                     'competitiveAdvantages',
                     'aboutUs',
                     'reviews',
-
+                    'texts',
                     'contact-us',
-                    'seo',
-                    'tests',
                     'redirects'
                 ].includes(listItem.getId())
             ),
@@ -86,17 +84,16 @@ export default (S: any) =>
                                                 .child(S.document().schemaType('reviews').documentId('reviews')),
                                         ])),
                             S.listItem()
-                                .title('Tests')
+                                .title('Footer')
                                 .icon(FaFolder)
                                 .child(
                                     S.list()
                                         .title('Pages')
                                         .items([
                                             S.listItem()
-                                                .title('Tests')
+                                                .title('Texts')
                                                 .icon(icon)
-                                                .child(S.document().schemaType('tests').documentId('tests')),
-
+                                                .child(S.document().schemaType('texts').documentId('texts')),
                                         ])),
                         ])
                 ),
@@ -110,18 +107,6 @@ export default (S: any) =>
                                 .title('Contact Us')
                                 .icon(FcSupport)
                                 .child(S.document().schemaType('contact-us').documentId('contact-us')),
-                        ])
-                ),
-            S.listItem()
-                .title('Seo')
-                .child(
-                    S.list()
-                        .title('Pages')
-                        .items([
-                            S.listItem()
-                                .title('Seo')
-                                .icon(FcSupport)
-                                .child(S.document().schemaType('seo').documentId('seo')),
                         ])
                 ),
             S.listItem()

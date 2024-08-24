@@ -1,5 +1,6 @@
+import { RuleType } from '@/sanity/ruleType';
+import ArrayMaxItems from '@/src/config/ArrayMaxItems';
 import { TrendUpwardIcon } from '@sanity/icons';
-// import { RuleType } from '../../../../ruleType';
 
 const title = 'Ուսուցման տեսակներ';
 
@@ -13,6 +14,8 @@ const trainingTypeDetalis = {
             name: "trainingTypeDetalis",
             type: "array",
             title: "Training Type Detalis",
+            validation: (Rule: RuleType) => Rule.max(10).unique(),
+            components: { input: ArrayMaxItems },
             of: [
                 {
                     type: 'object',

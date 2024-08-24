@@ -1,7 +1,4 @@
-import { ProjectsIcon, TrendUpwardIcon } from '@sanity/icons';
-import { RuleType } from '../../../../ruleType';
-
-const title = 'Main';
+const title = 'Գլխավոր';
 
 const main = {
     name: 'main',

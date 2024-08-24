@@ -9,10 +9,9 @@ import carTypeDetails from './schemas/pages-schema/home-schema/carTypeDetails';
 import ourStudents from './schemas/pages-schema/home-schema/ourStudents';
 import trainingTypeDetalis from './schemas/pages-schema/home-schema/trainingTypeDetalis';
 import competitiveAdvantages from './schemas/pages-schema/home-schema/competitiveAdvantages';
-import tests from './schemas/pages-schema/tests-schema';
-import seo from './schemas/seo-schema';
 import aboutUs from './schemas/pages-schema/about-schema/aboutUs';
 import reviews from './schemas/pages-schema/about-schema/reviews';
+import texts from './schemas/pages-schema/footer-schema/texts';
 
 export const schemaTypes = [
   main,
@@ -24,9 +23,7 @@ export const schemaTypes = [
   competitiveAdvantages,
   aboutUs,
   reviews,
-
-  tests,
-  seo,
+  texts,
   redirects,
   contactUs
 ];

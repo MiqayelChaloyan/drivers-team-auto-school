@@ -1,9 +1,7 @@
-import { ProjectsIcon, TrendUpwardIcon } from '@sanity/icons';
+import { TrendUpwardIcon } from '@sanity/icons';
 import { RuleType } from '../../../../ruleType';
 
-// import ArrayMaxItems from '@/lib/utils/ArrayMaxItems';
 const title = 'Կարծիքներ';
-
 
 const reviews = {
     name: 'reviews',
@@ -37,21 +35,6 @@ const reviews = {
                             type: 'number',
                             validation: (rule: RuleType) => rule.min(1).max(5),
                         },
-                        // {
-                        //     name: 'userImage',
-                        //     type: 'image',
-                        //     title: 'User Image',
-                        //     options: {
-                        //         hotspot: true,
-                        //     },
-                        //     fields: [
-                        //         {
-                        //             name: 'alt',
-                        //             type: 'string',
-                        //             title: 'Alternative text',
-                        //         },
-                        //     ],
-                        // },
                     ]
                 }
             ]

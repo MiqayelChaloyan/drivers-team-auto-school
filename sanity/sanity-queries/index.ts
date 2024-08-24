@@ -1,41 +1,41 @@
 interface AssetReference {
     _ref: string;
-    _type: 'reference';
-}
+    _type: string;
+};
 
 interface Image {
-    _type: 'image';
+    _type: string;
     alt: string;
     asset: AssetReference;
-}
+};
 
 interface Images {
     imageOne: Image;
     imageTwo: Image;
-}
+};
 
 interface BackgroundImage {
-    _type: 'image';
+    _type: string;
     alt: string;
     asset: AssetReference;
-}
+};
 
 interface MAIN_QUERYResult {
     title: string;
     description: string;
     images: Images;
     bg_image: BackgroundImage;
-}
+};
 
 interface CAR_TYPE_DETALIS_QUERYResult {
     typesOfCars: string[];
     image: Image;
-}
+};
 
 interface STUDENTS_QUERYResult {
     map(arg0: (student: Image) => React.JSX.Element): JSX.Element[];
     images: Images[];
-}
+};
 
 interface FEATURE {
     title: string;
@@ -43,11 +43,11 @@ interface FEATURE {
     _type: string;
     icon: any;
     _key: string;
-}
+};
 
 interface FETAURES_QUERYResult {
     features: FEATURE[];
-}
+};
 
 interface PRICE {
     price: number;
@@ -56,22 +56,22 @@ interface PRICE {
     packagesName: string;
     features: string[];
     period: string;
-}
+};
 
 interface PRICING_QUERYResult {
     pricing: PRICE[];
-}
+};
 
 interface METHOD {
     title: string;
     content: string;
     _type: string;
     _key: string;
-}
+};
 
 interface TRAINING_TYPE_DETALIS_QUERYResult {
     trainingTypeDetalis: METHOD[]
-}
+};
 
 interface ADVANTAGE {
     _key: string;
@@ -79,11 +79,11 @@ interface ADVANTAGE {
     quantity: number;
     _type: string;
     title: string;
-}
+};
 
 interface COMPETITIVE_ADVANTAGES_QUERYResult {
     competitiveAdvantages: ADVANTAGE[];
-}
+};
 
 interface PortableChildren {
     marks: any;
@@ -117,4 +117,26 @@ interface REVIEW {
 
 interface REVIEWS_QUERYResult {
     reviews: REVIEW[];
+};
+
+interface SocialLinks {
+    facebook: string;
+    instagram: string;
+    tikTok: string;
+};
+
+interface CONTACT_US_QUERYResult {
+    phoneNumber: string;
+    gmail: string;
+    socialLinks: SocialLinks;
+};
+
+interface REDIRECTS_QUERYResult {
+    policeLink: string;
+    lawLink: string;
+};
+
+interface TEXTS_QUERYResult {
+    title: string;
+    content: string;
 };

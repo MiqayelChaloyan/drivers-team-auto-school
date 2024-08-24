@@ -51,3 +51,21 @@ export const REVIEWS_QUERY = `
     reviews,
 }`;
 
+export const CONTACT_US_QUERY = `
+*[_type == "contact-us"] {
+    phoneNumber,
+    gmail,
+    socialLinks
+}`;
+
+export const REDIRECTS_QUERY = `
+*[_type == "redirects"] {
+    policeLink,
+    lawLink,
+}`;
+
+export const TEXTS_QUERY = `
+*[_type == "texts"] {
+    title,
+    content,
+}`;

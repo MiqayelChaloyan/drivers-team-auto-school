@@ -1,9 +1,8 @@
-import { ProjectsIcon, TrendUpwardIcon } from '@sanity/icons';
+import { TrendUpwardIcon } from '@sanity/icons';
 import { RuleType } from '../../../../ruleType';
+import ArrayMaxItems from '@/src/config/ArrayMaxItems';
 
-// import ArrayMaxItems from '@/lib/utils/ArrayMaxItems';
 const title = 'Մեր մրցակցային առավելությունները';
-
 
 const competitiveAdvantages = {
     name: 'competitiveAdvantages',
@@ -15,6 +14,8 @@ const competitiveAdvantages = {
             name: "competitiveAdvantages",
             type: "array",
             title: "Competitive Advantages",
+            validation: (Rule: RuleType) => Rule.max(10).unique(),
+            components: { input: ArrayMaxItems },
             of: [
                 {
                     type: 'object',

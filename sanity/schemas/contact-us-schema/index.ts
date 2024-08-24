@@ -1,7 +1,6 @@
-import { LinkIcon } from '@sanity/icons';
-
-// import ArrayMaxItems from '@/lib/utils/ArrayMaxItems';
 import { RuleType } from '../../ruleType';
+
+const title = 'Կապ մեզ հետ';
 
 const contactUs = {
     name: 'contact-us',
@@ -10,72 +9,50 @@ const contactUs = {
     id: 'contact-us',
     fields: [
         {
-            name: 'name',
-            title: 'Name',
+            name: 'phoneNumber',
+            title: 'Phone Number',
             type: 'string',
-            description: 'Do not change the name.'
+            description: 'Պիտի լինի նշված ձևաչափով` +374 | XX-XX-XX-XX'
         },
         {
-            title: 'Country, Region/City, Street',
-            name: 'address',
+            name: 'gmail',
+            title: 'Gmail',
+            type: 'string',
+        },
+        {
+            title: 'Social Links',
+            name: 'socialLinks',
             type: 'object',
             validation: (Rule: RuleType) => Rule.required(),
             fields: [
                 {
-                    title: 'Armenian',
-                    name: 'am',
+                    title: 'Facebook',
+                    name: 'facebook',
                     type: 'string'
                 },
                 {
-                    title: 'English',
-                    name: 'en',
+                    title: 'Instagram',
+                    name: 'instagram',
                     type: 'string'
                 },
                 {
-                    title: 'Russian',
-                    name: 'ru',
+                    title: 'TikTok',
+                    name: 'tikTok',
                     type: 'string'
                 }
             ]
         },
-        {
-            title: 'Phone Numbers',
-            name: 'phone_numbers',
-            type: 'array',
-            of: [{ type: 'string' }],
-            description: 'You can only add six phone number.',
-            validation: (Rule: RuleType) => Rule.max(6).unique(),
-            // components: { input: ArrayMaxItems },
+    ],
+    preview: {
+        select: {
+            title: 'title',
         },
-        {
-            name: 'social_links',
-            type: 'array',
-            title: 'Social Links',
-            description: 'You can only add these Facebook, Instagram, Gmail, Linkedin, X, Tiktok, Telegram, YouTube, Pinterest, WhatsApp, Viber.',
-            validation: (Rule: RuleType) => Rule.max(11).unique(),
-            // components: { input: ArrayMaxItems },
-            of: [
-                {
-                    name: 'Object',
-                    type: 'object',
-                    icon: LinkIcon,
-                    validation: (Rule: RuleType) => Rule.required(),
-                    fields: [
-                        {
-                            name: 'social_name',
-                            title: 'Social Name',
-                            type: 'string',
-                        },
-                        {
-                            name: 'social_link',
-                            title: 'Social Link',
-                            type: 'string',
-                        },
-                    ]
-                }
-            ],
+        prepare() {
+            return {
+                title,
+            };
         },
-    ]
+    }
 };
 
 export default contactUs;
