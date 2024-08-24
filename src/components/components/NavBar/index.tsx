@@ -177,7 +177,7 @@ const NavBar = ({ contact }: Readonly<Props>) => {
                             link.path.startsWith('/') ? (
                                 <li
                                     key={link.path}
-                                    className={`text-lg lg:text-base xl:text-lg font-medium group ${linkActive === link.path ? 'text-[#ec3237]' : 'text-color'}`}
+                                    className={`text-lg uppercase lg:text-base xl:text-lg font-medium group ${linkActive === link.path ? 'text-[#ec3237]' : 'text-color'}`}
                                 >
                                     <Link
                                         href={link.path}
@@ -191,7 +191,7 @@ const NavBar = ({ contact }: Readonly<Props>) => {
                             ) : (
                                 <li
                                     key={link.path}
-                                    className={`cursor-pointer text-lg lg:text-base xl:text-lg font-medium group ${linkActive === link.path ? 'text-[#ec3237]' : 'text-color'}`}
+                                    className={`cursor-pointer text-lg uppercase lg:text-base xl:text-lg font-medium group ${linkActive === link.path ? 'text-[#ec3237]' : 'text-color'}`}
                                 >
                                     <ScrollLink
                                         to={link.path}
@@ -235,7 +235,7 @@ const NavBar = ({ contact }: Readonly<Props>) => {
                 </div>
                 <button
                     type="submit"
-                    className="block py-3 px-6 text-center rounded-xl transition bg-[#ec3237] hover:bg-[#991b1b] md:mr-10 sm:mx-4 lg:mx-8 text-sm sm:text-base md:text-base lg:text-md font-semibold"
+                    className="block uppercase py-3 px-6 text-center rounded-xl transition bg-[#ec3237] hover:bg-[#991b1b] md:mr-10 sm:mx-4 lg:mx-8 text-sm sm:text-base md:text-base lg:text-md font-semibold"
                     onClick={() => dispatch(Action.openeModal())}
                 >
                     <span className="text-white">

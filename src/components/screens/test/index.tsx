@@ -31,7 +31,7 @@ const Test = () => {
 
 
     return (
-        <section id='test' className='min-h-[90vh] flex items-center justify-center bg-[#404040]'>
+        <section id='test' className='transition-all min-h-[90vh] flex items-center justify-center bg-[#9a9aa8]'>
             <Quiz />
             <ContinueTest />
             <NotificationDialogResult onClose={_onClose} />

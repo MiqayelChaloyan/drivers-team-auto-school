@@ -50,14 +50,14 @@ const Tests = () => {
                         <Link
                             key={index}
                             href={{ pathname: Pages.TEST, query: { test: index + 1 } }}
-                            className="rounded-md border border-solid border-gray-300 bg-[#404040] p-6 text-white"
+                            className="rounded-md border border-solid border-gray-300 bg-[#9a9aa8] px-6 py-2 text-white"
                             aria-label={Pages.TEST}
                             onClick={() => _startTest(index)}
                         >
                             <h5 className="mb-2 text-xl font-bold">
                                 {index + 1}
                             </h5>
-                            <p className="text-md">
+                            <p className="text-lg">
                                 {Texts.test}
                             </p>
                         </Link>

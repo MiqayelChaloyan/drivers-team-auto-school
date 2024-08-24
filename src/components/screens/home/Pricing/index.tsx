@@ -33,7 +33,7 @@ const Pricing = ({ data }: Readonly<Props>) => {
     return (
         <section id='pricing'>
             <div className="mx-auto w-full max-w-7xl px-5 py-16 md:px-10 md:py-20">
-                <div className="rounded-xl bg-[#404040] px-6 py-12 sm:px-12 sm:py-16 md:py-20">
+                <div className="rounded-xl bg-[#9a9aa8] px-6 py-12 sm:px-12 sm:py-16 md:py-20">
                     <div className="grid w-full place-items-center">
                         <div className="grid w-full grid-cols-2 sm:grid-cols-4 gap-2 rounded-xl bg-[#ec3237] py-2 px-3.5">
                             {data.pricing?.map((plan) => (

@@ -38,14 +38,14 @@ const Reviews = ({ reviews }: Readonly<Props>) => {
                     </div>
                     <div className="flex items-center gap-8">
                         <button id="slider-button-left"
-                            className="swiper-button-prev group flex justify-center items-center border border-solid border-[#404040] w-12 h-12 transition-all duration-500 rounded-full hover:bg-[#ec3237]"
+                            className="swiper-button-prev group flex justify-center items-center border border-solid border-[#9a9aa8] w-12 h-12 transition-all duration-500 rounded-full hover:bg-[#ec3237]"
                         >
-                            <FaArrowLeft color='#404040' />
+                            <FaArrowLeft color='#9a9aa8' />
                         </button>
                         <button id="slider-button-right"
-                            className="swiper-button-next group flex justify-center items-center border border-solid border-[#404040] w-12 h-12 transition-all duration-500 rounded-full hover:bg-[#ec3237]"
+                            className="swiper-button-next group flex justify-center items-center border border-solid border-[#9a9aa8] w-12 h-12 transition-all duration-500 rounded-full hover:bg-[#ec3237]"
                             data-carousel-next>
-                            <FaArrowRight color='#404040' />
+                            <FaArrowRight color='#9a9aa8' />
                         </button>
                     </div>
                 </div>

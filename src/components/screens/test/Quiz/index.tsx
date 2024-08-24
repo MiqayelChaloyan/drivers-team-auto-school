@@ -156,7 +156,7 @@ const Quiz = () => {
                     <div className="flex justify-between">
                         <button
                             onClick={handlePrevious}
-                            className="cursor-pointer w-32 py-2 bg-[#a8a29e] rounded-lg text-white hover:bg-gray-400"
+                            className="cursor-pointer w-32 py-2 bg-[#9a9aa8] rounded-lg text-white hover:bg-gray-400"
                             disabled={trace === 0}
                         >
                             {Buttons.back}
