@@ -1,8 +1,6 @@
 import { site } from '@/src/constants/config';
 import { ImagePaths } from '../constants';
 
-import Image from '@/public/assets/drivingSchool.jpeg'
-
 export const defaultMetadata = {
     metadataBase: new URL(site.url),
     title: site.title,
@@ -19,7 +17,7 @@ export const defaultMetadata = {
         siteName: site.title,
         images: [
             {
-                url: Image,
+                url: `${site.url}/assets/drivingSchool.jpeg`,
                 width: 500,
                 height: 500
             }
@@ -33,7 +31,7 @@ export const defaultMetadata = {
         description: site.description,
         images: [
             {
-                url: Image,
+                url: `${site.url}/assets/drivingSchool.jpeg`,
                 width: 500,
                 height: 500
             }
