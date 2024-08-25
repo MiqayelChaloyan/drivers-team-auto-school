@@ -18,7 +18,7 @@ export const defaultMetadata = {
         siteName: site.title,
         images: [
             {
-                url: `/drivingSchool.jpeg`,
+                url: `https://www.dot.nd.gov/sites/www/files/documents/Images/Driving%20and%20Drives/driving-school-car-next-to-cones.jpeg`,
                 width: 500,
                 height: 500
             }
@@ -32,7 +32,7 @@ export const defaultMetadata = {
         description: site.description,
         images: [
             {
-                url: `/drivingSchool.jpeg`,
+                url: `https://www.dot.nd.gov/sites/www/files/documents/Images/Driving%20and%20Drives/driving-school-car-next-to-cones.jpeg`,
                 width: 500,
                 height: 500
             }
