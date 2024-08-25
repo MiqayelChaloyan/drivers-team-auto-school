@@ -140,3 +140,11 @@ interface TEXTS_QUERYResult {
     title: string;
     content: string;
 };
+
+interface SEO_QUERYResult {
+    ogTitle: string;
+    ogDescription: string;
+    ogKeywords: string[];
+    ogImage: Image;
+    ogIcon: Image;
+};

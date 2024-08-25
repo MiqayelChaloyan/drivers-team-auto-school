@@ -14,20 +14,20 @@ import FormModal from '@/src/components/components/FormModal';
 import Modal from '@/src/components/components/Modal';
 import ScrollBackToTop from '@/src/components/components/ScrollBackToTop';
 
-import { getContact, getFooterTexts, getRedirectPath } from '@/src/utils/data';
+import { getContact, getFooterTexts, getRedirectPath, getSiteMeta } from '@/src/utils/data';
+
+import { ImagePath } from '@/src/types';
+import { urlForImage } from '@/sanity/lib/imageUrlBuilder';
+import { generateMetadataDynamic } from '@/src/utils/default-metadata';
 
 import CacheProvider from 'react-inlinesvg/provider';
 
 import { Mardoto } from '@/src/constants/font';
 
-import { defaultMetadata } from '@/src/utils/default-metadata';
-
 import 'swiper/css';
 import 'swiper/css/pagination';
 import '@/src/styles/globals.css';
 
-
-export const metadata: Metadata = defaultMetadata;
 
 export default async function RootLayout({
   children,
@@ -64,4 +64,14 @@ export default async function RootLayout({
       </body>
     </html>
   );
+};
+
+export async function generateMetadata(): Promise<Metadata> {
+  const meta: SEO_QUERYResult = await getSiteMeta();
+  const { ogDescription, ogTitle, ogKeywords, ogImage, ogIcon } = meta;
+  const path: ImagePath = urlForImage(ogImage);
+  const icon: ImagePath = urlForImage(ogIcon);
+
+  const metadata = generateMetadataDynamic(ogDescription, ogKeywords, ogTitle, path, icon);
+  return metadata;
 };

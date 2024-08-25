@@ -69,3 +69,12 @@ export const TEXTS_QUERY = `
     title,
     content,
 }`;
+
+export const SEO_QUERY = `
+*[_type == "seo"] {
+    ogTitle,
+    ogDescription,
+    OgKeywords,
+    ogImage,
+    ogIcon
+}`;

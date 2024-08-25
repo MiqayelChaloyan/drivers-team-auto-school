@@ -1,5 +1,5 @@
 import { sanityFetch } from '@/sanity/lib/client';
-import { MAIN_QUERY, CAR_TYPE_DETALIS_QUERY, STUDENTS_QUERY, FEATURES_QUERY, PRICING_QUERY, TRAINING_TYPE_DETALIS_QUERY, COMPETITIVE_ADVANTAGES_QUERY, ABOUT_US_QUERY, REVIEWS_QUERY, CONTACT_US_QUERY, REDIRECTS_QUERY, TEXTS_QUERY } from '@/sanity/services';
+import { MAIN_QUERY, CAR_TYPE_DETALIS_QUERY, STUDENTS_QUERY, FEATURES_QUERY, PRICING_QUERY, TRAINING_TYPE_DETALIS_QUERY, COMPETITIVE_ADVANTAGES_QUERY, ABOUT_US_QUERY, REVIEWS_QUERY, CONTACT_US_QUERY, REDIRECTS_QUERY, TEXTS_QUERY, SEO_QUERY } from '@/sanity/services';
 
 
 export async function getMainData(): Promise<MAIN_QUERYResult> {
@@ -150,6 +150,19 @@ export async function getFooterTexts(): Promise<TEXTS_QUERYResult> {
         "use server"
         const result = await sanityFetch<TEXTS_QUERYResult[]>({
             query: TEXTS_QUERY,
+        });
+
+        return result[0];
+    } catch (error) {
+        throw error;
+    }
+};
+
+export async function getSiteMeta(): Promise<SEO_QUERYResult> {
+    try {
+        "use server"
+        const result = await sanityFetch<SEO_QUERYResult[]>({
+            query: SEO_QUERY,
         });
 
         return result[0];

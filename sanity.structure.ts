@@ -1,4 +1,3 @@
-import { DocumentsIcon } from '@sanity/icons';
 import { FaFolderOpen as icon, FaFolder } from "react-icons/fa6";
 import { FcSupport } from "react-icons/fc";
 import { GoProjectSymlink } from "react-icons/go";
@@ -21,7 +20,8 @@ export default (S: any) =>
                     'reviews',
                     'texts',
                     'contact-us',
-                    'redirects'
+                    'redirects',
+                    'seo'
                 ].includes(listItem.getId())
             ),
             S.listItem()
@@ -119,6 +119,18 @@ export default (S: any) =>
                                 .title('Redirects')
                                 .icon(GoProjectSymlink)
                                 .child(S.document().schemaType('redirects').documentId('redirects')),
+                        ])
+                ),
+            S.listItem()
+                .title('SEO')
+                .child(
+                    S.list()
+                        .title('Pages')
+                        .items([
+                            S.listItem()
+                                .title('SEO')
+                                .icon(GoProjectSymlink)
+                                .child(S.document().schemaType('seo').documentId('seo')),
                         ])
                 ),
         ]);

@@ -12,6 +12,7 @@ import competitiveAdvantages from './schemas/pages-schema/home-schema/competitiv
 import aboutUs from './schemas/pages-schema/about-schema/aboutUs';
 import reviews from './schemas/pages-schema/about-schema/reviews';
 import texts from './schemas/pages-schema/footer-schema/texts';
+import seo from './schemas/seo-schema';
 
 export const schemaTypes = [
   main,
@@ -25,7 +26,8 @@ export const schemaTypes = [
   reviews,
   texts,
   redirects,
-  contactUs
+  contactUs,
+  seo
 ];
 
 export const schema: { types: SchemaTypeDefinition[] } = {
