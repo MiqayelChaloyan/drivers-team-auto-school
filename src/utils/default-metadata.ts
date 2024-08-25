@@ -37,4 +37,40 @@ export const defaultMetadata = {
             }
         ],
     },
+    facebook: {
+        card: 'summary_large_image',
+        title: site.title,
+        description: site.description,
+        images: [
+            {
+                url: ImagePaths.drivingSchoolURL.default.src,
+                width: 500,
+                height: 500
+            }
+        ],
+    },
+    telegram: {
+        card: 'summary_large_image',
+        title: site.title,
+        description: site.description,
+        images: [
+            {
+                url: ImagePaths.drivingSchoolURL.default.src,
+                width: 500,
+                height: 500
+            }
+        ],
+    },
+    instagram: {
+        card: 'summary_large_image',
+        title: site.title,
+        description: site.description,
+        images: [
+            {
+                url: ImagePaths.drivingSchoolURL.default.src,
+                width: 500,
+                height: 500
+            }
+        ],
+    },
 };
