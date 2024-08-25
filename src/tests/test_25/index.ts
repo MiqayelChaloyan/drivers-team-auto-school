@@ -112,18 +112,18 @@ export const DRIVING_THEORY_EXAM = [
         image: null
     },
     {
-        id: 18,
+        id: 17,
         question: 'Այս նշանի առկայության դեպքում ի՞նչ առավելագույն արագությամբ երթեւեկելու իրավունք ունեն միջքաղաքային ավտոբուսների վարորդները։ ',
         answers: ['70 կմ/ժ։', '90 կմ/ժ։', '110 կմ/ժ։'],
         correct_answer: '90 կմ/ժ։',
-        image: 'images/image_18.jpg'
+        image: 'images/image_17.jpg'
     },
     {
-        id: 19,
+        id: 18,
         question: 'Ի՞նչ առավելագույն արագությամբ կարող է երթեւեկել քարշակող ավտոբուսի վարորդը տվյալ իրավիճակում։ ',
         answers: ['50 կմ/ժ։', '60 կմ/ժ։', '90 կմ/ժ։'],
         correct_answer: '50 կմ/ժ։',
-        image: 'images/image_19.jpg'
+        image: 'images/image_18.jpg'
     },
     {
         id: 19,

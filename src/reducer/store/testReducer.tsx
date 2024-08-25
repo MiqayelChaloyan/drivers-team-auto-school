@@ -27,6 +27,34 @@ import { DRIVING_THEORY_EXAM as test24 } from '@/src/tests/test_24';
 import { DRIVING_THEORY_EXAM as test25 } from '@/src/tests/test_25';
 import { DRIVING_THEORY_EXAM as test26 } from '@/src/tests/test_26';
 import { DRIVING_THEORY_EXAM as test27 } from '@/src/tests/test_27';
+import { DRIVING_THEORY_EXAM as test28 } from '@/src/tests/test_28';
+import { DRIVING_THEORY_EXAM as test29 } from '@/src/tests/test_29';
+import { DRIVING_THEORY_EXAM as test30 } from '@/src/tests/test_30';
+import { DRIVING_THEORY_EXAM as test31 } from '@/src/tests/test_31';
+import { DRIVING_THEORY_EXAM as test32 } from '@/src/tests/test_32';
+import { DRIVING_THEORY_EXAM as test33 } from '@/src/tests/test_33';
+import { DRIVING_THEORY_EXAM as test34 } from '@/src/tests/test_34';
+import { DRIVING_THEORY_EXAM as test35 } from '@/src/tests/test_35';
+import { DRIVING_THEORY_EXAM as test36 } from '@/src/tests/test_36';
+import { DRIVING_THEORY_EXAM as test37 } from '@/src/tests/test_37';
+import { DRIVING_THEORY_EXAM as test38 } from '@/src/tests/test_38';
+import { DRIVING_THEORY_EXAM as test39 } from '@/src/tests/test_39';
+import { DRIVING_THEORY_EXAM as test40 } from '@/src/tests/test_40';
+import { DRIVING_THEORY_EXAM as test41 } from '@/src/tests/test_41';
+import { DRIVING_THEORY_EXAM as test42 } from '@/src/tests/test_42';
+import { DRIVING_THEORY_EXAM as test43 } from '@/src/tests/test_43';
+import { DRIVING_THEORY_EXAM as test44 } from '@/src/tests/test_44';
+import { DRIVING_THEORY_EXAM as test45 } from '@/src/tests/test_45';
+import { DRIVING_THEORY_EXAM as test46 } from '@/src/tests/test_46';
+import { DRIVING_THEORY_EXAM as test47 } from '@/src/tests/test_47';
+import { DRIVING_THEORY_EXAM as test48 } from '@/src/tests/test_48';
+import { DRIVING_THEORY_EXAM as test49 } from '@/src/tests/test_49';
+import { DRIVING_THEORY_EXAM as test50 } from '@/src/tests/test_50';
+import { DRIVING_THEORY_EXAM as test51 } from '@/src/tests/test_51';
+import { DRIVING_THEORY_EXAM as test52 } from '@/src/tests/test_52';
+import { DRIVING_THEORY_EXAM as test53 } from '@/src/tests/test_53';
+import { DRIVING_THEORY_EXAM as test54 } from '@/src/tests/test_54';
+import { DRIVING_THEORY_EXAM as test55 } from '@/src/tests/test_55';
 
 import { Answer, Question, Step, TestEnd, TestState } from '@/src/types';
 
@@ -58,7 +86,35 @@ const tests: Question[][] = [
     test24,
     test25,
     test26,
-    test27
+    test27,
+    test28,
+    test29,
+    test30,
+    test31,
+    test32,
+    test33,
+    test34,
+    test35,
+    test36,
+    test37,
+    test38,
+    test39,
+    test40,
+    test41,
+    test42,
+    test43,
+    test44,
+    test45,
+    test46,
+    test47,
+    test48,
+    test49,
+    test50,
+    test51,
+    test52,
+    test53,
+    test54,
+    test55
 ];
 
 const initialState: TestState = {

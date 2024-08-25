@@ -91,7 +91,7 @@ const Quiz = () => {
     }, [trace, currentQuestionData, testId, data.length]);
 
 
-    const imagePath = currentQuestionData?.image
+    const imagePath = currentQuestionData && currentQuestionData?.image
         ? require(`@/src/tests/test_${testId}/${currentQuestionData?.image}`)
         : null;
 
@@ -132,7 +132,7 @@ const Quiz = () => {
                 <div className="answer-wrapper">
                     <div className="flex flex-col mb-6">
                         {currentQuestionData?.answers.map((answer: string, index: number) => (
-                            <div
+                            <p
                                 key={index}
                                 className={`py-3 px-4 mb-2 rounded-lg cursor-pointer border-2 ${isAnswered
                                     ? answer === currentQuestionData.correct_answer
@@ -145,7 +145,7 @@ const Quiz = () => {
                                 onClick={() => handleAnswerOption(answer)}
                             >
                                 {answer}
-                            </div>
+                            </p>
                         ))}
                     </div>
                     <div className="flex justify-between">
