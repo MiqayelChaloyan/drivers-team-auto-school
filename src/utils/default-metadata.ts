@@ -38,8 +38,4 @@ export const defaultMetadata = {
             }
         ],
     },
-    icons: {
-        icon: '/favicon.ico',
-        apple: '/favicon.ico'
-    }
 };
