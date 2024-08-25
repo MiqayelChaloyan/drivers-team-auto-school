@@ -1,5 +1,6 @@
+'use client'
+
 import { site } from '@/src/constants/config';
-import { ImagePaths } from '../constants';
 
 export const defaultMetadata = {
     metadataBase: new URL(site.url),
@@ -17,7 +18,7 @@ export const defaultMetadata = {
         siteName: site.title,
         images: [
             {
-                url: `${site.url}/assets/drivingSchool.jpeg`,
+                url: `/drivingSchool.jpeg`,
                 width: 500,
                 height: 500
             }
@@ -31,10 +32,14 @@ export const defaultMetadata = {
         description: site.description,
         images: [
             {
-                url: `${site.url}/assets/drivingSchool.jpeg`,
+                url: `/drivingSchool.jpeg`,
                 width: 500,
                 height: 500
             }
         ],
     },
+    icons: {
+        icon: '/favicon.ico',
+        apple: '/favicon.ico'
+    }
 };
