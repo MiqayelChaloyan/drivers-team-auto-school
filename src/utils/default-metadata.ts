@@ -17,7 +17,7 @@ export const defaultMetadata = {
         siteName: site.title,
         images: [
             {
-                url: ImagePaths.drivingSchoolURL.default.src,
+                url: ImagePaths.drivingSchoolURL,
                 width: 500,
                 height: 500
             }
@@ -31,7 +31,7 @@ export const defaultMetadata = {
         description: site.description,
         images: [
             {
-                url: ImagePaths.drivingSchoolURL.default.src,
+                url: ImagePaths.drivingSchoolURL,
                 width: 500,
                 height: 500
             }
