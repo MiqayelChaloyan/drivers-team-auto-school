@@ -5,8 +5,8 @@ import Feature from './Feature';
 
 
 interface Props {
-  data: FEATURE[]
-}
+  data: FEATURE[];
+};
 
 const Features = ({
   data

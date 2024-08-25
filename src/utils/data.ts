@@ -5,11 +5,11 @@ import { MAIN_QUERY, CAR_TYPE_DETALIS_QUERY, STUDENTS_QUERY, FEATURES_QUERY, PRI
 export async function getMainData(): Promise<MAIN_QUERYResult> {
     try {
         "use server"
-        const result = await sanityFetch<MAIN_QUERYResult>({
+        const result = await sanityFetch<MAIN_QUERYResult[]>({
             query: MAIN_QUERY,
         });
 
-        return result;
+        return result[0];
     } catch (error) {
         throw error;
     }

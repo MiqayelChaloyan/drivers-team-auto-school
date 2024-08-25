@@ -12,8 +12,8 @@ import { IoIosCheckmarkCircle } from 'react-icons/io';
 
 
 interface Props {
-    data: PRICING_QUERYResult
-}
+    data: PRICING_QUERYResult;
+};
 
 const Pricing = ({ data }: Readonly<Props>) => {
     const [selectedPlan, setSelectedPlan] = useState<PRICE>(data.pricing[0]);

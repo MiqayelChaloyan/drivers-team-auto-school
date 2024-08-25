@@ -4,8 +4,8 @@ import { Titles } from '@/src/constants';
 
 
 interface Props {
-    data: METHOD[]
-}
+    data: METHOD[];
+};
 
 const TrainingMethods = ({ data }: Readonly<Props>) => {
     return (

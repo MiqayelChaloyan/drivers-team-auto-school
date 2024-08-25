@@ -12,7 +12,7 @@ import { Palette } from '@/src/themes';
 
 
 interface Props {
-  data?: CAR_TYPE_DETALIS_QUERYResult | any
+  data?: CAR_TYPE_DETALIS_QUERYResult | any;
 };
 
 const VehicleTypes = ({ data }: Readonly<Props>) => {
@@ -66,47 +66,3 @@ const VehicleTypes = ({ data }: Readonly<Props>) => {
 };
 
 export default VehicleTypes;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-{/* <div className="relative flex flex-col py-1 lg:pt-0 lg:flex-col lg:pb-0">
-        <div className="flex flex-col items-start w-full max-w-xl px-4 mx-auto lg:px-8 lg:max-w-screen-xl">
-          <div className="mb-1 lg:my-40 lg:max-w-lg lg:pr-5">
-            <div className="max-w-xl mb-6">
-            <div className="max-w-7xl pl-0 mx-auto text-xl md:text-5xl font-bold text-neutral-800 dark:text-neutral-200 font-sans">
-        <h1 className="text-2xl font-bold md:text-3xl">Մեքենաների տեսակներ</h1>
-        <div className="my-6 w-16 border-t border-black"></div>
-      </div>
-              <ul className="space-y-4 text-left text-gray-500 dark:text-gray-400">
-                {typesList}
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div className="inset-y-0 right-0 w-full max-w-xl px-4 mx-auto lg:pl-8 lg:pr-0 lg:mb-0 lg:mx-0 lg:w-1/2 lg:max-w-full lg:absolute xl:px-0">
-          <Image
-            src={path?.src}
-            alt={image?.alt}
-            width={500}
-            height={500}
-            className="object-cover w-full h-56 rounded lg:rounded-none sm:h-96 lg:h-full"
-            priority
-          />
-        </div>
-      </div>
-    </section> */}

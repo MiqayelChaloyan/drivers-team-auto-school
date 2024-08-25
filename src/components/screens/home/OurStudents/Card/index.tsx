@@ -1,16 +1,21 @@
-"use client";
-import React from "react";
-import { motion } from "framer-motion";
-import { BlurImage } from "../BlurImage";
-import { ImagePath } from "@/src/types";
-import { urlForImage } from "@/sanity/lib/imageUrlBuilder";
+'use client';
 
-type Card = {
+import React from 'react';
+
+import { motion } from 'framer-motion';
+
+import { BlurImage } from '../BlurImage';
+
+import { urlForImage } from '@/sanity/lib/imageUrlBuilder';
+
+import { ImagePath } from '@/src/types';
+
+
+interface Card  {
   alt: string;
   _key: string;
   src: string;
 };
-
 
 export const Card = ({
     card,

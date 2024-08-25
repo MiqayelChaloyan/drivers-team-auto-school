@@ -47,6 +47,14 @@ export interface Form {
     phone: string;
 };
 
+export interface Icon {
+    provider: string;
+    svg: string;
+    _type: string;
+    name: string;
+    title?: string;
+};
+
 export interface TestState {
     [x: string]: any;
     tests: Question[][];

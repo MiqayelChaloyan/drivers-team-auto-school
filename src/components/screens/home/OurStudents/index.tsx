@@ -1,14 +1,15 @@
-"use client";
+'use client';
 
-import React from "react";
-import { Carousel } from "./Carousel"
-import { Card } from "./Card";
-import { Titles } from "@/src/constants";
+import React from 'react';
+import { Carousel } from './Carousel';
+import { Card } from './Card';
+
+import { Titles } from '@/src/constants';
 
 
 interface Props {
-    students: STUDENTS_QUERYResult
-}
+    students: STUDENTS_QUERYResult;
+};
 
 const OurStudents = ({
     students
@@ -34,7 +35,7 @@ const OurStudents = ({
             </div>
         </section>
     );
-}
+};
 
 export default OurStudents;
 

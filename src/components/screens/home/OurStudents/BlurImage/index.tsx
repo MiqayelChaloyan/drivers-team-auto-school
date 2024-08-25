@@ -1,12 +1,10 @@
 'use client';
 
-import React, { useState } from "react";
+import React from 'react';
 
-import Image, { ImageProps } from "next/image";
+import Image, { ImageProps } from 'next/image';
 
-import { cn } from "@/src/utils/cn";
-
-import { ImagePaths } from "@/src/constants";
+import { cn } from '@/src/utils/cn';
 
 
 export const BlurImage = ({
@@ -17,21 +15,17 @@ export const BlurImage = ({
     alt,
     ...rest
 }: ImageProps) => {
-    const [isLoading, setLoading] = useState(true);
     return (
         <Image
             className={cn(
                 "transition duration-300",
-                // isLoading ? "blur-sm" : "blur-0",
                 className
             )}
-            // onLoad={() => setLoading(false)}
             src={src}
             width={width}
             height={height}
             loading="lazy"
             decoding="async"
-            // blurDataURL={typeof src === "string" ? src : undefined}
             alt={alt ? alt : "Background of a beautiful view"}
             {...rest}
         />

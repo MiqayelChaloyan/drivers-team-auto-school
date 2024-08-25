@@ -1,10 +1,11 @@
 'use client'
+
 import React from 'react';
 
 
 interface Props {
   data: ADVANTAGE[];
-}
+};
 
 const OurCompetitiveAdvantages = ({ data }: Readonly<Props>) => {
   return (

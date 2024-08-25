@@ -2,15 +2,17 @@
 
 import SVG from 'react-inlinesvg';
 
-import './styles.css';
 import { Palette } from '@/src/themes';
+import { Icon } from '@/src/types';
+
+import './styles.css';
 
 
 interface Props {
-    icon: any;
+    icon: Icon;
     headline: string;
     content: string;
-}
+};
 
 const Feature = ({
     icon,

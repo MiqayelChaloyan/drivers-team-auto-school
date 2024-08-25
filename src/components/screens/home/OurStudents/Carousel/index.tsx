@@ -1,33 +1,25 @@
-"use client";
+'use client';
 
-import React, {
-    useEffect,
-    useState,
-    createContext,
-} from "react";
+import React, { useEffect, useState } from 'react';
 
 import {
     IconArrowNarrowLeft,
     IconArrowNarrowRight,
-} from "@tabler/icons-react";
+} from '@tabler/icons-react';
 
-import { motion } from "framer-motion";
-import { cn } from "@/src/utils/cn";
+import { motion } from 'framer-motion';
+import { cn } from '@/src/utils/cn';
+
 
 interface CarouselProps {
     items: JSX.Element[];
     initialScroll?: number;
-}
-
-
-
-
-
+};
 
 export const Carousel = ({ items, initialScroll = 0 }: CarouselProps) => {
     const carouselRef = React.useRef<HTMLDivElement>(null);
-    const [canScrollLeft, setCanScrollLeft] = React.useState(false);
-    const [canScrollRight, setCanScrollRight] = React.useState(true);
+    const [canScrollLeft, setCanScrollLeft] = useState<boolean>(false);
+    const [canScrollRight, setCanScrollRight] = useState<boolean>(true);
 
     useEffect(() => {
         if (carouselRef.current) {
@@ -63,12 +55,6 @@ export const Carousel = ({ items, initialScroll = 0 }: CarouselProps) => {
                 ref={carouselRef}
                 onScroll={checkScrollability}
             >
-                {/* <div
-                    className={cn(
-                        "absolute right-0  z-[1000] h-auto  w-[10%] overflow-hidden bg-gradient-to-l"
-                    )}
-                ></div> */}
-
                 <div
                     className={cn(
                         "flex flex-row justify-start gap-4 pl-6",
