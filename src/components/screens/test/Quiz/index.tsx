@@ -97,7 +97,11 @@ const Quiz = () => {
 
 
     if (isLoading) {
-        return <Loader color='white' />
+        return  (
+            <div className="test">
+                <Loader color='white' />
+            </div>
+        )
     };
 
     return (
