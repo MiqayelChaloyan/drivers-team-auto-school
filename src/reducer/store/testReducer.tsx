@@ -55,6 +55,11 @@ import { DRIVING_THEORY_EXAM as test52 } from '@/src/tests/test_52';
 import { DRIVING_THEORY_EXAM as test53 } from '@/src/tests/test_53';
 import { DRIVING_THEORY_EXAM as test54 } from '@/src/tests/test_54';
 import { DRIVING_THEORY_EXAM as test55 } from '@/src/tests/test_55';
+import { DRIVING_THEORY_EXAM as test56 } from '@/src/tests/test_56';
+import { DRIVING_THEORY_EXAM as test57 } from '@/src/tests/test_57';
+import { DRIVING_THEORY_EXAM as test58 } from '@/src/tests/test_58';
+import { DRIVING_THEORY_EXAM as test59 } from '@/src/tests/test_59';
+import { DRIVING_THEORY_EXAM as test60 } from '@/src/tests/test_60';
 
 import { Answer, Question, Step, TestEnd, TestState } from '@/src/types';
 
@@ -114,7 +119,12 @@ const tests: Question[][] = [
     test52,
     test53,
     test54,
-    test55
+    test55,
+    test56,
+    test57,
+    test58,
+    test59,
+    test60
 ];
 
 const initialState: TestState = {
