@@ -17,6 +17,7 @@ interface Props {
     pricing?: PRICING_QUERYResult | any;
     trainingMethods?: TRAINING_TYPE_DETALIS_QUERYResult | any;
     advantages?: COMPETITIVE_ADVANTAGES_QUERYResult | any;
+    contact?: CONTACT_US_QUERYResult | any;
 };
 
 const Home = ({
@@ -26,14 +27,15 @@ const Home = ({
     features,
     pricing,
     trainingMethods,
-    advantages
+    advantages,
+    contact
 }: Readonly<Props>) => {
     return (
         <>
             <Header data={data} />
             <VehicleTypes data={carTypeDetalisData[0]} />
             <Features data={features[0]?.features} />
-            <Pricing data={pricing[0]} />
+            <Pricing data={pricing[0]} contact={contact}/>
             <TrainingMethods data={trainingMethods[0].trainingTypeDetalis} />
             <OurStudents students={students[0]?.images} />
             <OurCompetitiveAdvantages data={advantages[0]?.competitiveAdvantages} />

@@ -4,7 +4,7 @@ import { notFound } from 'next/navigation';
 
 import Home from '@/src/components/screens/home';
 
-import { getCarTypeDetalis, getCompetitiveAdvantages, getFeatures, getMainData, getPricing, getStudents, getTrainingMethods } from '@/src/utils/data';
+import { getCarTypeDetalis, getCompetitiveAdvantages, getContact, getFeatures, getMainData, getPricing, getStudents, getTrainingMethods } from '@/src/utils/data';
 
 
 export default async function Page() {
@@ -15,6 +15,7 @@ export default async function Page() {
   const pricing = await getPricing();
   const trainingMethods = await getTrainingMethods();
   const advantages = await getCompetitiveAdvantages();
+  const contact = await getContact();
 
 
   if (!mainData || !carTypeDetalisData || !students || !features || !pricing || !trainingMethods || !advantages) {
@@ -30,6 +31,7 @@ export default async function Page() {
       pricing={pricing}
       trainingMethods={trainingMethods}
       advantages={advantages}
+      contact={contact}
     />);
 };
 
