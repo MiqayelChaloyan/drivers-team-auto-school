@@ -11,7 +11,7 @@ export const projectId = assertValue(
   'Missing environment variable: NEXT_PUBLIC_SANITY_PROJECT_ID'
 )
 
-export const title = 'art-house-educational-center';
+export const title = 'drivers-team-auto-school';
 
 export const basePath = '/admin';
 
