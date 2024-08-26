@@ -235,7 +235,7 @@ const NavBar = ({ contact }: Readonly<Props>) => {
                 </div>
                 <button
                     type="submit"
-                    className="block uppercase py-3 px-6 text-center rounded-xl transition bg-[#040240] hover:bg-[#ec3237] md:mr-10 sm:mx-4 lg:mx-8 text-sm sm:text-base md:text-base lg:text-md font-semibold"
+                    className="block uppercase py-3 px-6 text-center rounded-xl transition bg-[#040240] hover:bg-[#0f172a] md:mr-10 sm:mx-4 lg:mx-8 text-sm sm:text-base md:text-base lg:text-md font-semibold"
                     onClick={() => dispatch(Action.openeModal())}
                 >
                     <span className="text-white">
