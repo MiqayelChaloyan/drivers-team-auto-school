@@ -26,11 +26,11 @@ const Feature = ({
                     <SVG
                         src={icon.svg}
                         title={icon.title}
-                        color={Palette.red}
+                        color={Palette.blue}
                         className='icon'
                     />
                 </div>
-                <p className="font-heading ml-16 text-lg leading-6 font-bold text-[#ec3237]">
+                <p className="font-heading ml-16 text-lg leading-6 font-bold text-[#040240]">
                     {headline}
                 </p>
             </dt>

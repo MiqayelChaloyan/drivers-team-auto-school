@@ -4,14 +4,13 @@ const ImagePaths = {
 };
 
 const Titles = {
-    vehicleTypes: 'Մեքենաների տեսակներ',
     features: 'Մեր մրցակցային առավելությունները',
     trainingMethods: 'Ուսուցման տեսակներ',
     ourStudents: 'Մեր ուսանողները',
     aboutUs: 'Մեր մասին',
     reviews: 'Կարծիքներ',
     testResult: 'Թեստի արդյունքները',
-    companyName: 'DRIVERS TEAM\nAUTO SCHOOL',
+    companyName: 'DRIVERS՚ TEAM\nAUTO SCHOOL',
     tests: 'Թեստեր',
     yourResult: 'Ձեր արդյունքը',
     send: 'Ձեր դիմումն ուղարկվել է',

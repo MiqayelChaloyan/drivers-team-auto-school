@@ -11,20 +11,20 @@ const TrainingMethods = ({ data }: Readonly<Props>) => {
     return (
         <section className="py-1">
             <div className="max-w-7xl pl-6 mx-auto text-xl md:text-5xl font-bold text-neutral-800 dark:text-neutral-200">
-                <h1 className="mb-0 text-2xl font-bold md:text-4xl text-[#ec3237]">
+                <h1 className="mb-0 text-2xl font-bold md:text-4xl text-[#040240]">
                     {Titles.trainingMethods}
                 </h1>
                 <div className="mt-0">
-                    <span className="inline-block w-40 h-1 bg-[#ec3237] rounded-full"></span>
-                    <span className="inline-block w-3 h-1 ml-1 bg-[#ec3237] rounded-full"></span>
-                    <span className="inline-block w-1 h-1 ml-1 bg-[#ec3237] rounded-full"></span>
+                    <span className="inline-block w-40 h-1 bg-[#040240] rounded-full"></span>
+                    <span className="inline-block w-3 h-1 ml-1 bg-[#040240] rounded-full"></span>
+                    <span className="inline-block w-1 h-1 ml-1 bg-[#040240] rounded-full"></span>
                 </div>
             </div>
             <div className="mx-auto flex w-full max-w-7xl flex-col items-center justify-center px-5 py-1 md:px-1 md:py-2">
                 <div className="flex flex-col items-start justify-center lg:flex-row">
                     {data?.map((method: METHOD, index: number) => (
                         <div key={method._key} className="relative my-8 flex w-full rounded-md lg:mx-8 lg:flex-col">
-                            <div className="flex h-16 w-16 items-center justify-center rounded-md bg-[#ec3237]">
+                            <div className="flex h-16 w-16 items-center justify-center rounded-md bg-[#040240]">
                                 <h2 className="text-3xl font-medium text-white">{index + 1}</h2>
                             </div>
                             <div className="ml-6 lg:ml-0">

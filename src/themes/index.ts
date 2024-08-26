@@ -1,4 +1,5 @@
 export const Palette = {
     red: '#ec3237',
-    white: 'white'
+    white: 'white',
+    blue: '#040240'
 };

@@ -15,6 +15,7 @@ const handler = async (data) => {
                     <h2 style="color: #007BFF; text-align: center;">Կոնտակտային ձևի ներկայացում</h2>
                     <p style="font-size: 16px; line-height: 1.5; text-align: center;">Դուք ունեք նոր դասընթացի գրանցման հայտ:</p>
                     <hr style="border: none; border-top: 1px solid #ddd; margin: 20px 0;">
+                    <p style="font-size: 16px;"><strong>Full Name:</strong> ${firstName} ${lastName}</p>
                     <p style="font-size: 16px;"><strong>Email:</strong> ${email}</p>
                     <p style="font-size: 16px;"><strong>Phone:</strong> 0${phone}</p>
                     <hr style="border: none; border-top: 1px solid #ddd; margin: 20px 0;">

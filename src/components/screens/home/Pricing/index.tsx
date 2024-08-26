@@ -36,9 +36,9 @@ const Pricing = ({ data, contact }: Readonly<Props>) => {
     return (
         <section id='pricing'>
             <div className="mx-auto w-full max-w-7xl px-5 py-16 md:px-10 md:py-20">
-                <div className="rounded-xl bg-[#9a9aa8] px-6 py-12 sm:px-12 sm:py-16 md:py-20">
+                <div className="rounded-xl bg-[#1e1b4b] px-6 py-12 sm:px-12 sm:py-16 md:py-20">
                     <div className="grid w-full place-items-center">
-                        <div className="grid w-full grid-cols-2 sm:grid-cols-4 gap-2 rounded-xl bg-[#ec3237] py-2 px-3.5">
+                        <div className="grid w-full grid-cols-2 sm:grid-cols-4 gap-2 rounded-xl bg-[#040240] py-2 px-3.5">
                             {data.pricing?.map((plan) => (
                                 <div key={plan._key} className="relative">
                                     <input
@@ -53,7 +53,7 @@ const Pricing = ({ data, contact }: Readonly<Props>) => {
                                     <label
                                         htmlFor={`plan-${plan._key}`}
                                         className={`block text-base cursor-pointer text-white select-none rounded-lg p-2 text-center transition-all duration-300 ease-in-out transform 
-                        peer-checked:bg-white peer-checked:text-[#ec3237] 
+                        peer-checked:bg-white peer-checked:text-[#040240] 
                         peer-checked:scale-105 peer-checked:shadow-lg`}
                                     >
                                         {plan.packagesName}
@@ -66,12 +66,12 @@ const Pricing = ({ data, contact }: Readonly<Props>) => {
                         <div className="grid grid-cols-1 gap-4 rounded-md border border-[#d4d4d4] bg-white px-10 py-14 sm:grid-cols-2">
                             {selectedPlan.features?.map((feature, index) => (
                                 <div className="flex items-center gap-2" key={index}>
-                                    <IoIosCheckmarkCircle size={20} color={Palette.red} />
+                                    <IoIosCheckmarkCircle size={20} color={Palette.blue} />
                                     <p className="text-sm sm:text-base text-black">{feature}</p>
                                 </div>
                             ))}
                         </div>
-                        <div className="flex flex-col rounded-md bg-[#ec3237] px-10 py-12 text-white">
+                        <div className="flex flex-col rounded-md bg-[#040240] px-10 py-12 text-white">
                             <div className="flex w-full flex-col items-center justify-between sm:flex-row sm:items-center">
                                 <h2 className="text-3xl font-bold md:text-5xl">
                                     ֏{selectedPlan.price}
@@ -94,13 +94,13 @@ const Pricing = ({ data, contact }: Readonly<Props>) => {
                         <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" className="w-6" viewBox="0 0 16 16">
                             <path d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.568 17.568 0 0 0 4.168 6.608 17.569 17.569 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.678.678 0 0 0-.58-.122l-2.19.547a1.745 1.745 0 0 1-1.657-.459L5.482 8.062a1.745 1.745 0 0 1-.46-1.657l.548-2.19a.678.678 0 0 0-.122-.58L3.654 1.328zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z" />
                         </svg>
-                        <span className="font-semibold text-[#ec3237] hover:text-[#f87171]">+37477122212</span>
+                        <span className="font-semibold text-[#040240] hover:text-[#ec3237]">+37477122212</span>
                     </Link>
                     <span>{Texts.or}</span>
                 </div>
                 <button
                     type="submit"
-                    className="block w-full sm:w-auto py-3 px-6 text-center rounded-xl transition bg-[#ec3237] hover:bg-[#f87171] mx-auto"
+                    className="block w-full sm:w-auto py-3 px-6 text-center rounded-xl transition bg-[#040240] hover:bg-[#ec3237] mx-auto"
                     onClick={handleOpenModal}
                 >
                     <span className="text-white font-semibold">

@@ -206,7 +206,7 @@ const NavBar = ({ contact }: Readonly<Props>) => {
                         )}
                         {!isPageWide && (
                             <>
-                                <li className="text-lg lg:text-base xl:text-lg font-medium group  text-color hover:text-[#ec3237]">
+                                <li className="text-lg lg:text-base xl:text-lg font-medium group  text-color hover:text-[#040240]">
                                     <Link href={`tel:${contact?.phoneNumber ? contact.phoneNumber : '+37477122212'}`}>
                                         {contact?.phoneNumber ? contact.phoneNumber : +37477122212}
                                     </Link>
@@ -235,7 +235,7 @@ const NavBar = ({ contact }: Readonly<Props>) => {
                 </div>
                 <button
                     type="submit"
-                    className="block uppercase py-3 px-6 text-center rounded-xl transition bg-[#ec3237] hover:bg-[#991b1b] md:mr-10 sm:mx-4 lg:mx-8 text-sm sm:text-base md:text-base lg:text-md font-semibold"
+                    className="block uppercase py-3 px-6 text-center rounded-xl transition bg-[#040240] hover:bg-[#ec3237] md:mr-10 sm:mx-4 lg:mx-8 text-sm sm:text-base md:text-base lg:text-md font-semibold"
                     onClick={() => dispatch(Action.openeModal())}
                 >
                     <span className="text-white">
