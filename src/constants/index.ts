@@ -4,6 +4,7 @@ const ImagePaths = {
 };
 
 const Titles = {
+    cars: 'Մեքենաներ',
     features: 'Մեր մրցակցային առավելությունները',
     trainingMethods: 'Ուսուցման տեսակներ',
     ourStudents: 'Մեր ուսանողները',

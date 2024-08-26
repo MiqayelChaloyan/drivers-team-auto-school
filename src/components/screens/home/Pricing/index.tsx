@@ -113,3 +113,18 @@ const Pricing = ({ data, contact }: Readonly<Props>) => {
 };
 
 export default Pricing;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
