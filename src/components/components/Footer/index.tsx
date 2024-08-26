@@ -158,7 +158,11 @@ const Footer = ({
                 <div className="flex flex-col">
                     <div className="flex mt-24 mb-12 flex-row items-center justify-between">
                         <div className='relative right-4'>
-                            <Logo width={100} height={100} fill='white' />
+                            <Logo
+                                fill='white'
+                                width={70}
+                                height={70}
+                            />
                         </div>
                         <nav className="hidden md:flex space-x-8">
                             {navLinks.map(link =>

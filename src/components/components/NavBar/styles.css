@@ -25,8 +25,22 @@
   color: #ec3237;
 }
 
+.mobile-bg {
+  display: none;
+}
+
 @media (max-width: 1024px) {
   .logo {
     display: none !important;
+  }
+
+  .mobile-bg {
+    display: block;
+    background-image: url('../../../../public/assets/road.jpeg');
+    background-position: bottom;
+    background-repeat: no-repeat;
+    background-color: #333030;
+    background-size: cover;
+    background-blend-mode: multiply;
   }
 }

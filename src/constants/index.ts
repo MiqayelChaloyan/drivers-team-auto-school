@@ -1,6 +1,6 @@
 const ImagePaths = {
-    logoURL: require('@/public/assets/logo.png'),
     notFoundURL: require('@/public/assets/notFound.png'),
+    roadURL: require('@/public/assets/road.jpeg'),
 };
 
 const Titles = {

@@ -12,10 +12,12 @@ import * as Action from '@/src/reducer/store/modalReducer';
 
 import { useMediaQuery } from '@/src/hooks/useMediaQuery';
 
-import { Buttons, ImagePaths, Titles } from '@/src/constants';
+import { Buttons, Titles } from '@/src/constants';
 import { Pages } from '@/src/constants/pages';
 
 import PhoneIcon from '@/src/lib/ui/PhoneIcon';
+import Logo from '@/src/lib/icons/Logo'
+import { Palette } from '@/src/themes';
 
 import { IoClose } from 'react-icons/io5';
 import { HiOutlineMenuAlt2 } from 'react-icons/hi';
@@ -143,27 +145,24 @@ const NavBar = ({ contact }: Readonly<Props>) => {
                     className="logo flex flex-col lg:flex-row items-center justify-center tracking-wide"
                     onClick={toggleMenu}
                 >
-                    <Image
-                        src={ImagePaths.logoURL}
-                        alt="logo"
-                        className="object-cover"
-                        priority
+                    <Logo
+                        fill='black'
                         width={70}
                         height={70}
                     />
-                    <p className="block whitespace-pre-wrap text-black-100 text-sm lg:text-base font-bold text-left lg:text-left">
+                    <p className="block whitespace-pre-wrap text-white lg:text-black text-sm lg:text-base font-bold text-left lg:text-left">
                         {Titles.companyName}
                     </p>
                 </Link>
                 <div
                     ref={menuRef}
-                    className={`menu-responsive fixed inset-0 bg-white/70 backdrop-blur-xl transition-all z-40 ${isMenuOpen ? 'flex' : 'hidden'} lg:static lg:bg-transparent lg:flex items-center justify-center space-y-8 lg:space-y-0 flex-col lg:flex-row lg:space-x-8`}
+                    className={`${!isPageWide ? 'mobile-bg' : 'bg-white/70'} menu-responsive fixed inset-0 backdrop-blur-xl transition-all z-40 ${isMenuOpen ? 'flex' : 'hidden'} lg:static lg:bg-transparent lg:flex items-center justify-center space-y-8 lg:space-y-0 flex-col lg:flex-row lg:space-x-8`}
                 >
                     <button
                         className="close-menu absolute top-4 right-4 lg:hidden p-2 text-gray-600 hover:text-gray-800"
                         onClick={toggleMenu}
                     >
-                        <IoClose size={30} />
+                        <IoClose size={30} color={Palette.white} />
                     </button>
                     <ul className="flex flex-col lg:flex-row items-center space-y-6 lg:space-y-0 lg:space-x-6 xl:space-x-8">
                         {isPageWide && (
@@ -177,7 +176,7 @@ const NavBar = ({ contact }: Readonly<Props>) => {
                             link.path.startsWith('/') ? (
                                 <li
                                     key={link.path}
-                                    className={`text-lg uppercase lg:text-base xl:text-lg font-medium group ${linkActive === link.path ? 'text-[#ec3237]' : 'text-color'}`}
+                                    className={`text-lg uppercase lg:text-base xl:text-lg font-medium group ${linkActive === link.path ? 'text-[#ec3237]' : 'text-white lg:text-black'}`}
                                 >
                                     <Link
                                         href={link.path}
@@ -191,7 +190,7 @@ const NavBar = ({ contact }: Readonly<Props>) => {
                             ) : (
                                 <li
                                     key={link.path}
-                                    className={`cursor-pointer text-lg uppercase lg:text-base xl:text-lg font-medium group ${linkActive === link.path ? 'text-[#ec3237]' : 'text-color'}`}
+                                    className={`cursor-pointer text-lg uppercase lg:text-base xl:text-lg font-medium group ${linkActive === link.path ? 'text-[#ec3237]' : 'text-white lg:text-black'}`}
                                 >
                                     <ScrollLink
                                         to={link.path}
@@ -206,9 +205,9 @@ const NavBar = ({ contact }: Readonly<Props>) => {
                         )}
                         {!isPageWide && (
                             <>
-                                <li className="text-lg lg:text-base xl:text-lg font-medium group  text-color hover:text-[#040240]">
+                                <li className="text-lg lg:text-base xl:text-lg font-medium group text-white hover:text-[#040240] lg:text-black">
                                     <Link href={`tel:${contact?.phoneNumber ? contact.phoneNumber : '+37477122212'}`}>
-                                        {contact?.phoneNumber ? contact.phoneNumber : +37477122212}
+                                        {contact?.phoneNumber ? contact.phoneNumber : '+37477122212'}
                                     </Link>
                                 </li>
                                 <Link
@@ -217,15 +216,12 @@ const NavBar = ({ contact }: Readonly<Props>) => {
                                     className="flex flex-col lg:flex-row items-center justify-center tracking-wide"
                                     onClick={toggleMenu}
                                 >
-                                    <Image
-                                        src={ImagePaths.logoURL}
-                                        alt="logo"
-                                        className="object-cover"
-                                        priority
+                                    <Logo
+                                        fill='white'
                                         width={70}
                                         height={70}
                                     />
-                                    <p className="block whitespace-pre-wrap text-black-100 text-sm lg:text-1xl font-bold text-center lg:text-left">
+                                    <p className="block whitespace-pre-wrap text-white lg:text-black text-sm lg:text-1xl font-bold text-center lg:text-left">
                                         {Titles.companyName}
                                     </p>
                                 </Link>
