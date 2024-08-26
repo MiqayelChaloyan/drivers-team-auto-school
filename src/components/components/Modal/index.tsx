@@ -52,7 +52,7 @@ const Modal = () => {
                     <button
                         type="button"
                         onClick={handleClose}
-                        className="block w-full max-w-xs mx-auto bg-[#ec3237] text-white rounded-lg px-3 py-3 font-semibold"
+                        className="block w-full max-w-xs mx-auto bg-[#040240] text-white rounded-lg px-3 py-3 font-semibold"
                     >
                         {Buttons.ok}
                     </button>
