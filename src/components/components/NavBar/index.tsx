@@ -12,7 +12,7 @@ import * as Action from '@/src/reducer/store/modalReducer';
 
 import { useMediaQuery } from '@/src/hooks/useMediaQuery';
 
-import { Buttons, Titles } from '@/src/constants';
+import { Buttons, ImagePaths, Titles } from '@/src/constants';
 import { Pages } from '@/src/constants/pages';
 
 import PhoneIcon from '@/src/lib/ui/PhoneIcon';
@@ -156,7 +156,8 @@ const NavBar = ({ contact }: Readonly<Props>) => {
                 </Link>
                 <div
                     ref={menuRef}
-                    className={`${!isPageWide ? 'mobile-bg' : 'bg-white/70'} menu-responsive fixed inset-0 backdrop-blur-xl transition-all z-40 ${isMenuOpen ? 'flex' : 'hidden'} lg:static lg:bg-transparent lg:flex items-center justify-center space-y-8 lg:space-y-0 flex-col lg:flex-row lg:space-x-8`}
+                    className={`${!isPageWide ? 'mobile-bg' : 'bg-white/70'} menu-responsive fixed inset-0 max-h-screen backdrop-blur-xl transition-all z-40 ${isMenuOpen ? 'flex' : 'hidden'} lg:static lg:bg-transparent lg:flex items-center justify-center space-y-2 lg:space-y-0 flex-col lg:flex-row lg:space-x-8`}
+                    style={{ backgroundImage: !isPageWide ? `url(${ImagePaths.roadURL.default.src})` : 'none' }}
                 >
                     <button
                         className="close-menu absolute top-4 right-4 lg:hidden p-2 text-gray-600 hover:text-gray-800"
