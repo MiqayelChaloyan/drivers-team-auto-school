@@ -14,17 +14,17 @@ import { IoIosCheckmarkCircle } from 'react-icons/io';
 
 
 interface Props {
-    data: PRICING_QUERYResult;
-    contact: CONTACT_US_QUERYResult;
+    data?: PRICING_QUERYResult | any;
+    contact?: CONTACT_US_QUERYResult;
 };
 
 const Pricing = ({ data, contact }: Readonly<Props>) => {
-    const [selectedPlan, setSelectedPlan] = useState<PRICE>(data.pricing[0]);
+    const [selectedPlan, setSelectedPlan] = useState<PRICE>(data?.pricing[0]);
     const dispatch = useDispatch();
 
     const handleChange: React.ChangeEventHandler<HTMLInputElement> = (e) => {
         const selectedId = e.target.value;
-        const plan = data.pricing?.find(p => p._key === selectedId) as PRICE;
+        const plan = data.pricing?.find((p: PRICE) => p._key === selectedId) as PRICE;
         setSelectedPlan(plan);
     };
 
@@ -39,7 +39,7 @@ const Pricing = ({ data, contact }: Readonly<Props>) => {
                 <div className="rounded-xl bg-[#1e1b4b] px-6 py-12 sm:px-12 sm:py-16 md:py-20">
                     <div className="grid w-full place-items-center">
                         <div className="grid w-full grid-cols-2 sm:grid-cols-4 gap-2 rounded-xl bg-[#040240] py-2 px-3.5">
-                            {data.pricing?.map((plan) => (
+                            {data.pricing?.map((plan: PRICE) => (
                                 <div key={plan._key} className="relative">
                                     <input
                                         type="radio"

@@ -22,7 +22,6 @@ const SocialLinks = ({ links }: Readonly<Props>) => {
                     <path d="M57.4233 48.6403L58.7279 40.3588H50.6917V34.9759C50.6917 32.7114 51.8137 30.4987 55.4013 30.4987H59.1063V23.4465C56.9486 23.1028 54.7685 22.9168 52.5834 22.8901C45.9692 22.8901 41.651 26.8626 41.651 34.0442V40.3588H34.3193V48.6403H41.651V68.671H50.6917V48.6403H57.4233Z" fill="white" />
                 </svg>
             </Link>
-
             <Link
                 href={links.instagram}
                 className="border-2 border-[#8F39CE] rounded-lg group transition-all duration-500 hover:-translate-y-2"

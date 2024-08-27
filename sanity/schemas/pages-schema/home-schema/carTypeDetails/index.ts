@@ -7,15 +7,6 @@ const carTypeDetails = {
     id: 'carTypeDetails',
     fields: [
         {
-            title: 'Types of cars',
-            name: 'typesOfCars',
-            type: 'array',
-            of: [{ type: 'string' }],
-            options: {
-                layout: 'grid'
-              }
-        },
-        {
             name: 'image',
             type: 'image',
             title: 'Image Car',

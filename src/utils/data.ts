@@ -18,11 +18,11 @@ export async function getMainData(): Promise<MAIN_QUERYResult> {
 export async function getCarTypeDetalis(): Promise<CAR_TYPE_DETALIS_QUERYResult> {
     try {
         "use server"
-        const result = await sanityFetch<CAR_TYPE_DETALIS_QUERYResult>({
+        const result = await sanityFetch<CAR_TYPE_DETALIS_QUERYResult[]>({
             query: CAR_TYPE_DETALIS_QUERY,
         });
 
-        return result;
+        return result[0];
     } catch (error) {
         throw error;
     }
@@ -31,11 +31,11 @@ export async function getCarTypeDetalis(): Promise<CAR_TYPE_DETALIS_QUERYResult>
 export async function getStudents(): Promise<STUDENTS_QUERYResult> {
     try {
         "use server"
-        const result = await sanityFetch<STUDENTS_QUERYResult>({
+        const result = await sanityFetch<STUDENTS_QUERYResult[]>({
             query: STUDENTS_QUERY,
         });
 
-        return result;
+        return result[0];
     } catch (error) {
         throw error;
     }
@@ -44,11 +44,11 @@ export async function getStudents(): Promise<STUDENTS_QUERYResult> {
 export async function getFeatures(): Promise<FETAURES_QUERYResult> {
     try {
         "use server"
-        const result = await sanityFetch<FETAURES_QUERYResult>({
+        const result = await sanityFetch<FETAURES_QUERYResult[]>({
             query: FEATURES_QUERY,
         });
 
-        return result;
+        return result[0];
     } catch (error) {
         throw error;
     }
@@ -57,11 +57,11 @@ export async function getFeatures(): Promise<FETAURES_QUERYResult> {
 export async function getPricing(): Promise<PRICING_QUERYResult> {
     try {
         "use server"
-        const result = await sanityFetch<PRICING_QUERYResult>({
+        const result = await sanityFetch<PRICING_QUERYResult[]>({
             query: PRICING_QUERY,
         });
 
-        return result;
+        return result[0];
     } catch (error) {
         throw error;
     }
@@ -70,11 +70,11 @@ export async function getPricing(): Promise<PRICING_QUERYResult> {
 export async function getTrainingMethods(): Promise<TRAINING_TYPE_DETALIS_QUERYResult> {
     try {
         "use server"
-        const result = await sanityFetch<TRAINING_TYPE_DETALIS_QUERYResult>({
+        const result = await sanityFetch<TRAINING_TYPE_DETALIS_QUERYResult[]>({
             query: TRAINING_TYPE_DETALIS_QUERY,
         });
 
-        return result;
+        return result[0];
     } catch (error) {
         throw error;
     }
@@ -83,11 +83,11 @@ export async function getTrainingMethods(): Promise<TRAINING_TYPE_DETALIS_QUERYR
 export async function getCompetitiveAdvantages(): Promise<TRAINING_TYPE_DETALIS_QUERYResult> {
     try {
         "use server"
-        const result = await sanityFetch<TRAINING_TYPE_DETALIS_QUERYResult>({
+        const result = await sanityFetch<TRAINING_TYPE_DETALIS_QUERYResult[]>({
             query: COMPETITIVE_ADVANTAGES_QUERY,
         });
 
-        return result;
+        return result[0];
     } catch (error) {
         throw error;
     }

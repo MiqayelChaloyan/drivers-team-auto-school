@@ -5,7 +5,7 @@ import Feature from './Feature';
 
 
 interface Props {
-  data: FEATURE[];
+  data?: FETAURES_QUERYResult;
 };
 
 const Features = ({
@@ -27,7 +27,7 @@ const Features = ({
           </div>
           <div className="mt-10">
             <dl className="space-y-10 md:space-y-0 md:grid md:grid-cols-2 md:gap-x-8 md:gap-y-10">
-              {data?.map((feature: any) => (
+              {data?.features.map((feature: FEATURE) => (
                 <Feature
                   key={feature._key}
                   icon={feature.icon}

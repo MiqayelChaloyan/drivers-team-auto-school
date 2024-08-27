@@ -8,14 +8,14 @@ import { Titles } from '@/src/constants';
 
 
 interface Props {
-    students: STUDENTS_QUERYResult;
+    students?: STUDENTS_QUERYResult | any;
 };
 
 const OurStudents = ({
     students
 }: Readonly<Props>) => {
-    const cards = students?.map((student: any) => (
-        <Card key={student?._key} card={student} />
+    const cards = students.images?.map((student: any, index: number) => (
+        <Card key={index} card={student} />
     ));
 
     return (

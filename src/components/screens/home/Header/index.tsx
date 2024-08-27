@@ -14,7 +14,7 @@ interface Props {
 };
 
 export const Header = ({ data }: Readonly<Props>) => {
-  const { title, description, images, bg_image } = data;
+  const { description, images, bg_image } = data;
   const pathLeft: ImagePath = urlForImage(images.imageOne);
   const pathRight: ImagePath = urlForImage(images.imageTwo);
   const pathBgImage: ImagePath = urlForImage(bg_image);

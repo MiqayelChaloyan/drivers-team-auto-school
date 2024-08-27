@@ -61,7 +61,7 @@ export const Carousel = ({ items, initialScroll = 0 }: CarouselProps) => {
                         "max-w-7xl mx-auto"
                     )}
                 >
-                    {items.map((item, index) => (
+                    {items?.map((item, index) => (
                         <motion.div
                             initial={{
                                 opacity: 0,

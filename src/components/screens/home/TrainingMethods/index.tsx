@@ -4,7 +4,7 @@ import { Titles } from '@/src/constants';
 
 
 interface Props {
-    data: METHOD[];
+    data: TRAINING_TYPE_DETALIS_QUERYResult | any;
 };
 
 const TrainingMethods = ({ data }: Readonly<Props>) => {
@@ -22,7 +22,7 @@ const TrainingMethods = ({ data }: Readonly<Props>) => {
             </div>
             <div className="mx-auto flex w-full max-w-7xl flex-col items-center justify-center px-5 py-1 md:px-1 md:py-2">
                 <div className="flex flex-col items-start justify-center lg:flex-row">
-                    {data?.map((method: METHOD, index: number) => (
+                    {data.trainingTypeDetalis?.map((method: METHOD, index: number) => (
                         <div key={method._key} className="relative my-8 flex w-full rounded-md lg:mx-8 lg:flex-col">
                             <div className="flex h-16 w-16 items-center justify-center rounded-md bg-[#040240]">
                                 <h2 className="text-3xl font-medium text-white">{index + 1}</h2>
@@ -35,7 +35,7 @@ const TrainingMethods = ({ data }: Readonly<Props>) => {
                                     {method.content}
                                 </p>
                             </div>
-                            {index !== data.length - 1 && (
+                            {index !== data.trainingTypeDetalis?.length - 1 && (
                                 <>
                                     <svg
                                         className="absolute -bottom-[48px] left-[28px] lg:hidden"

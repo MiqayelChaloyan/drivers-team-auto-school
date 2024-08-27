@@ -1,4 +1,4 @@
-import { ProjectsIcon, TrendUpwardIcon } from '@sanity/icons';
+import { TrendUpwardIcon } from '@sanity/icons';
 
 const title = 'Մեր առավելությունները';
 
@@ -8,11 +8,6 @@ const Features = {
     title: 'Features',
     id: 'features',
     fields: [
-        {
-            name: 'description',
-            title: 'Description',
-            type: 'string',
-        },
         {
             name: "features",
             type: "array",

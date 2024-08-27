@@ -1,6 +1,5 @@
 export const MAIN_QUERY = `
 *[_type == "main"] {
-    title,
     description,
     images,
     bg_image,
@@ -8,7 +7,6 @@ export const MAIN_QUERY = `
 
 export const CAR_TYPE_DETALIS_QUERY = `
 *[_type == "carTypeDetails"] {
-    typesOfCars,
     image,
 }`;
 
@@ -20,7 +18,6 @@ export const STUDENTS_QUERY = `
 export const FEATURES_QUERY = `
 *[_type == "features"] {
     features,
-    description
 }`;
 
 export const PRICING_QUERY = `

@@ -2,26 +2,21 @@
 
 import Reviews from './Reviews';
 import About from './AboutUs';
-import * as Action from '@/src/reducer/store/testReducer';
-import { useDispatch } from 'react-redux';
-import { useEffect } from 'react';
+
 
 interface Props {
     data: ABOUT_US_QUERYResult;
     reviews: REVIEWS_QUERYResult;
 };
 
-const Home = ({ data, reviews }: Readonly<Props>) => {
-    const dispatch = useDispatch();
-
-    // useEffect(() => {
-    //     dispatch(Action.viewAnswerRemove());
-    // },[])
-
+const Home = ({
+    data,
+    reviews
+}: Readonly<Props>) => {
     return (
         <>
             <About data={data} />
-            <Reviews reviews={reviews}/>
+            <Reviews reviews={reviews} />
         </>
     )
 };

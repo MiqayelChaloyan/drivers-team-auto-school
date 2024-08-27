@@ -11,13 +11,13 @@ import OurCompetitiveAdvantages from './OurCompetitiveAdvantages';
 
 interface Props {
     data?: MAIN_QUERYResult;
-    carTypeDetalisData?: CAR_TYPE_DETALIS_QUERYResult | any;
-    students?: STUDENTS_QUERYResult | any;
-    features?: FETAURES_QUERYResult | any;
-    pricing?: PRICING_QUERYResult | any;
-    trainingMethods?: TRAINING_TYPE_DETALIS_QUERYResult | any;
+    carTypeDetalisData?: CAR_TYPE_DETALIS_QUERYResult;
+    students?: STUDENTS_QUERYResult;
+    features?: FETAURES_QUERYResult;
+    pricing?: PRICING_QUERYResult;
+    trainingMethods?: TRAINING_TYPE_DETALIS_QUERYResult;
     advantages?: COMPETITIVE_ADVANTAGES_QUERYResult | any;
-    contact?: CONTACT_US_QUERYResult | any;
+    contact?: CONTACT_US_QUERYResult;
 };
 
 const Home = ({
@@ -33,12 +33,12 @@ const Home = ({
     return (
         <>
             <Header data={data} />
-            <VehicleTypes data={carTypeDetalisData[0]} />
-            <Features data={features[0]?.features} />
-            <Pricing data={pricing[0]} contact={contact}/>
-            <TrainingMethods data={trainingMethods[0].trainingTypeDetalis} />
-            <OurStudents students={students[0]?.images} />
-            <OurCompetitiveAdvantages data={advantages[0]?.competitiveAdvantages} />
+            <VehicleTypes data={carTypeDetalisData} />
+            <Features data={features} />
+            <Pricing data={pricing} contact={contact}/>
+            <TrainingMethods data={trainingMethods} />
+            <OurStudents students={students} />
+            <OurCompetitiveAdvantages data={advantages} />
         </>
     )
 };

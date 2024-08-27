@@ -21,19 +21,16 @@ interface BackgroundImage {
 };
 
 interface MAIN_QUERYResult {
-    title: string;
     description: string;
     images: Images;
     bg_image: BackgroundImage;
 };
 
 interface CAR_TYPE_DETALIS_QUERYResult {
-    typesOfCars: string[];
     image: Image;
 };
 
 interface STUDENTS_QUERYResult {
-    map(arg0: (student: Image) => React.JSX.Element): JSX.Element[];
     images: Images[];
 };
 
@@ -41,7 +38,12 @@ interface FEATURE {
     title: string;
     content: string;
     _type: string;
-    icon: any;
+    icon: {
+        provider: string;
+        svg: string;
+        _type: string;
+        name: string;
+    };
     _key: string;
 };
 

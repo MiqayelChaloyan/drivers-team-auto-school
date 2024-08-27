@@ -3,7 +3,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link as ScrollLink } from 'react-scroll';
 
-import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter, usePathname } from 'next/navigation';
 
@@ -177,7 +176,7 @@ const NavBar = ({ contact }: Readonly<Props>) => {
                             link.path.startsWith('/') ? (
                                 <li
                                     key={link.path}
-                                    className={`text-lg uppercase lg:text-base xl:text-lg font-medium group ${linkActive === link.path ? 'text-[#ec3237]' : 'text-white lg:text-black'}`}
+                                    className={`text-md uppercase lg:text-base xl:text-lg font-medium group ${linkActive === link.path ? 'text-[#ec3237]' : 'text-white lg:text-black'}`}
                                 >
                                     <Link
                                         href={link.path}
@@ -206,8 +205,8 @@ const NavBar = ({ contact }: Readonly<Props>) => {
                         )}
                         {!isPageWide && (
                             <>
-                                <li className="text-lg lg:text-base xl:text-lg font-medium group text-white hover:text-[#040240] lg:text-black">
-                                    <Link href={`tel:${contact?.phoneNumber ? contact.phoneNumber : '+37477122212'}`}>
+                                <li className="text-lg lg:text-base xl:text-lg font-medium group text-white hover:text-[#ec3237] lg:text-black">
+                                    <Link href={`tel:${contact?.phoneNumber ? contact.phoneNumber : '+37477122212'}`} className='link'>
                                         {contact?.phoneNumber ? contact.phoneNumber : '+37477122212'}
                                     </Link>
                                 </li>
